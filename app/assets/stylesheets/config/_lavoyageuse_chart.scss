@@ -1,0 +1,14 @@
+h1 {
+  font-size: 60px;
+  font-family: $headers-font;
+}
+h3 {
+  font-size: 1.8rem;
+  font-family: $body-font;
+}
+a {
+  color: $dark-blue;
+  &:hover {
+    color: $purple
+  }
+}

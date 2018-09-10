@@ -16,8 +16,9 @@
 
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".become_host", default: "Become host"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".how_it_works", default: "How it works"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".blog", default: "Blog"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".become_host", default: "Become host"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-lavoyageuse-button" %>
       <%= link_to t(".sign_up", default: "Signup"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>

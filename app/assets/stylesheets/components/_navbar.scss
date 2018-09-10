@@ -42,12 +42,18 @@ a.navbar-wagon-brand {
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $dark-blue;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $purple;
   text-decoration: none;
+}
+.navbar-lavoyageuse-button {
+  background-color: $purple;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
 }
 
 /* Dropdown menu */
