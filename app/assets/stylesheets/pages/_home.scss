@@ -1,11 +1,16 @@
 // Specific CSS for your home-page
-.splashscreen{
+.banner{
   width: 100%;
-  height: 100vh;
+  height: 70vh;
+  min-height: 650px;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   background-color: white;
+  background-image: url("http://res.cloudinary.com/dfcsmghw4/image/upload/v1536053387/26756989_1747528781960036_8629961344635503268_o.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  shared:
+    navbar:
+      sign_up: "M'inscrire"
+      sign_in: "Connexion"
+      become_host: "Devenir hébergeuse"
+      how_it_works: "Comment ça marche"
+

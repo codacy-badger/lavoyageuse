@@ -3,6 +3,8 @@ ruby '2.4.3'
 
 
 gem 'devise'
+gem 'devise-i18n', '~> 1.2'
+gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -10,12 +12,15 @@ gem 'rails', '5.1.6'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'rails-i18n'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'bootstrap', '~> 4.0.0'
+gem 'geocoder'
+gem "gmaps4rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
