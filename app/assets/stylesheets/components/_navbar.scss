@@ -54,6 +54,9 @@ a.navbar-wagon-brand {
   padding: 10px;
   border-radius: 4px;
   color: white;
+  &:hover {
+    color: $gray;
+  }
 }
 
 /* Dropdown menu */
