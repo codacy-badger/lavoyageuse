@@ -15,8 +15,42 @@
   background-position: center top;
   display: flex;
   .maintitle{
-    color: #1b2242;
     text-align: center;
     width: 60%;
   }
+  .btn {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+}
+.qualities{
+  height: 130px;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -65px;
+  .square-button{
+    width: 130px;
+    height: 130px;
+    background-color: #8BCDFF;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
+    i {
+      font-size: 45px;
+    }
+    p {
+      font-size: 15px;
+      margin-bottom: 0px;
+    }
+  }
+}
+.reasons{
+  width: 100%;
+  text-align: center;
+  height: 150px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

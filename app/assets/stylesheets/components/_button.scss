@@ -6,12 +6,12 @@
   height: $input-height; // for IE
   min-height: $input-height;
   border: none;
-  padding: 30px;
+  padding: 1rem 30px 1rem 30px;
   // width: 100%;
   margin: auto;
   min-width: 200px;
   box-shadow: none;
-  // font-size: $button-font-size;
+  font-size: 1.5rem;
   -webkit-box-shadow: none;
   border-bottom:none;
   cursor: pointer;
