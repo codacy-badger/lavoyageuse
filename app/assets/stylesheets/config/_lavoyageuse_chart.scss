@@ -7,6 +7,12 @@ h3 {
   font-size: 1.8rem;
   font-family: $body-font;
 }
+h4 {
+  font-size: 1.5rem;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-weight: 600;
+  color: $dark-gray;
+}
 a {
   color: $dark-blue;
   &:hover {

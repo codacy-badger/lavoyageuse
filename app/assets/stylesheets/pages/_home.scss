@@ -53,4 +53,27 @@
   height: 150px;
   padding-top: 50px;
   padding-bottom: 50px;
+  .reasons-row {
+    width: 70%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: auto;
+    font-size: 18px;
+    text-align: left;
+    margin-top: 50px;
+    .reasons-column {
+      width: 50%;
+      height: 300px;
+      background-size: cover;
+      padding: 20px;
+      background-position: 20px 20px;
+      background-size: cover;
+      padding: 20px;
+      background-repeat: no-repeat;
+    }
+
+  }
 }
