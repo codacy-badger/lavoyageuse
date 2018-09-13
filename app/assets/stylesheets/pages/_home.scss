@@ -2,101 +2,86 @@
 .navbar-wagon{
   position: absolute;
 }
-.banner{
-  width: 100%;
-  height: 90vh;
-  min-height: 650px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  background-image: url("https://res.cloudinary.com/dfcsmghw4/image/upload/v1536572920/26756989_1747528781960036_8629961344635503268_o.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  display: flex;
-  .maintitle{
-    text-align: center;
-    width: 60%;
-  }
-  .btn {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 20px;
-  }
-}
-.qualities{
-  height: 130px;
-  width: 70%;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: -65px;
-  .square-button{
-    width: 130px;
-    height: 130px;
-    background-color: $light-blue;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
-    i {
-      font-size: 45px;
-    }
-    p {
-      font-size: 15px;
-      margin-bottom: 0px;
-    }
-  }
-}
-.reasons{
-  width: 100%;
-  .reasons-title{
-    height: 150px;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .reasons-row {
-    width: 80%;
-    height: 330px;
+.home{
+  .banner{
+    width: 100%;
+    height: 90vh;
+    min-height: 650px;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: row;
-    margin: auto;
-    font-size: 18px;
-    text-align: left;
-    margin-top: 70px;
-    .reasons-column {
-      width: 50%;
-      height: 300px;
-      background-size: cover;
-      padding: 20px;
-      background-position: 20px 20px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding-right: 30px;
-      padding-left: 50px;
+    align-items: center;
+    background-color: white;
+    background-image: url("https://res.cloudinary.com/dfcsmghw4/image/upload/v1536572920/26756989_1747528781960036_8629961344635503268_o.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    display: flex;
+    .maintitle{
+      text-align: center;
+      width: 60%;
     }
-
+    .btn {
+      margin-right: 10px;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
   }
-}
-.footer{
-  text-align: center;
-  height: 300px;
-  padding: 50px;
-  img {
-    height: 40px;
-    margin-bottom: 20px;
-    margin-left: auto;
+  .qualities{
+    height: 130px;
+    width: 70%;
     margin-right: auto;
+    margin-left: auto;
+    margin-top: -65px;
+    .square-button{
+      width: 130px;
+      height: 130px;
+      background-color: $light-blue;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
+      i {
+        font-size: 45px;
+      }
+      p {
+        font-size: 15px;
+        margin-bottom: 0px;
+      }
+    }
   }
-  i {
-    font-size: 32px;
-    color: $medium-gray;
+  .reasons{
+    width: 100%;
+    .reasons-title{
+      height: 150px;
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    .reasons-row {
+      width: 80%;
+      height: 330px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      margin: auto;
+      font-size: 18px;
+      text-align: left;
+      margin-top: 70px;
+      .reasons-column {
+        width: 50%;
+        height: 300px;
+        background-size: cover;
+        padding: 20px;
+        background-position: 20px 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-right: 30px;
+        padding-left: 50px;
+      }
 
+    }
   }
-
 }
