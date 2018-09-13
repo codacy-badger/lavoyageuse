@@ -91,7 +91,7 @@
     background-color: $red;
   }
   &.alert-notice, &.alert-success{
-    background-color: $green;
+    background-color: $light-blue;
   }
 }
 .alert-message {
@@ -113,7 +113,7 @@
     color: $red;
     }
     &.close-notice, &.close-success {
-    color: $green;
+    color: $light-blue;
     }
   }
 }

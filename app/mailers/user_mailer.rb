@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  before_action host_url, only: %[notification]
+  before_action :host_url, only: %[notification]
 
   def host_url
     @url = Rails.application.config.action_mailer.default_url_options
@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
 
   def notification(mail_content)
     @mail_content = mail_content
-    mail(to: @admin_mail,
+    mail(to: "abriko@yahoo.fr",
          subject: mail_content[:subject],
          track_opens: 'true')
   end
