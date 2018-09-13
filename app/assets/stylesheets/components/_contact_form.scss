@@ -1,0 +1,84 @@
+.contact-form {
+  @include media-breakpoint-down(lg) { min-height: 480px; width: 95%; }
+  @include media-breakpoint-up(lg) { height: 480px; width: 880px;}
+  background-color: $white;
+  box-shadow: $shadow;
+  .contact-header {
+    width: 100%;
+    @include media-breakpoint-down(sm) {  height: 30px; }
+    @include media-breakpoint-up(sm) {  height: 60px; }
+  }
+  p {
+    margin-bottom: 5px;
+  }
+  .bar {
+    width: 80px;
+    height: 2px;
+    background-color: $purple;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .contact-identity {
+    @include media-breakpoint-down(lg) {
+      min-height: 200px;
+      padding: 0px 15px 0px 15px;
+      &.no-header {
+        min-height: 340px;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      border-right: $border-medium;
+      height: 420px;
+      padding: 0px 60px 70px 60px;
+      &.no-header {
+        height: 480px;
+      }
+    }
+  }
+  .contact-message {
+    background-color: $white;
+    background-size: cover;
+    background-position: center center;
+    @include media-breakpoint-down(lg) {
+      min-height: 350px;
+      padding: 15px 15px 0px 15px;
+      textarea {
+        height: 220px;
+      }
+      &.no-header {
+        min-height: 480px;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      height: 420px;
+      &.no-header {
+        height: 480px;
+      }
+      padding: 15px 30px 15px 30px;
+      .form-control:focus, textarea:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+      textarea {
+        padding: 0;
+        border: none;
+        margin-top: 10px;
+        min-height: 300px;
+      }
+    }
+  }
+  .contact-button {
+    height: 56px;
+    width: 100%;
+    background-color: $purple;
+    border-radius: 0 !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  [type="checkbox"]:not(:checked) + label:before,
+  [type="checkbox"]:checked + label:before {
+    border-color: $gray;
+  }
+}

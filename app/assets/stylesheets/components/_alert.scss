@@ -2,14 +2,119 @@
  * Your CSS code for flash notices and alerts
 * ------------------------------------- */
 
+/* -------------------------------------
+ * Your CSS code for flash notices and alerts
+* ------------------------------------- */
+
 .alert {
+  position: fixed;
   margin: 0;
   text-align: center;
-  color: white;
+  color: $dark-gray;
+  background-color: #FFF;
+  font-size: 16px;
+  @extend %display-flex;
+  text-align: left;
+  justify-content: left;
+  align-items: stretch;
+  z-index: 1000;
+  padding: 0px;
+  border: none;
+  @include media-breakpoint-down(xs) {
+    left: 0px;
+    top: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 80px;
+    border-radius: 0px;
+  }
+  @include media-breakpoint-up(xs) {
+    right: 5px;
+    top: 50px;
+    min-width: calc(15% + 150px);
+    max-width: calc(25% + 150px);
+    min-height: 60px;
+    border-radius: $border-radius;
+  }
+  &.position-2 {
+    @include media-breakpoint-down(xs) {  top: 81px; }
+    @include media-breakpoint-up(xs) {  top: 120px; }
+  }
+  &.position-3 {
+    @include media-breakpoint-down(xs) {  top: 162px; }
+    @include media-breakpoint-up(xs) {  top: 190px; }
+  }
+  &.position-4 {
+    @include media-breakpoint-down(xs) {  top: 243px; }
+    @include media-breakpoint-up(xs) {  top: 260px; }
+  }
+  &.alert-danger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+  }
+  &.alert-danger:before {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 4px 0 0 4px;
+    background-color: $red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    content: "⚠";
+  }
+  i {
+    color: white;
+    font-size: 36px;
+  }
+  p {
+    margin: 0;
+  }
+  .fa-times {
+    opacity: 1;
+  }
 }
-.alert-info {
-  background: $green;
+.alert-badge, {
+  width: 60px;
+  margin-right: 20px;
+  border-radius: 4px 0 0 4px;
+  @include media-breakpoint-down(xs) {
+    min-height: 80px;
+    border-radius: 0px;
+  }
+  &.alert-warning, &.alert-warning1, &.alert-warning2, &.alert-warning3, &.alert-warning4,
+  &.alert-alert, &.alert-alert1, &.alert-alert2, &.alert-alert3, &.alert-alert4 {
+    background-color: $red;
+  }
+  &.alert-notice, &.alert-success{
+    background-color: $green;
+  }
 }
-.alert-warning {
-  background: $red;
+.alert-message {
+  max-width: calc(100% - 140px)
 }
+.alert-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  appearance: none;
+  @include media-breakpoint-down(xs) {
+    top: 22px;
+    right: 22px;
+  }
+  .fa-times{
+    &.close-warning, &.close-warning1, &.close-warning2, &.close-warning3, &.close-warning4,
+    &.close-alert, &.close-alert1, &.close-alert2, &.close-alert3, &.close-alert4 {
+    color: $red;
+    }
+    &.close-notice, &.close-success {
+    color: $green;
+    }
+  }
+}
+

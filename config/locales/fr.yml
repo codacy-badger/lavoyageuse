@@ -29,11 +29,28 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   shared:
     navbar:
-      sign_up: "Signup"
-      sign_in: "Signin"
-      become_host: "Become host"
-      how_it_works: "How it works"
-
+      sign_up: "M'inscrire"
+      sign_in: "Connexion"
+      become_host: "Devenir hébergeuse"
+      how_it_works: "Comment ça marche"
+    contact_form:
+      title: "Écrivez-nous"
+      message:
+        title: "message* :"
+        placeholder: "écrivez votre message ici"
+        button_text: "ENVOYER"
+      identity:
+        field1: "prénom, nom ou pseudo :"
+        field2: "email* :"
+        checkbox: "je ne suis pas un robot*"
+  messengers:
+    contact_form:
+      notice: "Oh yeah ! Votre message a bien été envoyé."
+      invalid_email: "Mail non valide."
+      blank_email: "Veuillez entrer un email."
+      invalid_comment: "Message trop court ou absent."
+      be_human: "Veuillez cocher la case 'je ne suis pas un robot'"
+      subject: "Nouveau message depuis le contact form"

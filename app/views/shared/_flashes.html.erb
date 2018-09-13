@@ -1,12 +1,11 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
+<% flash.each do |key, value| %>
+  <div class="alert position-<%= key[-1] %> slideLeft-nobounce<%= key[-1] %>" role="alert">
+    <div class="alert-badge alert-<%= key %> flexbox">
+      <i class="<%= flash_icon(key) %> bigEntrance withdelay" aria-hidden="true"></i>
+    </div>
+    <div class="alert-message text-left flexbox">
+      <%= simple_format(value) %>
+    </div>
+    <div type="button" class="alert-close" data-dismiss="alert" aria-label="close"><i class="fa fa-times close-<%= key %>" aria-hidden="true"></i></div>
   </div>
 <% end %>
