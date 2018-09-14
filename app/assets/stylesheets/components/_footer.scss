@@ -11,5 +11,8 @@
   i {
     font-size: 32px;
     color: $medium-gray;
+    &:hover {
+      color: $light-purple;
+    }
   }
 }
