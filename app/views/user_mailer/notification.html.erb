@@ -1,5 +1,21 @@
-<h1>User#notification</h1>
+Nouveau message depuis le formulaire de contact de La Voyageuse
+</br>
+</br>
+</br>
+EMAIL : <%= @mail_content[:email] %>
+</br>
+</br>
+SUJET : <%= @mail_content[:subject] %>
+</br>
+</br>
+PRENOMS : <%= @mail_content[:names] %>
+</br>
+</br>
+NOM DE FAMILLE : <%= @mail_content[:name] %>
+</br>
+</br>
+ADRESSE : <%= @mail_content[:address] %>
+</br>
+</br>
+MESSAGE : <%= @mail_content[:content] || @mail_content[:comment] %>
 
-<p>
-  <%= @greeting %>, find me in app/views/user_mailer/notification.html.erb
-</p>
