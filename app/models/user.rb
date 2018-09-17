@@ -4,13 +4,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :phone, presence: true
-  validates :address, presence: true
-  validates :birth_date, presence: true
-  validates :photo, presence: true
-  validates :identity_card, presence: true
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :phone
+  validates_length_of :phone, minimum: 999999999
+  validates_presence_of :address
+  validates_presence_of :birth_date
+  # validates_presence_of :photo
+  # validates_presence_of :identity_card
 
   has_many :messages, dependent: :destroy
 

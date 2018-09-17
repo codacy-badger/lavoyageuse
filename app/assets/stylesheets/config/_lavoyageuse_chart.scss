@@ -25,7 +25,11 @@ a{
 }
 .lv-one-page{
   background-color: $light-purple;
-  h1 {
+  color: white;
+  a, h1 {
     color: white;
+    &:hover {
+      color: $light-blue;
+    }
   }
 }
