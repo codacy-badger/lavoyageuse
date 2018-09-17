@@ -19,14 +19,13 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.2'
 gem 'geocoder'
 gem "gmaps4rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'postmark-rails'
-  gem 'dotenv-rails', groups: [:development, :test]
 end
 
 group :development, :test do
