@@ -25,7 +25,6 @@ gem "gmaps4rails"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'postmark-rails'
   gem 'letter_opener'
 end
 
