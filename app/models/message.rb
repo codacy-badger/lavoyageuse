@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  validates content, presence: true
-  validates host, presence: true
+  validates_presence_of :content
+  validates_presence_of :host
 
-  belongs_to user
+  belongs_to :user
 end

@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20180914152942) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
     t.integer "host"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -48,7 +50,6 @@ ActiveRecord::Schema.define(version: 20180914152942) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "{:foreign_key=>true}_id"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -59,9 +60,9 @@ ActiveRecord::Schema.define(version: 20180914152942) do
     t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["{:foreign_key=>true}_id"], name: "index_users_on_{:foreign_key=>true}_id"
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "trips", "users"
 end
