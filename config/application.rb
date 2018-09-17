@@ -22,7 +22,7 @@ module Lavoyageuse
     config.i18n.default_locale = :fr
 
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { api_token: 'bbad50fd-7870-4135-af91-19e49d3ba1fa' }
+    config.action_mailer.postmark_settings = { api_token: 'd3c8ea66-197f-4a14-9cb1-807477a3bd20' }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
