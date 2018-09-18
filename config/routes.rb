@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'cgu', to: 'pages#cgu'
   get 'chart', to: 'pages#chart'
+
+  resources :users, only: %I[index show]
 end

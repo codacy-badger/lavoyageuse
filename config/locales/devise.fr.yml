@@ -43,12 +43,16 @@ fr:
       new:
         title: "Inscription"
         submit: "M'inscrire"
-        needed: "* : Champs obligatoires"
+        needed: "Tous les champs sont obligatoires"
+        email: "Email"
         first_name: "Prénom"
         last_name: "Nom"
         phone: "Téléphone"
         address: "Adresse"
         birth_date: "Date de naissance"
+        password: "Mot de passe"
+        password_hint: "8 caractères minimum incluant majuscule, mininuscule et lettre"
+        password2: "Confirmer le mot de passe"
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."

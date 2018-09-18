@@ -1,7 +1,7 @@
 <% content_for(:title_tag) { t('.title') } %>
 
 <div class="flex-parent"> <!-- for IE bug -->
-  <div class="fullscreen relative text-left lv-one-page">
+  <div class="fullscreen relative text-left lv-one-page" style="background-image: linear-gradient(0deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.7) 100%), url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1536852011/photo-1491438590914-bc09fcaaf77a.jpg')">
     <div class="form_login center">
       <h1><%= t('.title') %></h1>
       <p><%= t('.needed') %></p>
@@ -9,23 +9,53 @@
         <%= f.error_notification %>
         <div class="login-box margin-bottom-big">
           <div class="form-inputs">
-            <%= f.input :first_name, label: t('.first_name'),
+            <div class="input-parent">
+              <i class="far fa-envelope"></i>
+              <%= f.input :email, required: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="far fa-user"></i>
+              <%= f.input :first_name, label: false, required: true, placeholder: t('.first_name') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="far fa-user"></i>
+              <%= f.input :last_name, label: false, required: true, placeholder: t('.last_name') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-phone"></i>
+              <%= f.input :phone, label: false, required: true, placeholder: t('.phone') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-map-marker-alt"></i>
+              <%= f.input :address, label: false, required: true, placeholder: t('.address') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-birthday-cake"></i>
+              <%= f.input :birth_date, label: false, required: true, placeholder: t('.birth_date')  %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password,
+                          required: true,
+                          placeholder: t('.password'),
+                          label: false,
+                          hint: t('.password_hint'),
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="input-parent">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password_confirmation,
                         required: true,
-                        autofocus: true %>
-            <%= f.input :last_name, label: t('.last_name'), required: true %>
-            <%= f.input :phone, label: t('.phone'), required: true %>
-            <%= f.input :address, label: t('.address'), required: true %>
-            <%= f.input :birth_date, label: t('.birth_date'), required: true  %>
-            <%= f.input :email,
-                        required: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        placeholder: t('.password2'),
+                        label: false,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
+            </div>
           </div>
           <div class="form-actions">
             <%= f.button :submit, t('.submit') %>

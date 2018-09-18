@@ -4,7 +4,7 @@ window.setTimeout(function(){
     key.classList.add('slideRight-away')
     setTimeout(function(){
       key.style.setProperty('display', `none`);;
-    }, 900);
+    }, 600);
   })
 }, 8000);
 

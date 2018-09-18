@@ -2,9 +2,9 @@
   font-family: $body-font;
   color: white;
   text-align: left;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  width: 375px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 485px;
   h3 {
     font-size: 28px;
     font-weight: bold;
@@ -18,6 +18,7 @@
   p {
     font-size: 16px;
     font-weight: normal;
+    color: white;
   }
   .breadcrumb {
     margin-bottom: 25px;
@@ -38,7 +39,7 @@
   .form_login{
     position: relative;
     width: 100%;
-    background-color: $purple;
+    background-color: $light-purple;
     z-index: 600;
     padding: 10px;
     width: 100%;
@@ -60,11 +61,21 @@
   .login-fields-tall {
     min-height: 530px;
   }
+  .input-parent {
+    position: relative;
+    i {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      font-size: 20px;
+      color: #7E7E7E;
+    }
+  }
   input {
     background-color: white;
-    border-radius: 8px;
-    border: solid 1px $medium-gray;
+    border-radius: 4px;
     width: 100%;
+    height: 44px;
     &.numeric {
       width: 80px;
     }
@@ -76,7 +87,7 @@
     background-color: $blue;
     color: white;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
   }
   .form-actions {
     width: 100%;
