@@ -53,8 +53,11 @@
   width: 100%;
   background-color: white;
   border-radius: 8px;
-  padding: 30px;
+  padding: 25px 30px 30px 30px;
   color: $dark-gray;
+  p {
+    color: $dark-gray;
+  }
   @include media-breakpoint-up(xs) { .login-fields { height: 470px; }}
   @include media-breakpoint-down(xs) { .login-fields { min-height: 500px; }}
   @include media-breakpoint-down(xs) { .login-fields-small { min-height: 330px; }}
@@ -102,6 +105,9 @@
       border: 0px;
       color: white;
     }
+  }
+  .upload-container {
+    margin-bottom: 20px;
   }
   .img-examples-container {
     width: 100%;

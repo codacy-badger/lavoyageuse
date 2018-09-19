@@ -43,6 +43,8 @@ fr:
       new:
         title: "Inscription"
         submit: "M'inscrire"
+        data-personal: "données personnelles"
+        data-connexion: "données de connexion"
         needed: "Tous les champs sont obligatoires"
         email: "Email"
         first_name: "Prénom"
@@ -53,6 +55,8 @@ fr:
         password: "Mot de passe"
         password_hint: "8 caractères minimum incluant majuscule, mininuscule et lettre"
         password2: "Confirmer le mot de passe"
+        photo: "Photo :"
+        restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."

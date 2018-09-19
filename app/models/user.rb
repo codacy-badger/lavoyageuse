@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   enum role: { member: 0, premium: 1, moderator: 2, admin: 3}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,18 +10,16 @@ class User < ApplicationRecord
 
   validates :email, presence: { message: 'ne peut pas être vide' },
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-  validates_presence_of :phone
+  validates_presence_of :first_name, :last_name, :phone, :photo, :address, :birth_date
   validates_length_of :phone, minimum: 10
-  validates_presence_of :address
-  validates_presence_of :birth_date
-  # validates_presence_of :photo
-  # validates_presence_of :identity_card
+  validates_processing_of :photo
+  validate :image_size_validation
 
   has_many :messages, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :trips, dependent: :destroy
+
+
 
   # geocoded_by :address
   # after_validation :geocode, if: :address_changed?
@@ -41,5 +40,11 @@ class User < ApplicationRecord
   #       })
   #   end
   # end
+
+  private
+
+  def image_size_validation
+    errors[:photo] << "should be less than 2mo" if photo.size > 2.megabytes
+  end
 
 end

@@ -9,11 +9,40 @@
         <%= f.error_notification %>
         <div class="login-box margin-bottom-big">
           <div class="form-inputs">
+            <div class="label-separator flexbox">
+              <p class="label"><%= t('.data-connexion') %></p>
+              <div class="separator"></div>
+            </div>
             <div class="input-parent">
               <i class="far fa-envelope"></i>
               <%= f.input :email, required: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
             </div>
 
+            <div class="input-parent">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password,
+                          required: true,
+                          placeholder: t('.password'),
+                          label: false,
+                          hint: t('.password_hint'),
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="input-parent margin-bottom-big">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password_confirmation,
+                        required: true,
+                        placeholder: t('.password2'),
+                        label: false,
+                        input_html: { autocomplete: "new-password" } %>
+            </div>
+
+            <div class="label-separator flexbox">
+              <p class="label"><%= t('.data-personal') %></p>
+              <div class="separator"></div>
+            </div>
+            <div class="margin-bottom-small">
+              <small><%= t('.restrictions') %></small>
+            </div>
             <div class="input-parent">
               <i class="far fa-user"></i>
               <%= f.input :first_name, label: false, required: true, placeholder: t('.first_name') %>
@@ -37,26 +66,28 @@
             <div class="input-parent">
               <i class="fas fa-birthday-cake"></i>
               <%= f.input :birth_date, label: false, required: true, placeholder: t('.birth_date')  %>
-            </div>
 
-            <div class="input-parent">
-              <i class="fas fa-lock"></i>
-              <%= f.input :password,
-                          required: true,
-                          placeholder: t('.password'),
-                          label: false,
-                          hint: t('.password_hint'),
-                          input_html: { autocomplete: "new-password" } %>
             </div>
+<!--
             <div class="input-parent">
-              <i class="fas fa-lock"></i>
-              <%= f.input :password_confirmation,
-                        required: true,
-                        placeholder: t('.password2'),
-                        label: false,
-                        input_html: { autocomplete: "new-password" } %>
+              <p><#= t('.photo') %></p>
+              <div class="upload-container">
+                <label class="text-center fileUpload">
+                   <span class=""><i class="fa fa-camera upload"></i></span>
+                   <#%= f.input :photo, label: false  %>
+                   <#%= f.input :photo_cache, as: :hidden %>
+                </label>
+              </div>
+            </div> -->
+           <div class="input-parent">
+            <p><%= t('.photo') %></p>
+            <!-- <%= f.input :photo, label: false %> -->
+            <div class="form-group file required user_photo">
+              <input class="form-control-file file required" type="file" name="user[photo]" id="user_photo">
             </div>
+            <%= f.input :photo_cache, as: :hidden %>
           </div>
+
           <div class="form-actions">
             <%= f.button :submit, t('.submit') %>
           </div>

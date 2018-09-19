@@ -22,6 +22,9 @@ gem 'webpacker'
 gem 'bootstrap', '~> 4.1.2'
 gem 'geocoder'
 gem "gmaps4rails"
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+gem "mini_magick"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
