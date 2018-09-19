@@ -68,17 +68,7 @@
               <%= f.input :birth_date, label: false, required: true, placeholder: t('.birth_date')  %>
 
             </div>
-<!--
-            <div class="input-parent">
-              <p><#= t('.photo') %></p>
-              <div class="upload-container">
-                <label class="text-center fileUpload">
-                   <span class=""><i class="fa fa-camera upload"></i></span>
-                   <#%= f.input :photo, label: false  %>
-                   <#%= f.input :photo_cache, as: :hidden %>
-                </label>
-              </div>
-            </div> -->
+
            <div class="input-parent">
             <p><%= t('.photo') %></p>
             <!-- <%= f.input :photo, label: false %> -->
@@ -93,10 +83,22 @@
           </div>
         </div>
       <% end %>
-      <div class="full-width" style="text-align: center">
-        <%= render "devise/shared/links" %>
+        <div class="full-width" style="text-align: center">
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!--
+            <div class="input-parent">
+              <p><#= t('.photo') %></p>
+              <div class="upload-container">
+                <label class="text-center fileUpload">
+                   <span class=""><i class="fa fa-camera upload"></i></span>
+                   <#%= f.input :photo, label: false  %>
+                   <#%= f.input :photo_cache, as: :hidden %>
+                </label>
+              </div>
+            </div> -->
