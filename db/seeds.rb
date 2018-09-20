@@ -51,7 +51,7 @@ emails.each_with_index do |x, i|
                first_name: first_names[i],
                last_name: last_names[i],
                phone: phone,
-               sentences: sentences[i]
+               sentences: sentences[i],
                address: addresses[i],
                role: role,
                birth_date: "10/05/1995",
