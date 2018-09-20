@@ -1,8 +1,9 @@
 <%= link_to user_path(user) do %>
   <div class="profile-card">
-    <div class="profile-card-portrait" style="background-image: url('<%= user.photo.present? ? (cl_image_path user.photo.url, effect:"blue:10" ) : "" %>')">
+    <div class="profile-card-portrait" style="background-image: url('<%= user.photo.present? ? (cl_private_download_url user.photo.url, effect:"blue:10" ) : "" %>')">
     </div>
     <div class="profile-card-description">
+      <%= link_to("Download", cl_private_download_url(user.photo.url, :jpg)) %>
       <h5 class="name"><%= user.first_name %></h5>
       <h5 class="distance"><%= user.address %></h5>
       <div class="catchy flexbox">

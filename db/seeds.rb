@@ -36,6 +36,7 @@ birth_dates = rand(18..40).to_s
 
 
 emails.each_with_index do |x, i|
+  puts "Creating#{first_names[i]}"
   User.create!(email: x,
                password: password,
                first_name: first_names[i],
@@ -45,6 +46,7 @@ emails.each_with_index do |x, i|
                role: role,
                birth_date: "10/05/1995",
                photo: open(photos[i]))
+  puts "#{first_names[i]} created"
 end
 # url = "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"
 

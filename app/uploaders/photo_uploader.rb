@@ -5,6 +5,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
   make_private # This will make sure you're images are uploaded as private
   eager
 
+
+  def public_id
+    return "users/user_" + Time.now.to_s
+  end
+
   version :medium do
     process :resize_to_fill => [500, 500, 'North']
     process :convert => 'jpg'
