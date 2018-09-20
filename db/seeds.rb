@@ -59,7 +59,7 @@ emails.each_with_index do |x, i|
   print "> #{first_names[i]} created !"
 end
 
-# User.create!(email: "sarah4.b@gmail.com",
+# User.create!(email: "sarah5.b@gmail.com",
 #              password: "LVa123456" ,
 #              first_name: "sara",
 #              last_name: "harad",
@@ -67,4 +67,5 @@ end
 #              address: "10 rue Pierre et Marie Curie, 33130 Bègles",
 #              role: 1,
 #              birth_date: "234567",
-#              photo: open("https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"))
+#              sentence: "Hey it's me",
+#              photo: open("https://res.cloudinary.com/dfcsmghw4/image/upload/v1537441081/users/user_2018-09-20%2012:57:59%20%2B0200.jpg"))
