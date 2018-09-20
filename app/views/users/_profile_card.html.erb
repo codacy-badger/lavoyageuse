@@ -1,0 +1,13 @@
+<%= link_to user_path(user) do %>
+  <div class="profile-card">
+    <div class="profile-card-portrait" style="background-image: url('<%= user.photo.present? ? (cl_image_path user.photo.url, effect:"blue:10" ) : "" %>')">
+    </div>
+    <div class="profile-card-description">
+      <h5 class="name"><%= user.first_name %></h5>
+      <h5 class="distance"><%= user.address %></h5>
+      <div class="catchy flexbox">
+        <h5>"I love fooding and shopping"</h5>
+      </div>
+    </div>
+  </div>
+<% end %>

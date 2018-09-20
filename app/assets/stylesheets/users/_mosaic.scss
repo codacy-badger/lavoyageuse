@@ -1,0 +1,29 @@
+.mosaic {
+  background-color: $dark-purple;
+  color: white;
+  .mosaic-header {
+    height: 100px;
+    padding-top: 50px;
+    p {
+      color: white;
+    }
+  }
+  .pastille_action {
+    position: absolute;
+    top: 5%;
+    height: 5%;
+  }
+}
+.page-wrapper {
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  @include media-breakpoint-down(lg) { padding: 20px 5px 20px 5px; }
+  @include media-breakpoint-up(lg) { padding: 40px 25px 40px 25px; }
+}
+.buttons-menu {
+  position: absolute;
+  right: 2%;
+  @include media-breakpoint-down(xs) { top: 75px; }
+  @include media-breakpoint-up(xs) { top: 100px; }
+  z-index: 500;
+}

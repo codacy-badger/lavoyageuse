@@ -41,7 +41,7 @@ fr:
       update_needs_confirmation: "Votre compte a bien été mis à jour mais nous devons vérifier votre nouvelle adresse email. Merci de vérifier vos emails et de cliquer sur le lien de confirmation pour finaliser la validation de votre nouvelle adresse."
       updated: "Votre compte a été modifié avec succès."
       new:
-        title: "Inscription"
+        title: "La voyageuse : inscription"
         submit: "M'inscrire"
         data-personal: "données personnelles"
         data-connexion: "données de connexion"
