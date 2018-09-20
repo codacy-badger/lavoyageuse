@@ -5,7 +5,7 @@ Geocoder.configure(
   api_key:   ENV['GOOGLE_API_SERVER_KEY'],
   use_https: true,
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
-  # language: :en,              # ISO-639 language code
+  language: :fr,              # ISO-639 language code
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)

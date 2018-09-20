@@ -52,6 +52,7 @@ fr:
         last_name: "Nom"
         phone: "Téléphone"
         address: "Adresse"
+        sentence: "J'aime l'art et ..."
         birth_date: "Date de naissance"
         password: "Mot de passe"
         password_hint: "8 caractères minimum incluant majuscule, mininuscule et lettre"

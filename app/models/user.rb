@@ -19,27 +19,25 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :trips, dependent: :destroy
 
-
-
-  # geocoded_by :address
-  # after_validation :geocode, if: :address_changed?
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def full_name
     "#{first_name} #{last_name}"
   end
 
-  # def gmap_hash(users)
-  #   Gmaps4rails.build_markers(users) do |user, marker|
-  #     marker.lat user.latitude
-  #     marker.lng user.longitude
-  #     marker.infowindow user.company
-  #     marker.picture({
-  #       url: user.marker_picture(self),
-  #       width: 32,
-  #       height: 32,
-  #       })
-  #   end
-  # end
+  def gmap_hash(users)
+    Gmaps4rails.build_markers(users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow user.company
+      marker.picture({
+        url: user.marker_picture(self),
+        width: 32,
+        height: 32,
+        })
+    end
+  end
 
   private
 

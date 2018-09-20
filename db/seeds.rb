@@ -21,6 +21,15 @@ addresses = [ "22 Rue de la Preceinte, Le Bouscat",
             "124 Rue Lucien Faure, Bordeaux",
             "65 Quai des Chartrons, Bordeaux"]
 role = 1
+sentences = ["J'aime le yoga et la cuisine,
+              J'aime l'art et la danse,
+              J'aime voyager et faire des rencontres,
+              J'aimes les éléphants bleus et les chats loufoques,
+              J'aime rire entre amis,
+              J'aime me dire qu'il est bon de changer,
+              Je serai votre meilleur hôte à Bordeaux,
+              J'adore les sushis et les films de ninja,
+              J'aime voir le monde et ses couleurs"]
 photos = ["https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347615/seed/photo-1458662236860-b721a6735660.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347595/seed/photo-1463763422025-e07f8081b9c9.jpg",
@@ -42,20 +51,20 @@ emails.each_with_index do |x, i|
                first_name: first_names[i],
                last_name: last_names[i],
                phone: phone,
+               sentences: sentences[i]
                address: addresses[i],
                role: role,
                birth_date: "10/05/1995",
                photo: open(photos[i]))
   print "> #{first_names[i]} created !"
 end
-# url = "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"
 
-# User.create!(email: "sarah.b@gmail.com",
-#              password: "LVa123456" ,
-#              first_name: "sara",
-#              last_name: "harad",
-#              phone: "0987654321",
-#              address: "098765432",
-#              role: 1,
-#              birth_date: "234567",
-#              photo: open(url))
+User.create!(email: "sarah4.b@gmail.com",
+             password: "LVa123456" ,
+             first_name: "sara",
+             last_name: "harad",
+             phone: "0987654321",
+             address: "10 rue Pierre et Marie Curie, 33130 Bègles",
+             role: 1,
+             birth_date: "234567",
+             photo: open("https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"))

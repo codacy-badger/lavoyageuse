@@ -1,5 +1,4 @@
 <% content_for(:title_tag) { t('.title') } %>
-
 <div class="flex-parent"> <!-- for IE bug -->
   <div class="fullscreen relative text-left lv-one-page" style=" background-image: linear-gradient(0deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.7) 100%), url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1536852011/photo-1491438590914-bc09fcaaf77a.jpg')">
     <div class="form_login center">
@@ -66,7 +65,12 @@
             <div class="input-parent">
               <i class="fas fa-birthday-cake"></i>
               <%= f.input :birth_date, label: false, required: true, placeholder: t('.birth_date')  %>
+            </div>
 
+            <p>Un tout petit mot à propos de vous :</p>
+            <div class="input-parent">
+              <i class="fas fa-quote-right"></i>
+              <%= f.input :sentence, label: false, required: true, placeholder: t('.sentence') %>
             </div>
 
            <div class="input-parent">
