@@ -2,7 +2,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
 
-  make_private # This will make sure you're images are uploaded as private
+  # make_private # This will make sure you're images are uploaded as private
   eager
 
 

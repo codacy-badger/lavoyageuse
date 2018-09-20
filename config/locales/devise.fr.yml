@@ -42,6 +42,7 @@ fr:
       updated: "Votre compte a été modifié avec succès."
       new:
         title: "La voyageuse : inscription"
+        layout-title: "Inscription"
         submit: "M'inscrire"
         data-personal: "données personnelles"
         data-connexion: "données de connexion"
