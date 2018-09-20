@@ -59,12 +59,12 @@ emails.each_with_index do |x, i|
   print "> #{first_names[i]} created !"
 end
 
-User.create!(email: "sarah4.b@gmail.com",
-             password: "LVa123456" ,
-             first_name: "sara",
-             last_name: "harad",
-             phone: "0987654321",
-             address: "10 rue Pierre et Marie Curie, 33130 Bègles",
-             role: 1,
-             birth_date: "234567",
-             photo: open("https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"))
+# User.create!(email: "sarah4.b@gmail.com",
+#              password: "LVa123456" ,
+#              first_name: "sara",
+#              last_name: "harad",
+#              phone: "0987654321",
+#              address: "10 rue Pierre et Marie Curie, 33130 Bègles",
+#              role: 1,
+#              birth_date: "234567",
+#              photo: open("https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"))
