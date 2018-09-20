@@ -30,17 +30,17 @@ sentences = ["J'aime le yoga et la cuisine,
               Je serai votre meilleur hôte à Bordeaux,
               J'adore les sushis et les films de ninja,
               J'aime voir le monde et ses couleurs"]
-photos = ["https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347615/seed/photo-1458662236860-b721a6735660.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347595/seed/photo-1463763422025-e07f8081b9c9.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347576/seed/photo-1493666438817-866a91353ca9.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347489/seed/screen-shot-2018-09-05-at-5-27-46-pm-e1536186712841.png",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347401/seed/woman.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347355/seed/_95182277_jesprofile3.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347211/seed/_6cfb1a60-a9ed-11e8-abd2-5c322fa89f61.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347055/seed/hanan-1.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537347006/seed/lilliya-scarlett-instagram-1528814125-custom-0.png",
-          "https://res.cloudinary.com/dfcsmghw4/image/upload/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"]
+photos = ["https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347615/seed/photo-1458662236860-b721a6735660.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347595/seed/photo-1463763422025-e07f8081b9c9.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347576/seed/photo-1493666438817-866a91353ca9.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347489/seed/screen-shot-2018-09-05-at-5-27-46-pm-e1536186712841.png",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347401/seed/woman.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347355/seed/_95182277_jesprofile3.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347211/seed/_6cfb1a60-a9ed-11e8-abd2-5c322fa89f61.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347055/seed/hanan-1.jpg",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537347006/seed/lilliya-scarlett-instagram-1528814125-custom-0.png",
+          "https://res.cloudinary.com/dfcsmghw4/image/upload/seed/v1537346964/seed/Teenager-dies-after-rolling-onto-broken-iPhone-cable-in-her-sleep.jpg"]
 birth_dates = rand(18..40).to_s
 
 
