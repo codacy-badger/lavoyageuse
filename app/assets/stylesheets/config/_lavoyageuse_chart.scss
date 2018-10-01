@@ -4,6 +4,10 @@ h1, h2, h3, h4, p {
 h1{
   font-size: 60px;
   font-family: $headers-font;
+  @media(max-width: 575.98px) {
+    font-size: 45px;
+    line-height: 45px;
+  }
 }
 h2{
   font-family: $body-font;
@@ -11,6 +15,9 @@ h2{
 h3{
   font-size: 1.8rem;
   font-family: $body-font;
+  @media(max-width: 575.98px) {
+    font-size: 1.3rem;
+  }
 }
 h4{
   font-size: 1.5rem;

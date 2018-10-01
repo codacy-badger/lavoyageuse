@@ -77,6 +77,9 @@ a.navbar-wagon-brand {
   background: transparent !important;
   color: black !important;
 }
+.dropdown-toggle::after {
+  display: none;
+}
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
