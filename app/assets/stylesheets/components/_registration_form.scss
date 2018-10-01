@@ -45,12 +45,13 @@
     width: 100%;
     margin-top: 0;
     margin-bottom: 0;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
   }
 }
 .login-box {
   position: relative;
   width: 100%;
+  min-width: 350px;
   background-color: white;
   border-radius: 8px;
   padding: 25px 30px 30px 30px;
@@ -91,6 +92,19 @@
     color: white;
     border: none;
     font-size: 14px;
+  }
+  .checkbox{
+    margin-top: 10px;
+    @include media-breakpoint-up(md) {
+      input#user_remember_me {
+        width: 25px;
+        height: 16px;
+      }
+    }
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      text-align: center;
+    }
   }
   .form-actions {
     width: 100%;

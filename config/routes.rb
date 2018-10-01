@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'chart', to: 'pages#chart'
 
   resources :users, only: %I[index show]
+  resources :comments, only: %I[create]
 end

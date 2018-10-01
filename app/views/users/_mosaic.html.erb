@@ -1,11 +1,11 @@
-<div class="col-12 col-md-8 col-lg-8 col-xl-10 center">
+<div class="col-12 col-xl-10 center">
   <div class="row">
     <div class="col-12 mosaic-header">
       <p class="title"><%= t('.title') %></p>
     </div>
     <% @users.each do |user| %>
       <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-        <%= render "users/profile_card", user: user, reputation: "Bonne réputation", distance: "200 mètres" %>
+        <%= render "users/profile_card", user: user %>
       </div>
     <% end %>
   </div>

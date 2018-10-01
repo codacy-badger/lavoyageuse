@@ -1,1 +1,73 @@
-<%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+<div class="fullscreen white-on-purple pt-4 container-fluid">
+  <div class="row">
+    <div class="profile-detailed col-12">
+      <div class="row">
+        <div class="col col-md-1 col-lg-1 col-xl-2"></div>
+        <div class="col-xs-12 col-md-10 col-lg-10 col-xl-8">
+          <div class="row">
+            <div class="col-12">
+              <h5><%= t('.column-title') %></h5>
+            </div>
+            <div class="col-12">
+              <div class="page-wrapper black-on-white margin-bottom-big relative">
+                <%= render "shared/button_close" %>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6 margin-bottom-big text-center">
+                      <%= cl_image_tag @user.photo.url, id:"photo" %>
+                    </div>
+
+                    <div class="col-6">
+                      <h4><%= @user.hidden_full_name %></h4>
+                      <p><%= t('.live_in') %> Paris</p>
+                      <%= image_tag "profil_authenticated.svg", class:"label mb-3" %>
+                      <div class="bar-separator"></div>
+                      <p class="sentence">"<%= @user.sentence %>"</p>
+                    </div>
+
+                    <div class="col-12">
+
+                      <h5 class="mb-3"><%= t('.about') %></h5>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum optio, voluptatem laudantium? Laborum doloremque provident, a reprehenderit in. Deserunt numquam sunt nam eum reprehenderit assumenda quo harum eos voluptatem, et sint vel quod accusantium, debitis rem, molestias molestiae aperiam voluptas ipsam dolor totam quos? Saepe laborum provident perspiciatis voluptas minima.</p>
+                      <h5 class="mb-3"><%= t('.photos') %></h5>
+                      <div class="flex-line flex-left">
+                        <div class="photo_placeholder mr-3 flexbox">
+                          <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="photo_placeholder mr-3 flexbox">
+                          <i class="fas fa-camera"></i>
+                        </div>
+                        <div class="photo_placeholder mr-3 flexbox">
+                          <i class="fas fa-camera"></i>
+                        </div>
+                      </div>
+                      <div class="bar-separator-light"></div>
+
+                      <h5 class="mb-3"><%= t('.send_message') %></h5>
+                      <%= render "shared/mini_form", content: { label: false, path: root_path, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text') } %>
+                      <div class="bar-separator-light"></div>
+
+                      <h5 class="mb-3"><%= t('.add_comment') %></h5>
+                      <%= render "shared/mini_form", content: { label: false, path: comments_path, method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text'), hidden_value: @user.id } %>
+
+                      <div class="bar-separator-light"></div>
+
+                      <h5 class="mb-3"><%= t('.comments') %></h5>
+                      <% @comments.each do |comment| %>
+                        <div class="row">
+                          <%= cl_image_tag comment.user.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
+                          <p class="col-xs-12 col-md-9"><%= comment.content %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-md-1 col-lg-1 col-xl-2"></div>
+      </div>
+    </div>
+  </div>
+</div>

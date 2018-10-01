@@ -39,7 +39,7 @@ $input-height: 56px;
   @extend %full-width;
   @extend %full-height;
   &.under-navbar {
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
   }
   &.under-navbar-slim {
     height: calc(100vh - 45px);
@@ -102,6 +102,13 @@ $input-height: 56px;
   width: 40%;
   height: 5px;
   background-color: $purple;
+}
+.bar-separator-light {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 40%;
+  height: 1px;
+  background-color: $gray;
 }
 .label-separator {
   margin-top: 15px;

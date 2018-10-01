@@ -26,6 +26,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def hidden_full_name
+    "#{first_name} #{last_name[0]}".split.map(&:capitalize).join(" ") + "."
+  end
+
   def gmap_hash(users)
     Gmaps4rails.build_markers(users) do |user, marker|
       marker.lat user.latitude
