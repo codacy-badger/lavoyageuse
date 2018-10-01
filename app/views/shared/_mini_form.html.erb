@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <%= simple_form_for :message, url: content[:path], method: content[:method] do |f| %>
-        <%= f.input :comment, label: content[:label],
+        <%= f.input :content, label: content[:label],
                               placeholder: content[:placeholder],
                               input_html: {value: content[:value] || "",
                                            cols: 5,
@@ -10,7 +10,7 @@
                                            resize: "none" },
                               id: "textarea",
                               as: :text  %>
-        <%= f.input :hidden_value, input_html: {value: content[:current_id] }, as: :hidden %>
+        <%= f.input :hidden_value, input_html: {value: content[:hidden_value] }, as: :hidden %>
         <div class="row">
         <div class="col-12">
           <%= f.button :submit, value: content[:btn_text], data: { disable_with: "" }, class:"btn btn-blue" %>

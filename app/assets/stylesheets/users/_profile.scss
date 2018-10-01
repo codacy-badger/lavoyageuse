@@ -1,4 +1,12 @@
 .profile-detailed {
+  .profile-breadcrumb{
+    a {
+      color:white;
+      &:hover{
+        color:$light-purple;
+      }
+    }
+  }
   a {
     color: $dark-gray;
   }

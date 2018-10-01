@@ -11,6 +11,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:message).permit(:comment, :hidden_value)
+    params.require(:message).permit(:content, :hidden_value)
   end
 end
