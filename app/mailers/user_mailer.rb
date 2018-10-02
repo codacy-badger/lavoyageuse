@@ -8,8 +8,15 @@ class UserMailer < ApplicationMailer
 
   def notification(mail_content)
     @mail_content = mail_content
-    mail(to: "abriko@yahoo.fr",
+    mail(to: "test@la-voyageuse.com",
          subject: mail_content[:subject],
          track_opens: 'true')
   end
+
+  # def message(mail_content)
+  #   @mail_content = mail_content
+  #   mail(to: @mail_content[:mail],
+  #        subject: @mail_content[:subject],
+  #        track_opens: 'true')
+  # end
 end

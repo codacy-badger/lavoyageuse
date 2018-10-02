@@ -11,7 +11,7 @@ class MessengersController < ApplicationController
       session[:contact_email] = session[:contact_name] = session[:contact_comment] = nil
       flash[:success] = t('.notice')
       UserMailer.notification({ subject: t('.subject'),
-                                email: "abriko@yahoo.fr",
+                                email: "test@la-voyageuse.com",
                                 name: params_message[:name],
                                 content: params_message[:comment]}).deliver_now
       redirect_to root_path
