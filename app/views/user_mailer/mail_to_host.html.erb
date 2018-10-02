@@ -1,0 +1,33 @@
+<div style="font-size:16px;min-width:100%;font-weight:normal;padding:0;margin:0;line-height:1.3;color:#7E7E7E;text-align:left;width:100%!important;">
+  <table style="border-spacing:0;border-collapse:collapse;vertical-align:top;font-weight:normal;margin:0;text-align:left;font-size:16px;line-height:19px;background:#f3f3f3;padding:0;width:100%;min-height:100%;color:#0a0a0a;margin-bottom:0px!important;background-color:white;">
+      <tbody>
+        <tr style="padding:0;vertical-align:top;text-align:left;">
+        <td align="center" valign="top" style="font-size:16px;word-wrap:break-word;vertical-align:top;text-align:left;line-height:1.3;color:#0a0a0a;padding:0;margin:0;font-weight:normal;border-collapse:collapse!important;">
+          <center style="width:100%;min-width:580px;">
+            <table style="border-spacing:0;border-collapse:collapse;padding:0;vertical-align:top;background:#fefefe;width:580px;margin:0 auto;text-align:inherit;max-width:580px;">
+              <tbody>
+                <tr style="padding:0;vertical-align:top;text-align:left;">
+                  <td style="font-size:16px;word-wrap:break-word;vertical-align:top;text-align:left;line-height:1.3;color:#0a0a0a;padding:0;margin:0;font-weight:normal;border-collapse:collapse!important;">
+
+                  <%= render "user_mailer/onboarding/logo" %>
+
+                  <%= render "user_mailer/onboarding/user_mail_content",  title: @mail_content[:subject], text: @mail_content[:content], name: @mail_content[:sender_name], photo: @mail_content[:sender_photo], mail: @mail_content[:sender_email] %>
+
+                  <%= render "user_mailer/onboarding/calltoaction", btn_text: @mail_content[:btn_text], color: "#F1B255", link: @mail_content[:btn_link] %>
+
+                  <%= render "user_mailer/onboarding/text", text: t('.instructions'), strong_text: t('.instructions_title') %>
+
+                  <%= render "user_mailer/onboarding/bigphoto", photo: @mail_content[:photo] %>
+
+                  <%= render "user_mailer/onboarding/footer" %>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </center>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

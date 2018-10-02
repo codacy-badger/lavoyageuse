@@ -13,10 +13,10 @@ class UserMailer < ApplicationMailer
          track_opens: 'true')
   end
 
-  # def message(mail_content)
-  #   @mail_content = mail_content
-  #   mail(to: @mail_content[:mail],
-  #        subject: @mail_content[:subject],
-  #        track_opens: 'true')
-  # end
+  def mail_to_host(mail_content)
+    @mail_content = mail_content
+    mail(to: "test@la-voyageuse.com",
+         subject: mail_content[:subject],
+         track_opens: 'true')
+  end
 end

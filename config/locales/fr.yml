@@ -50,4 +50,9 @@ fr:
     create:
       notice: "Le message a bien été envoyé"
       warning: "Oups, quelque chose s'est mal déroule, le message n'a pas été envoyé"
-
+      subject: "Message d'une voyageuse depuis La Voyageuse.com"
+      mail_to: "Écrire à votre correspondante"
+  user_mailer:
+    mail_to_host:
+      instructions_title: "Ne tardez pas"
+      instructions: "vous pouvez, en tant qu'hébergeuse, répondre directement à cette voyageuse et ainsi échanger par mail. Un système de messagerie intégré à La Voyageuse viendra bientôt."
