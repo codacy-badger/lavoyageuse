@@ -257,6 +257,7 @@ a:hover.pastille {
   }
   &.pastille-blue {
     background-color: $blue;
+
   }
   &.pastille-green {
     background-color: $green;
@@ -264,6 +265,15 @@ a:hover.pastille {
   &.pastille-white {
     background-color: $white;
     color: $dark-gray;
+    &:hover {
+      background-color: $white;
+    }
+    i, a, p {
+      color: $dark-gray;
+      &:hover {
+        color: $light-purple;
+      }
+    }
   }
   &.pastille-red {
     background-color: $red;
@@ -279,12 +289,14 @@ a:hover.pastille {
   &.pastille-close {
     position: absolute;
     right: 10px;
-    @include media-breakpoint-down(xs) { top: 10px; }
-    @include media-breakpoint-up(xs) { top: 10px; }
+    top: 15px;
     z-index: 500;
     margin-right: 0;
     height: 40px;
     width: 40px;
+    &.second {
+      right: 50px;
+    }
   }
 }
 //SPLITS

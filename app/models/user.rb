@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   enum role: { member: 0, premium: 1, moderator: 2, admin: 3}
+  enum host: { not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
-  validates_format_of :password, with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\Z/
+  validates_format_of :password, with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\Z/, if: :email_changed?
 
   validates :email, presence: { message: 'ne peut pas être vide' },
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }

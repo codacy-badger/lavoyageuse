@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'cgu', to: 'pages#cgu'
   get 'chart', to: 'pages#chart'
 
-  resources :users, only: %I[index show]
+  resources :users, only: %I[index show update]
   resources :comments, only: %I[create]
   resources :messages, only: %I[create]
 end

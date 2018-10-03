@@ -6,29 +6,47 @@
         <div class="col-xs-12 col-md-10 col-lg-10 col-xl-8">
           <div class="row">
             <div class="profile-breadcrumb col-12">
-              <h5><%= link_to t('.column-title'), users_path %> / <%= @user.hidden_full_name %></h5>
+              <h5><%= link_to t('.column-title'), users_path if current_user != @user %><%= @user.hidden_full_name %></h5>
             </div>
             <div class="col-12">
               <div class="page-wrapper black-on-white margin-bottom-big relative">
-                <%= render "shared/button_close" %>
+                <%= render "shared/button_with_icon", locals: {
+                                                        path: users_path,
+                                                        method: :get,
+                                                        icon: "fas fa-times",
+                                                        klass: "pastille pastille-white pastille-close flexbox"
+                                                        } %>
+                <%= link_to edit_user_registration_path(@user), class:"pastille pastille-white pastille-close second flexbox" do %>
+                  <div style="top:13px;">
+                    <p style="font-size:23px"><i class="fas fa-pencil-alt"></i></p>
+                  </div>
+                <% end %>
+
                 <div class="container">
                   <div class="row">
                     <div class="col-xs-12 col-md-6 margin-bottom-big text-center">
                       <%= cl_image_tag @user.photo.url, id:"photo" %>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-xs-12 col-md-6">
                       <h4><%= @user.hidden_full_name %></h4>
                       <p><%= t('.live_in') %> Paris</p>
                       <%= image_tag "profil_authenticated.svg", class:"label mb-3" %>
                       <div class="bar-separator"></div>
                       <p class="sentence">"<%= @user.sentence %>"</p>
                     </div>
+                  </div>
 
+                  <div class="row">
                     <div class="col-12">
-
-                      <h5 class="mb-3"><%= t('.about') %></h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum optio, voluptatem laudantium? Laborum doloremque provident, a reprehenderit in. Deserunt numquam sunt nam eum reprehenderit assumenda quo harum eos voluptatem, et sint vel quod accusantium, debitis rem, molestias molestiae aperiam voluptas ipsam dolor totam quos? Saepe laborum provident perspiciatis voluptas minima.</p>
+                      <div class="mb-5">
+                        <h5 class="mb-3"><%= t('.about') %></h5>
+                        <% if current_user != @user %>
+                          <p><%= @user.description || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum optio, voluptatem laudantium? Laborum doloremque provident, a reprehenderit in. Deserunt numquam sunt nam eum reprehenderit assumenda quo harum eos voluptatem, et sint vel quod accusantium, debitis rem, molestias molestiae aperiam voluptas ipsam dolor totam quos? Saepe laborum provident perspiciatis voluptas minima." %></p>
+                        <% else %>
+                          <%= render "shared/mini_form", query: :user, attribute: :description, content: { label: false, path: @user, method: :patch, placeholder: t('.about_content'), value: @user.description || "", btn_text: t('.about_btn_text') } %>
+                        <% end %>
+                      </div>
                       <h5 class="mb-3"><%= t('.photos') %></h5>
                       <div class="flex-line flex-left">
                         <div class="photo_placeholder mr-3 flexbox">
@@ -43,14 +61,18 @@
                       </div>
                       <div class="bar-separator-light"></div>
 
-                      <h5 class="mb-3"><%= t('.send_message') %></h5>
-                      <%= render "shared/mini_form", content: { label: false, path: messages_path, method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text'), hidden_value: @user.id } %>
-                      <div class="bar-separator-light"></div>
+                      <% if current_user != @user  %>
+                        <h5 class="mb-3"><%= t('.send_message') %></h5>
+                        <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: messages_path, method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text'), hidden_value: @user.id } %>
+                        <div class="bar-separator-light"></div>
+
 
                       <h5 class="mb-3"><%= t('.add_comment') %></h5>
-                      <%= render "shared/mini_form", content: { label: false, path: comments_path, method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text'), hidden_value: @user.id } %>
+                      <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: comments_path, method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text'), hidden_value: @user.id } %>
 
                       <div class="bar-separator-light"></div>
+
+                      <% end %>
 
                       <h5 class="mb-3"><%= t('.comments') %></h5>
                       <% if @comments.empty? %>
@@ -69,7 +91,7 @@
                           </div>
                         <% end %>
                       <% end %>
-
+                      </div>
                     </div>
                   </div>
                 </div>

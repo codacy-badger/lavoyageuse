@@ -1,22 +1,18 @@
 <div class="full-width">
-  <div class="row">
+  <%= simple_form_for query, url: content[:path], method: content[:method] do |f| %>
+    <%= f.input attribute, label: content[:label],
+                          placeholder: content[:placeholder],
+                          input_html: {value: content[:value] || "",
+                                       cols: 5,
+                                       rows: 5,
+                                       resize: "none" },
+                          id: "textarea",
+                          as: :text  %>
+    <%= f.input :hidden_value, input_html: {value: content[:hidden_value] }, as: :hidden %>
+    <div class="row">
     <div class="col-12">
-      <%= simple_form_for :message, url: content[:path], method: content[:method] do |f| %>
-        <%= f.input :content, label: content[:label],
-                              placeholder: content[:placeholder],
-                              input_html: {value: content[:value] || "",
-                                           cols: 5,
-                                           rows: 5,
-                                           resize: "none" },
-                              id: "textarea",
-                              as: :text  %>
-        <%= f.input :hidden_value, input_html: {value: content[:hidden_value] }, as: :hidden %>
-        <div class="row">
-        <div class="col-12">
-          <%= f.button :submit, value: content[:btn_text], data: { disable_with: "" }, class:"btn btn-blue" %>
-        </div>
-        </div>
-      <% end %>
+      <%= f.button :submit, value: content[:btn_text], data: { disable_with: "" }, class:"btn btn-blue" %>
     </div>
-  </div>
+    </div>
+  <% end %>
 </div>
