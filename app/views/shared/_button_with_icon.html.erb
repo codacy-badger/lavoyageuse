@@ -1,4 +1,4 @@
-<%= link_to path:locals[:path], method:locals[:method], class:locals[:klass], remote:locals[:remote] do %>
+<%= link_to locals[:path], remote:locals[:remote] do %>
   <div class="<%= locals[:klass] %>">
     <p><i class="<%= locals[:icon] %>"></i><%= locals[:text] %></p>
   </div>

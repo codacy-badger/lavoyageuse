@@ -37,8 +37,6 @@ fr:
       comments: "Commentaires :"
       add_comment: "Ajouter un commentaire"
       about: "A propos de moi, de nous ..."
-      about_content: "Racontez quelques mots à propos de vous, les voyageuses ont très envie de vous connaître un peu mieux."
-      about_btn_text: "Mettre à jour votre description"
       photos: "Photos de moi, de nous ..."
       message_placeholder: "Votre message ici."
       message_btn_text: "Envoyer le message"
@@ -46,6 +44,17 @@ fr:
       comment_btn_text: "Envoyer le commentaire"
       comment_empty: "Pas de commentaire"
       registration_update: "Modifier vos paramètres d'inscription"
+      description_none: Cette hébergeuse n'a pas complêté sa description
+    edit:
+      live_in: "habite à"
+      comments: "Commentaires :"
+      about: "A propos de moi, de nous ..."
+      about_content: "Racontez quelques mots à propos de vous, les voyageuses ont très envie de vous connaître un peu mieux."
+      about_btn_text: "Mettre à jour votre description"
+      photos: "Photos de moi, de nous ..."
+      comment_empty: "Pas de commentaire"
+      registration_update: "Modifier vos paramètres d'inscription"
+      description_none: Cette hébergeuse n'a pas complêté sa description
     update:
       about_updated: "Votre description a été mise à jour"
       about_failed: "Oups! La mise à jour à échoué."

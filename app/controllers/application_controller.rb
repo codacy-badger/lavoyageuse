@@ -30,11 +30,10 @@ class ApplicationController < ActionController::Base
     email =~ mail_regex && email.length > 8
   end
 
+  protected
 
-   protected
-
-   def configure_permitted_parameters
-       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :address, :birth_date, :email, :password, :photo, :latitude, :longitude])
-       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :address, :birth_date, :email, :password, :photo, :latitude, :longitude])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :address, :birth_date, :email, :password, :photo, :latitude, :longitude])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :address, :birth_date, :email, :password, :photo, :latitude, :longitude])
+  end
 end

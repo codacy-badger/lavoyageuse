@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
-  before_action :params_user, only: %i(show update)
+  before_action :params_user, only: %i(show update edit)
 
   def index
     @users = User.all
   end
 
   def show
+    redirect_to edit_user_path(@user) if current_user == @user
+    @comments = Comment.where(host: @user.id)
+  end
+
+  def edit
+    redirect_to @user if current_user != @user
     @comments = Comment.where(host: @user.id)
   end
 

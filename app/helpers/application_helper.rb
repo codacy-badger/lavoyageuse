@@ -12,4 +12,8 @@ module ApplicationHelper
       return 'far fa-thumbs-up'
     end
   end
+
+  def me?
+    current_user == @user
+  end
 end
