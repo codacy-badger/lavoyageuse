@@ -1,0 +1,28 @@
+<% if @user.role == "member" || "premium" %>
+  <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.profil_authenticated') %>">
+    <%= image_tag "profil_authenticated.svg", class:"label" %>
+  </div>
+<% end %>
+<% if @user.host == "validated_host" %>
+  <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.host') %>">
+    <%= image_tag "label_hebergeuse.svg", class:"label" %>
+  </div>
+<% end %>
+<% if @user.trips.count > 0 %>
+  <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.premium') %>">
+    <%= image_tag "label_voyageuse.svg", class:"label" %>
+  </div>
+<% end %>
+<% if @user.role == "premium" %>
+  <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.traveller') %>">
+    <%= image_tag "label_premium.svg", class:"label" %>
+  </div>
+<% end %>
+
+<%= content_for :after_js do %>
+  <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+<% end %>

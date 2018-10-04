@@ -417,3 +417,6 @@ ul {
   @include media-breakpoint-down(sm) { width: 100% }
   @include media-breakpoint-up(sm) { width: 50% }
 }
+.with_pointer {
+  cursor: pointer;
+}

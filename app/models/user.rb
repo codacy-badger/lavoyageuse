@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  enum role: { visitor: 0, member: 1, premium: 2, moderator: 3, admin: 4}
-  enum host: { not_host: 0, unvalidated_host: 1, validated_host: 2}
+  enum role: {visitor: 0, member: 1, premium: 2, moderator: 3, admin: 4}
+  enum host: {not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
