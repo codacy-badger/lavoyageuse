@@ -60,6 +60,8 @@
             <div class="input-parent">
               <i class="fas fa-map-marker-alt"></i>
               <%= f.input :address, label: false, required: true, placeholder: t('.address') %>
+              <%= f.input :latitude, as: :hidden %>
+              <%= f.input :longitude, as: :hidden %>
             </div>
 
             <div class="input-parent">
@@ -95,14 +97,116 @@
   </div>
 </div>
 
-<!--
-            <div class="input-parent">
-              <p><#= t('.photo') %></p>
-              <div class="upload-container">
-                <label class="text-center fileUpload">
-                   <span class=""><i class="fa fa-camera upload"></i></span>
-                   <#%= f.input :photo, label: false  %>
-                   <#%= f.input :photo_cache, as: :hidden %>
-                </label>
-              </div>
-            </div> -->
+<%= content_for :after_js do %>
+  <script>
+
+            // function testIt(e) {
+            //   if(this.value.match(new RegExp(this.pattern))){
+            //     this.style.cssText = null;
+            //   }
+            //   else {
+            //     this.style.borderColor = "red";
+            //   }
+            // }
+
+            function onPlaceChanged() {
+              var place = this.getPlace();
+              var components = getAddressComponents(place);
+
+              var userAddress = document.getElementById('user_address');
+              var userlat = document.getElementById('user_latitude');
+              var userlng = document.getElementById('user_longitude');
+              var usercity = document.getElementById('user_city');
+
+              userAddress.blur();
+              userAddress.value = components.address + ', ' + components.zip_code + ' ' + components.city + ', ' + components.country_code;
+              userlat.value = place.geometry.location.lat();
+              userlng.value = place.geometry.location.lng();
+              usercity.value = components.city
+              // if (components.country_code) {
+              //   var selector = '#user_country option[value="' + components.country_code + '"]';
+              //   document.querySelector(selector).selected = true;
+              // }
+            }
+
+            function getAddressComponents(place) {
+
+              // console.log(place.geometry.location.lat());
+              // - place.geometry.location.lng()
+
+              if (window.console && typeof console.log === "function") {
+                console.log(place);
+              }
+
+              var street_number = null;
+              var route = null;
+              var zip_code = null;
+              var city = null;
+              var country_code = null;
+              for (var i in place.address_components) {
+                var component = place.address_components[i];
+                for (var j in component.types) {
+                  var type = component.types[j];
+                  if (type === 'street_number') {
+                    street_number = component.long_name;
+                  } else if (type === 'route') {
+                    route = component.long_name;
+                  } else if (type === 'postal_code') {
+                    zip_code = component.long_name;
+                  } else if (type === 'locality') {
+                    city = component.long_name;
+                  } else if (type === 'postal_town' && city === null) {
+                    city = component.long_name;
+                  } else if (type === 'country') {
+                    country_code = component.short_name;
+                  }
+                }
+              }
+
+              return {
+                address: street_number === null ? route : (street_number + ' ' + route),
+                zip_code: zip_code,
+                city: city,
+                country_code: country_code
+              };
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+
+              var userAddress = document.getElementById('user_address');
+              var userPhone = document.getElementById('user_phone');
+
+              // if(userPhone){
+              //   userPhone.pattern = patternPhone;
+              // }
+
+              if (userAddress) {
+                var autocomplete = new google.maps.places.Autocomplete(userAddress, { types: ['geocode'] });
+                google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+                google.maps.event.addDomListener(userAddress, 'keyup', function(e) {
+                  if (e.key === "Enter") {
+                    e.preventDefault(); // Do not submit the form on Enter.
+                  }
+                });
+              }
+
+              // var inputs = [userName1, userName2, userKids, userPhone]
+
+              // ES6 that crash assets precompile, wait for rails updates?
+              // for (var value of inputs) {
+              //   if (value) {
+              //     value.addEventListener("keydown", testIt, true);
+              //   }
+              // }
+
+              // for(i = 0;i<inputs.length;i++) {
+              //   if (inputs[i]) {
+              //     inputs[i].addEventListener("keyup", testIt, true);
+              //   }
+              // }
+
+            });
+  </script>
+<% end %>
+
+

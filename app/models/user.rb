@@ -13,7 +13,7 @@ class User < ApplicationRecord
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates_presence_of :first_name, :last_name, :phone, :photo, :address, :birth_date
   validates_length_of :phone, minimum: 10
-  validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }
+  validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }, allow_blank: true
   validates_processing_of :photo
   validate :image_size_validation
 
