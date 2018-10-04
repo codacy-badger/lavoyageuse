@@ -56,6 +56,28 @@
                       </div>
                       <div class="bar-separator-light"></div>
 
+                      <div class="mb-5">
+                        <h5 class="mb-3"><%= t('.host_title') + t('.home_minimum') %></h5>
+                        <% case @user.host %>
+                          <% when "not_host" %>
+                            <%= render "becoming_host_form" %>
+                          <% when "unvalidated_host" %>
+                            <h5 class="p-3 bg-secondary text-white mb-3"><%= t('.host_unvalidated') %></h5>
+                          <% when "validated_host" %>
+                            <p><%= @user.home %></p>
+                            <div class="full-width">
+                              <%= simple_form_for :user, url: @user, method: :patch do |f| %>
+                                <div class="row">
+                                  <div class="col-12">
+                                    <%= f.input :host, input_html: {value: "not_host" }, as: :hidden %>
+                                    <%= f.button :submit, value: t('.home_cancel_btn_text'), data: { disable_with: "" }, class:"btn btn-red" %>
+                                  </div>
+                                </div>
+                              <% end %>
+                            </div>
+                        <% end %>
+                      </div>
+
                       <h5 class="mb-3"><%= t('.comments') %></h5>
                       <% if @comments.empty? %>
                         <p>- <%= t('.comment_empty') %></p>

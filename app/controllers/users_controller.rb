@@ -17,9 +17,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(users_params)
-      flash[:success] = t('.about_updated')
+      flash[:success] = t('.success')
     else
-      flash[:warning] = t('.about_failed')
+      flash[:warning] = t('.warning')
     end
     redirect_to @user
   end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:description, :sentence, :host)
+    params.require(:user).permit(:description, :host, :home)
   end
 end
 

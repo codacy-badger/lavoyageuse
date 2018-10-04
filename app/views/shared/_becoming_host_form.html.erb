@@ -1,0 +1,19 @@
+<div class="full-width">
+  <%= simple_form_for :user, url: @user, method: :patch do |f| %>
+    <%= f.input :host, as: :radio_buttons, collection: ["oui", "non"], label_method: :second, value_method: :first %>
+    <%= f.input :home,  label: false,
+                        placeholder: content[:placeholder],
+                          input_html: {value: content[:value] || "",
+                                       cols: 5,
+                                       rows: 5,
+                                       resize: "none" },
+                          id: "textarea",
+                          as: :text  %>
+    <%= f.input :hidden_value, input_html: {value: content[:hidden_value] }, as: :hidden %>
+    <div class="row">
+    <div class="col-12">
+      <%= f.button :submit, value: content[:btn_text], data: { disable_with: "" }, class:"btn btn-blue" %>
+    </div>
+    </div>
+  <% end %>
+</div>

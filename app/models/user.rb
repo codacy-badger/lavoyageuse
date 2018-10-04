@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  enum role: { member: 0, premium: 1, moderator: 2, admin: 3}
+  enum role: { visitor: 0, member: 1, premium: 2, moderator: 3, admin: 4}
   enum host: { not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,6 +13,7 @@ class User < ApplicationRecord
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates_presence_of :first_name, :last_name, :phone, :photo, :address, :birth_date
   validates_length_of :phone, minimum: 10
+  validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }
   validates_processing_of :photo
   validate :image_size_validation
 

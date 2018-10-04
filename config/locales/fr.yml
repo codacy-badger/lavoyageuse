@@ -28,6 +28,9 @@ fr:
       be_human: "Veuillez cocher la case 'je ne suis pas un robot'"
       subject: "Nouveau message depuis le contact form"
   users:
+    becoming_host_form:
+      home_placeholder: "Apportez quelques précisions à propos de votre hébergement : surface, nombre de personne à la maison, situation, atouts ou inconvénients. Les voyageuses aiment pouvoir se projeter."
+      home_offer_btn_text: "Proposer votre hébergement"
     mosaic:
       title: "Nos hébergeuses"
     show:
@@ -44,7 +47,7 @@ fr:
       comment_btn_text: "Envoyer le commentaire"
       comment_empty: "Pas de commentaire"
       registration_update: "Modifier vos paramètres d'inscription"
-      description_none: Cette hébergeuse n'a pas complêté sa description
+      description_none: "Cette hébergeuse n'a pas complêté sa description"
     edit:
       live_in: "habite à"
       comments: "Commentaires :"
@@ -54,10 +57,15 @@ fr:
       photos: "Photos de moi, de nous ..."
       comment_empty: "Pas de commentaire"
       registration_update: "Modifier vos paramètres d'inscription"
-      description_none: Cette hébergeuse n'a pas complêté sa description
+      description_none: "Cette hébergeuse n'a pas complêté sa description"
+      host_title: "Proposer votre hébergement aux voyageuses : "
+      host_unvalidated: "Votre proposition de logement est en attente de validation."
+      home_cancel_btn_text: "Arrêter de proposer votre hébergement"
+      home_minimum: "(minimum 30 caractères)"
     update:
-      about_updated: "Votre description a été mise à jour"
-      about_failed: "Oups! La mise à jour à échoué."
+      success: "Profil mis à jour"
+      warning: "Oups, mise à jour échouée. Contacter l'administration si le problème persiste."
+      home_description_wrong: "La description est trop court"
   comments:
     create:
       notice: "Commentaire posté"

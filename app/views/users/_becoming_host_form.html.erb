@@ -1,0 +1,18 @@
+<div class="full-width">
+  <%= simple_form_for :user, url: @user, method: :patch do |f| %>
+    <%= f.input :home,  label: false,
+                        placeholder: t('.home_placeholder'),
+                          input_html: {value: @user.home || "",
+                                       cols: 5,
+                                       rows: 5,
+                                       resize: "none" },
+                          id: "textarea",
+                          as: :text  %>
+    <%= f.input :host, input_html: {value: "unvalidated_host"}, as: :hidden %>
+    <div class="row">
+    <div class="col-12">
+      <%= f.button :submit, value: t('.home_offer_btn_text'), data: { disable_with: "" }, class:"btn btn-blue" %>
+    </div>
+    </div>
+  <% end %>
+</div>
