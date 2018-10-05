@@ -32,6 +32,9 @@
                       <% if @user.city %>
                         <p><%= t('.live_in') + " " + @user.city %></p>
                       <% end %>
+                      <% if me? %>
+                        <%= link_to t('users.becoming_host_form.home_offer_btn_text'),"#home_proposal", class:"btn btn-light-purple mb-3" %>
+                      <% end %>
                       <%= render "labels" %>
                       <div class="bar-separator"></div>
                       <p class="sentence">"<%= @user.sentence %>"</p>
@@ -58,7 +61,7 @@
                       </div>
                       <div class="bar-separator-light"></div>
 
-                      <div class="mb-5">
+                      <div class="mb-5" id="home_proposal">
                         <h5 class="mb-3"><%= t('.host_title') + t('.home_minimum') %></h5>
                         <% case @user.host %>
                           <% when "not_host" %>

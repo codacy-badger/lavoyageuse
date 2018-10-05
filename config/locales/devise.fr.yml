@@ -59,6 +59,16 @@ fr:
         password2: "Confirmer le mot de passe"
         photo: "Photo :"
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
+      edit:
+        password: "Nouveau mot de passe"
+        password_hint: "Uniquement si vous souhaitez le modifier"
+        new-password: "Retaper le nouveau mot de passe"
+        need_old_password: "Votre ancien mot de passe"
+        hint: "Requis pour toute modification de données d'inscription"
+        submit: "Enregistrer les modifications"
+        cancel_account: "Annuler mon compte"
+        are_you_sure: "Êtes-vous sûr ?"
+        account_delete: "Suppression de compte"
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."

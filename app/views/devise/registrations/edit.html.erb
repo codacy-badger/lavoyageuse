@@ -1,35 +1,230 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% content_for(:title_tag) { t('.title') } %>
+<div class="flex-parent"> <!-- for IE bug -->
+  <div class="fullscreen relative text-left lv-one-page" style=" background-image: linear-gradient(0deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.7) 100%), url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1536852011/illustrations/photo-1491438590914-bc09fcaaf77a.jpg')">
+    <div class="form_login center">
+      <h1><%= t('devise.registrations.new.layout-title') %></h1>
+      <p><%= t('devise.registrations.new.needed') %></p>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div class="login-box margin-bottom-big">
+          <div class="form-inputs">
+            <div class="label-separator flexbox">
+              <p class="label"><%= t('devise.registrations.new.data-connexion') %></p>
+              <div class="separator"></div>
+            </div>
+            <div class="input-parent">
+              <i class="far fa-envelope"></i>
+              <%= f.input :email, required: true, autofocus: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+            </div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+            <div class="input-parent">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password,
+                          required: false,
+                          placeholder: t('.password'),
+                          label: false,
+                          hint: t('.password_hint'),
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+            <div class="input-parent margin-bottom-big">
+              <i class="fas fa-lock"></i>
+              <%= f.input :password_confirmation,
+                        required: false,
+                        placeholder: t('.new-password'),
+                        label: false,
+                        input_html: { autocomplete: "new-password" } %>
+            </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+            <div class="input-parent margin-bottom-big">
+              <i class="fas fa-lock"></i>
+              <%= f.input :current_password,
+                          placeholder: t('.need_old_password'),
+                          required: true,
+                          label: false,
+                          input_html: { autocomplete: "current-password" },
+                          hint: t('.hint') %>
+            </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+            <div class="label-separator flexbox">
+              <p class="label"><%= t('devise.registrations.new.data-personal') %></p>
+              <div class="separator"></div>
+            </div>
+            <div class="margin-bottom-small">
+              <small><%= t('.restrictions') %></small>
+            </div>
+            <div class="input-parent">
+              <i class="far fa-user"></i>
+              <%= f.input :first_name, label: false, required: true, placeholder: t('devise.registrations.new.first_name') %>
+            </div>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+            <div class="input-parent">
+              <i class="far fa-user"></i>
+              <%= f.input :last_name, label: false, required: true, placeholder: t('devise.registrations.new.last_name') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-phone"></i>
+              <%= f.input :phone, label: false, required: true, placeholder: t('devise.registrations.new.phone') %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-map-marker-alt"></i>
+              <%= f.input :address, label: false, required: true, placeholder: t('devise.registrations.new.address') %>
+              <%= f.input :latitude, as: :hidden %>
+              <%= f.input :longitude, as: :hidden %>
+            </div>
+
+            <div class="input-parent">
+              <i class="fas fa-birthday-cake"></i>
+              <%= f.input :birth_date, label: false, required: true, placeholder: t('devise.registrations.new.birth_date')  %>
+            </div>
+
+            <p>Un tout petit mot à propos de vous :</p>
+            <div class="input-parent">
+              <i class="fas fa-quote-right"></i>
+              <%= f.input :sentence, label: false, required: true, placeholder: t('devise.registrations.new.sentence') %>
+            </div>
+
+           <div class="input-parent">
+            <p><%= t('.photo') %></p>
+            <!-- <%= f.input :photo, label: false %> -->
+            <div class="form-group file required user_photo">
+              <input class="form-control-file file required" type="file" name="user[photo]" id="user_photo">
+            </div>
+            <%= f.input :photo_cache, as: :hidden %>
+          </div>
+
+          <div class="mb-5">
+            <%= f.button :submit, t('.submit') %>
+          </div>
+        </div>
+      <% end %>
+        <div class="label-separator flexbox">
+          <p class="label"><%= t('.account_delete') %></p>
+          <div class="separator"></div>
+        </div>
+        <div class="full-width" style="text-align: center">
+          <%= link_to t('.cancel_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure?') }, method: :delete, class:"btn btn-red btn-large" %></p>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+<%= content_for :after_js do %>
+  <script>
+
+            // function testIt(e) {
+            //   if(this.value.match(new RegExp(this.pattern))){
+            //     this.style.cssText = null;
+            //   }
+            //   else {
+            //     this.style.borderColor = "red";
+            //   }
+            // }
+
+            function onPlaceChanged() {
+              var place = this.getPlace();
+              var components = getAddressComponents(place);
+
+              var userAddress = document.getElementById('user_address');
+              var userlat = document.getElementById('user_latitude');
+              var userlng = document.getElementById('user_longitude');
+              var usercity = document.getElementById('user_city');
+
+              userAddress.blur();
+              userAddress.value = components.address + ', ' + components.zip_code + ' ' + components.city + ', ' + components.country_code;
+              userlat.value = place.geometry.location.lat();
+              userlng.value = place.geometry.location.lng();
+              usercity.value = components.city
+              // if (components.country_code) {
+              //   var selector = '#user_country option[value="' + components.country_code + '"]';
+              //   document.querySelector(selector).selected = true;
+              // }
+            }
+
+            function getAddressComponents(place) {
+
+              // console.log(place.geometry.location.lat());
+              // - place.geometry.location.lng()
+
+              if (window.console && typeof console.log === "function") {
+                console.log(place);
+              }
+
+              var street_number = null;
+              var route = null;
+              var zip_code = null;
+              var city = null;
+              var country_code = null;
+              for (var i in place.address_components) {
+                var component = place.address_components[i];
+                for (var j in component.types) {
+                  var type = component.types[j];
+                  if (type === 'street_number') {
+                    street_number = component.long_name;
+                  } else if (type === 'route') {
+                    route = component.long_name;
+                  } else if (type === 'postal_code') {
+                    zip_code = component.long_name;
+                  } else if (type === 'locality') {
+                    city = component.long_name;
+                  } else if (type === 'postal_town' && city === null) {
+                    city = component.long_name;
+                  } else if (type === 'country') {
+                    country_code = component.short_name;
+                  }
+                }
+              }
+
+              return {
+                address: street_number === null ? route : (street_number + ' ' + route),
+                zip_code: zip_code,
+                city: city,
+                country_code: country_code
+              };
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+
+              var userAddress = document.getElementById('user_address');
+              var userPhone = document.getElementById('user_phone');
+
+              // if(userPhone){
+              //   userPhone.pattern = patternPhone;
+              // }
+
+              if (userAddress) {
+                var autocomplete = new google.maps.places.Autocomplete(userAddress, { types: ['geocode'] });
+                google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+                google.maps.event.addDomListener(userAddress, 'keyup', function(e) {
+                  if (e.key === "Enter") {
+                    e.preventDefault(); // Do not submit the form on Enter.
+                  }
+                });
+              }
+
+              // var inputs = [userName1, userName2, userKids, userPhone]
+
+              // ES6 that crash assets precompile, wait for rails updates?
+              // for (var value of inputs) {
+              //   if (value) {
+              //     value.addEventListener("keydown", testIt, true);
+              //   }
+              // }
+
+              // for(i = 0;i<inputs.length;i++) {
+              //   if (inputs[i]) {
+              //     inputs[i].addEventListener("keyup", testIt, true);
+              //   }
+              // }
+
+            });
+  </script>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

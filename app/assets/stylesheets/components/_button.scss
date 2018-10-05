@@ -1,5 +1,5 @@
 .btn, input.btn, select.btn {
-  color: white;
+  color: white !important;
   // background-color: $yellow;
   border-radius: $border-radius;
   height: auto !important;
@@ -11,7 +11,7 @@
   margin: auto;
   min-width: 200px;
   box-shadow: none;
-  font-size: 1.1rem;
+  font-size: 16px;
   -webkit-box-shadow: none;
   border-bottom:none;
   cursor: pointer;
@@ -40,7 +40,7 @@
     white-space: normal;
   }
   &.btn-large {
-    max-width: 350px;
+    width: 100%;
   }
 }
 
@@ -74,6 +74,7 @@ input {
 }
 .btn-purple {
   background-color: $purple !important;
+  color: white;
 }
 .btn-gray {
   background-color: $dark-blue;
