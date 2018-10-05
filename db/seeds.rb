@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# User.destroy_all
+User.destroy_all
 Trip.destroy_all
 
 emails = %w(sarahfarrel.b@gmail.com faith.R@gmail.com june.hullard@yahoo.fr Celeste.in@gmail.com Steph.croods@girst.com Marge@simpson.com Shan@shen.cn helen.Christobale@world.co judith@hero.com)
@@ -44,22 +44,22 @@ birth_dates = rand(18..40).to_s
 dates = ["01/04/2019", "13/12/2018","01/11/2018","22/10/2018","16/12/20018","21/11/2018","22/01/2019","01/01/2019","02/02/2019","05/05/2019"]
 
 
-# emails.each_with_index do |x, i|
-#   print "Creating #{first_names[i]} ..."
-#   User.create!(email: x,
-#                password: password,
-#                first_name: first_names[i],
-#                last_name: last_names[i],
-#                phone: phone,
-#                sentence: sentences[i],
-#                address: addresses[i],
-#                role: rand(1..2),
-#                host: rand(0..2),
-#                birth_date: "10/05/1995",
-#                photo: open(photos[i]))
+emails.each_with_index do |x, i|
+  print "Creating #{first_names[i]} ..."
+  User.create!(email: x,
+               password: password,
+               first_name: first_names[i],
+               last_name: last_names[i],
+               phone: phone,
+               sentence: sentences[i],
+               address: addresses[i],
+               role: rand(1..2),
+               host: rand(0..2),
+               birth_date: "10/05/1995",
+               photo: open(photos[i]))
 
-#   puts "> #{first_names[i]} created !"
-# end
+  puts "> #{first_names[i]} created !"
+end
 
 puts "Creating trips"
 print "["
