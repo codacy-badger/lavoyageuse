@@ -38,6 +38,9 @@ fr:
       traveller: "Membre qui a effectué au moins un voyage chez une hébergeuse"
     mosaic:
       title: "Nos hébergeuses"
+    profile_card:
+      coming-soon: "Coming soon"
+      hint: "future hébergeuse en attente de validation"
     show:
       column-title: "Nos hébergeuses / "
       live_in: "habite à"

@@ -1,3 +1,14 @@
+.profile-card-filter{
+  @include media-breakpoint-up(md) { height: 270px; width: 280px;}
+  @include media-breakpoint-down(md) { height: 300px; width: 100%;}
+  position: absolute;
+  top: 0;
+  left: 15px;
+  background-color: rgba(30,0,60,0.7);
+  margin-bottom: 20px;
+  color: white;
+  padding: 20px;
+}
 .profile-card {
   @include media-breakpoint-up(md) { height: 270px; width: 280px;}
   @include media-breakpoint-down(md) { height: 300px; width: 100%;}

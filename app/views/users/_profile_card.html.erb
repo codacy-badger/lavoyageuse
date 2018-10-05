@@ -1,13 +1,11 @@
-<%= link_to user_path(user) do %>
-  <div class="profile-card">
-    <div class="profile-card-portrait" style="background-image: url('<%= user.photo.present? ? (cl_image_path user.photo.url, effect:"blue:10" ) : "" %>')">
-    </div>
-    <div class="profile-card-description">
-      <h5 class="name"><%= user.first_name %></h5>
-      <h5 class="distance"><%= user.address %></h5>
-      <div class="catchy flexbox">
-        <h5><%= user.sentence || "" %></h5>
-      </div>
-    </div>
+<% if user.validated_host? %>
+  <%= link_to user_path(user) do %>
+    <%= render "profile_card_to_click", user:user %>
+  <% end %>
+<% else %>
+  <%= render "profile_card_to_click", user:user %>
+  <div class="profile-card-filter">
+    <h5><strong><%= t('.coming_soon') %></strong></h5>
+    <h6><%= t('.hint') %></h6>
   </div>
 <% end %>
