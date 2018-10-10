@@ -8,7 +8,7 @@
                                        resize: "none" },
                           id: "textarea",
                           as: :text  %>
-    <%= f.input :hidden_value, input_html: {value: content[:hidden_value] }, as: :hidden %>
+    <%= f.input content[:hidden_attribute], input_html: {value: content[:hidden_value] }, as: :hidden %>
     <div class="row">
     <div class="col-12">
       <%= f.button :submit, value: content[:btn_text], data: { disable_with: "" }, class:"btn btn-blue" %>

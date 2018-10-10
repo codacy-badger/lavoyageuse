@@ -2,6 +2,7 @@ fr:
   metas:
     title: "La voyageuse"
   shared:
+    get_premium: "Passer en premium"
     navbar:
       sign_up: "M'inscrire"
       sign_in: "Connexion"
@@ -51,9 +52,11 @@ fr:
       photos: "Photos de moi, de nous ..."
       message_placeholder: "Votre message ici."
       message_btn_text: "Envoyer le message"
+      message_be_premium: "Vous devez être membre premium pour envoyer un message aux hébergeuses"
       comment_placeholder: "Votre nouveau commentaire ici"
       comment_btn_text: "Envoyer le commentaire"
       comment_empty: "Pas de commentaire"
+      comment_be_premium: "Vous devez être membre premium pour laisser un commentaire et avoir annoncé un voyage"
       registration_update: "Modifier vos paramètres d'inscription"
       description_none: "Cette hébergeuse n'a pas complêté sa description"
     edit:

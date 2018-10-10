@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get 'cgu', to: 'pages#cgu'
   get 'chart', to: 'pages#chart'
 
-  resources :users, only: %I[index show edit update]
+  resources :users, only: %I[index show edit update] do
+    member do
+      get "get_premium"
+    end
+  end
+
   resources :comments, only: %I[create]
   resources :messages, only: %I[create]
 end

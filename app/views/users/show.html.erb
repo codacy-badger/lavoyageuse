@@ -33,10 +33,10 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="mb-5">
-                        <h5 class="mb-3"><%= t('.about') %></h5>
+                        <h5 class="mb-3"><span class="mr-3"><%= t('.about') %></h5>
                         <p><%= @user.description || t('.description_none') %></p>
                       </div>
-                      <h5 class="mb-3"><%= t('.photos') %></h5>
+                      <h5 class="mb-3"><span class="mr-3"><%= t('.photos') %></h5>
                       <div class="flex-line flex-left">
                         <div class="photo_placeholder mr-3 flexbox">
                           <i class="fas fa-camera"></i>
@@ -50,15 +50,29 @@
                       </div>
                       <div class="bar-separator-light"></div>
 
-                      <h5 class="mb-3"><%= t('.send_message') %></h5>
-                      <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: messages_path, method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text'), hidden_value: @user.id } %>
-                      <div class="bar-separator-light"></div>
+                        <h5 class="mb-3"><span class="mr-3"><i class="far fa-envelope"></i></span><%= t('.send_message') %></h5>
+                        <% unless current_user.freemium? %>
+                          <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: messages_path, method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text'), hidden_attribute: :current_id, hidden_value: @user.id } %>
+                        <% else %>
+                          <h5 class="p-3 bg-light mb-3">
+                            <%= render "shared/get_premium_btn" %>
+                            <%= t('.message_be_premium') %>
+                          </h5>
+                        <% end %>
 
-                      <h5 class="mb-3"><%= t('.add_comment') %></h5>
-                      <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: comments_path, method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text'), hidden_value: @user.id } %>
+                        <div class="bar-separator-light"></div>
 
-                      <div class="bar-separator-light"></div>
+                        <h5 class="mb-3"><span class="mr-3"><i class="far fa-comment"></i></span><%= t('.add_comment') %></h5>
+                        <% unless current_user.freemium? %>
+                          <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: comments_path, method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text'), hidden_attribute: :current_id ,hidden_value: @user.id } %>
+                        <% else %>
+                          <h5 class="p-3 bg-light mb-3">
+                            <%= render "shared/get_premium_btn" %>
+                            <%= t('.comment_be_premium') %>
+                          </h5>
+                        <% end %>
 
+                        <div class="bar-separator-light"></div>
                       <h5 class="mb-3"><%= t('.comments') %></h5>
                       <% if @comments.empty? %>
                         <p>- <%= t('.comment_empty') %></p>

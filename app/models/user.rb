@@ -49,6 +49,10 @@ class User < ApplicationRecord
     end
   end
 
+  def freemium?
+    role == "visitor" || role == "member"
+  end
+
   private
 
   def image_size_validation
