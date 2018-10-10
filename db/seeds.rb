@@ -22,6 +22,7 @@ addresses = [ "22 Rue de la Preceinte, Le Bouscat",
             "9 Rue André Darbon, Bordeaux",
             "124 Rue Lucien Faure, Bordeaux",
             "65 Quai des Chartrons, Bordeaux"]
+cities = ["Bordeaux", "Bordeaux", "Bordeaux", "Le Haillan", "Mérignac", "Bordeaux", "Bordeaux", "Bordeaux"]
 sentences = ["J'aime le yoga et la cuisine",
               "J'aime l'art et la danse",
               "J'aime voyager et faire des rencontres",
@@ -53,6 +54,7 @@ emails.each_with_index do |x, i|
                phone: phone,
                sentence: sentences[i],
                address: addresses[i],
+               city: cities[i],
                role: rand(1..2),
                host: rand(0..2),
                birth_date: "10/05/1995",

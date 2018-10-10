@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def freemium?
-    role == "visitor" || role == "member"
+    role == "visitor" || role == "member" || role == nil
   end
 
   private
