@@ -44,4 +44,5 @@ end
 
 group :production do
   gem 'postmark-rails'
+  gem 'google-analytics-rails', '1.1.1'
 end

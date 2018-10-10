@@ -123,6 +123,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
+    google-analytics-rails (1.1.1)
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
@@ -316,6 +317,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.0.9)
   geocoder
   gmaps4rails
+  google-analytics-rails (= 1.1.1)
   inherited_resources!
   jbuilder (~> 2.0)
   jquery-rails

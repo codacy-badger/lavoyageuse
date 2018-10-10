@@ -83,3 +83,9 @@ production:
   database: lavoyageuse_production
   username: lavoyageuse
   password: <%= ENV['LAVOYAGEUSE_DATABASE_PASSWORD'] %>
+
+staging:
+  <<: *default
+  database: lavoyageuse_staging
+  username: lavoyageuse
+  password: <%= ENV['LAVOYAGEUSE_DATABASE_PASSWORD'] %>
