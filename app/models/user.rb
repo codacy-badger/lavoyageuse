@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  enum role: {visitor: 0, member: 1, premium: 2, moderator: 3, admin: 4}
+  enum role: {visitor: 0, member: 1, premium: 2, moderator: 3}
   enum host: {not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  def name
+    "#{id} - #{first_name} #{last_name}"
+  end
 
   def full_name
     "#{first_name} #{last_name}"

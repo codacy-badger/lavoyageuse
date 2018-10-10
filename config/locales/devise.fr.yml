@@ -55,7 +55,7 @@ fr:
         sentence: "J'aime l'art et ..."
         birth_date: "Date de naissance"
         password: "Mot de passe"
-        password_hint: "8 caractères minimum incluant majuscule, mininuscule et lettre"
+        password_hint: "8 caractères minimum incluant majuscule, mininuscule et chiffre"
         password2: "Confirmer le mot de passe"
         photo: "Photo :"
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
