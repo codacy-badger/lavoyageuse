@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :under_construction?
   before_action :authenticate_user!
   before_action :cookie
   add_flash_types :success, :warning
@@ -28,6 +29,12 @@ class ApplicationController < ActionController::Base
   def email_valid(email)
     mail_regex = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/
     email =~ mail_regex && email.length > 8
+  end
+
+  def under_construction?
+    if ENV['UNDER_CONSTRUCTION']
+      redirect_to under_construction_path
+    end
   end
 
   protected

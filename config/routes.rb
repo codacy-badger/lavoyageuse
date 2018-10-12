@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'cgu', to: 'pages#cgu'
   get 'chart', to: 'pages#chart'
+  get 'under_construction', to: redirect('/under_construction.html')
 
   resources :users, only: %I[index show edit update] do
     member do
