@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def under_construction?
-    if ENV['UNDER_CONSTRUCTION']
+    if ENV['UNDER_CONSTRUCTION'] == "true"
       redirect_to under_construction_path
     end
   end
