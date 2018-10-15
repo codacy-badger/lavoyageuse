@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: %I[index show edit update] do
     resources :comments, only: %I[create]
     resources :messages, only: %I[create]
+    resources :trips, only: %I[new create]
     member do
       get "get_premium"
     end

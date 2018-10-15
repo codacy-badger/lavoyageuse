@@ -1,0 +1,11 @@
+<%= link_to user_path(partial[:user]) do %>
+  <div class="profile-capsule <%= partial[:klass] %>">
+    <%= cl_image_tag partial[:user].photo.url, class: "mr-2" %>
+    <% if partial[:with_icon] == true %>
+      <p><%= partial[:user].hidden_full_name %></p>
+      <i class="<%= partial[:icon] %>"></i>
+    <% else %>
+      <%= partial[:user].hidden_full_name %>
+    <% end %>
+  </div>
+<% end %>

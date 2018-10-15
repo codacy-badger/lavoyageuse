@@ -19,11 +19,12 @@ class User < ApplicationRecord
 
   has_many :posted_messages, class_name: "Message", foreign_key: "traveller_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "host_id", dependent: :destroy
-  has_many :messages, dependent: :destroy
+
   has_many :posted_comments, class_name: "Comment", foreign_key: "traveller_id",dependent: :destroy
   has_many :received_comments, class_name: "Comment", foreign_key: "host_id",dependent: :destroy
 
-  has_many :trips, dependent: :destroy
+  has_many :announced_trips, class_name: "Trip", foreign_key: "traveller_id", dependent: :destroy
+  has_many :announced_hostings, class_name: "Trip", foreign_key: "host_id", dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

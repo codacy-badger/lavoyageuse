@@ -32,23 +32,6 @@ a.navbar-wagon-brand {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img {
-    height: 50px;
-    border-radius: 50%;
-    width: 50px;
-    object-fit: cover;
-  }
-}
-
-.navbar-account-link {
-  background-color: $light-purple;
-  height: 50px;
-  padding-top: 18px;
-  border-radius: 30px;
-  padding-bottom: 20px;
-  padding-left: 4px;
-  padding-right: 15px;
-  color: white !important;
 }
 
 /* Basic navbar item */

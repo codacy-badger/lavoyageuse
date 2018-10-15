@@ -9,10 +9,9 @@
 
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to user_path(current_user), class: "navbar-wagon-link navbar-account-link" do %>
-        <%= cl_image_tag current_user.photo.url, class: "portrait mr-2" %>
-        <%= current_user.hidden_full_name %>
-      <% end %>
+      <div style="display: inline-block">
+        <%= render "shared/profile_capsule", partial: { user: current_user } %>
+      </div>
       <%= link_to t(".mosaic", default: "Hosts"), users_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".logout", default: "Logout"), destroy_user_session_path,  method: :delete ,class: "navbar-wagon-item navbar-wagon-link" %>
 

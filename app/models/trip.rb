@@ -1,5 +1,5 @@
 class Trip < ApplicationRecord
   validates_presence_of :date
-  validates_presence_of :host
-  belongs_to :user
+  belongs_to :traveller
+  belongs_to :host
 end

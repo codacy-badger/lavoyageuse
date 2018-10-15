@@ -1,0 +1,26 @@
+.profile-capsule {
+  background-color: $light-purple;
+  height: 60px;
+  padding: 5px;
+  border-radius: 30px;
+  color: white !important;
+  font-size: 14px;
+  p{
+    margin-bottom: 0;
+  }
+  &.profile-capsule-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  i {
+    width: 50px;
+    text-align: center;
+  }
+  img {
+    height: 50px;
+    border-radius: 50%;
+    width: 50px;
+    object-fit: cover;
+  }
+}

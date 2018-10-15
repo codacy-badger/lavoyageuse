@@ -60,6 +60,8 @@ fr:
       comment_be_premium: "Vous devez être membre premium pour laisser un commentaire et avoir annoncé un voyage"
       registration_update: "Modifier vos paramètres d'inscription"
       description_none: "Cette hébergeuse n'a pas complêté sa description"
+      trip_announcement: "Annoncer votre voyage chez cette hôte"
+      trip_agreement: "Vous vous êtes mis d'accord avec cette hôte pour un voyage ? Garder une trace :"
     edit:
       live_in: "habite à"
       comments: "Commentaires :"
@@ -91,3 +93,9 @@ fr:
     mail_to_host:
       instructions_title: "Ne tardez pas"
       instructions: "vous pouvez, en tant qu'hébergeuse, répondre directement à cette voyageuse et ainsi échanger par mail. Un système de messagerie intégré à La Voyageuse viendra bientôt."
+  trips:
+    new:
+      title: "Annoncer mon voyage"
+      hint: "Annoncer son voyage permet de pouvoir laisser un commentaire à son hôte, avoir le label Voyageuse, se faire une réputation et laisser une trace de votre destination pour votre sécurité."
+      date_start: "Début du séjour :"
+      date_end: "Date de fin du séjour :"

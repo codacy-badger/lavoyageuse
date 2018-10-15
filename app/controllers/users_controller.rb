@@ -32,6 +32,7 @@ class UsersController < ApplicationController
 
   end
 
+
   private
 
   def params_user
