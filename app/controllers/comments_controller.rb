@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @user = User.find(comment_params[:current_id])
-    @comment = Comment.new(user: current_user, host: @user.id, content: comment_params[:content])
+    @user = comment_params(:user)
+    @comment = Comment.new(user: current_user, host: @user, content: comment_params[:content])
     if @comment.save!
       flash[:notice] = t('.notice')
       redirect_to user_path(@user)
@@ -11,6 +11,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:message).permit(:content, :current_id)
+    params.require(:comment).permit(:content)
   end
 end

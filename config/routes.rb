@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   get 'under_construction', to: redirect('/under_construction.html')
 
   resources :users, only: %I[index show edit update] do
+    resources :comments, only: %I[create]
+    resources :messages, only: %I[create]
     member do
       get "get_premium"
     end
   end
 
-  resources :comments, only: %I[create]
-  resources :messages, only: %I[create]
+
 end
