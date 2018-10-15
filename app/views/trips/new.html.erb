@@ -1,4 +1,4 @@
-<div class="fullscreen under-navbar flexbox">
+<div class="fullscreen under-navbar flexbox" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1537431320/illustrations/photo-1507608869274-d3177c8bb4c7.jpg');">
   <div class="mobile-first-box">
     <h4 class="mb-3"><%= t('.title') %></h4>
     <p><%= t('.hint') %></p>
@@ -14,9 +14,9 @@
     <div class="full-width">
       <%= simple_form_for :trip, url: user_trips_path(@user), method: :post do |f| %>
         <p><%= t('.date_start') %></p>
-        <%= f.input :date, as: :date, html5: true, label: false %>
+        <%= f.input :beginning, as: :date, html5: true, label: false %>
         <p><%= t('.date_end') %></p>
-        <%= f.input :date, as: :date, html5: true, label: false %>
+        <%= f.input :end, as: :date, html5: true, label: false %>
         <div class="row">
         <div class="col-12 pt-3">
           <%= f.button :submit, value: "valider", data: { disable_with: "" }, class:"btn btn-blue btn-large" %>
