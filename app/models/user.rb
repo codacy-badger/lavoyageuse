@@ -17,9 +17,11 @@ class User < ApplicationRecord
   validates_processing_of :photo
   validate :image_size_validation
 
+  has_many :posted_messages, class_name: "Message", foreign_key: "traveller_id", dependent: :destroy
+  has_many :received_messages, class_name: "Message", foreign_key: "host_id", dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :posted_comments, class_name: "Comment", foreign_key: "traveller_id",dependent: :destroy
-  has_many :attached_comments, class_name: "Comment", foreign_key: "host_id",dependent: :destroy
+  has_many :received_comments, class_name: "Comment", foreign_key: "host_id",dependent: :destroy
 
   has_many :trips, dependent: :destroy
 
