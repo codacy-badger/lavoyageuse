@@ -18,7 +18,9 @@ class User < ApplicationRecord
   validate :image_size_validation
 
   has_many :messages, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :posted_comments, class_name: "Comment", foreign_key: "traveller_id",dependent: :destroy
+  has_many :attached_comments, class_name: "Comment", foreign_key: "host_id",dependent: :destroy
+
   has_many :trips, dependent: :destroy
 
   geocoded_by :address

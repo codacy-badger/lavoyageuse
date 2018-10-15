@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @user = comment_params(:user)
-    @comment = Comment.new(user: current_user, host: @user, content: comment_params[:content])
+    @user = User.find(params[:user_id])
+    @comment = Comment.new(traveller: current_user, host: @user, content: comment_params[:content])
     if @comment.save!
       flash[:notice] = t('.notice')
       redirect_to user_path(@user)
