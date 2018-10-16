@@ -25,10 +25,16 @@
                       <h4><%= @user.hidden_full_name %></h4>
                       <p><%= t('.live_in') %> Paris</p>
                       <%= render "labels" %>
-                      <p><%= t('.trip_agreement') %></p>
-                      <%= link_to t('.trip_announcement'), new_user_trip_path(@user) ,class:"btn btn-yellow mb-2" %></div>
-                      <div class="bar-separator"></div>
+                      <%= render "trips/trip_announcement" %>
+                      <div class="bar-separator-light"></div>
+                    </div>
+
+                    <div class="col-12">
                       <p class="sentence">"<%= @user.sentence %>"</p>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="bar-separator"></div>
                     </div>
                   </div>
 

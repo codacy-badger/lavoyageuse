@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20181015142904) do
     t.string "birth_date"
     t.float "longitude"
     t.float "latitude"
-    t.integer "role"
+    t.integer "role", default: 0
     t.string "photo"
     t.string "cardid"
     t.string "sentence"

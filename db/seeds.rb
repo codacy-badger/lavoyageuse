@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+# User.destroy_all
 Trip.destroy_all
 
 emails = %w(sarahfarrel.b@gmail.com faith.R@gmail.com june.hullard@yahoo.fr Celeste.in@gmail.com Steph.croods@girst.com Marge@simpson.com Shan@shen.cn helen.Christobale@world.co judith@hero.com)
@@ -70,7 +70,7 @@ print "["
   while host == user
     host = User.find(rand(User.first.id..User.last.id))
   end
-  Trip.create!(user:user, host: host.id , date: dates[index])
+  Trip.create!(traveller:user, host: host, beginning: dates[index], end: dates[index+1] || dates[0])
   print "-"
 end
 puts ["]"]

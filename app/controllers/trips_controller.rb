@@ -8,9 +8,9 @@ class TripsController < ApplicationController
     @trip = Trip.new(traveller: current_user, host: @user, beginning: trips_params[:beginning], end: trips_params[:end])
     if @trip.save!
       redirect_to @user
-      flash[:success] = "success"
+      flash[:success] = t('.success')
     else
-      flash[:warning] = "Successfully created..."
+      flash[:warning] = t('.warning')
       redirect_to new_user_trip_path(@user)
     end
   end
