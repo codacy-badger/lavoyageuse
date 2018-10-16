@@ -1,0 +1,19 @@
+.cookies-eu {
+  line-height: 27px;
+  @include media-breakpoint-down(xs) {
+   background-color: #9A97FF !important;
+   color: white;
+  }
+  @include media-breakpoint-up(xs) {
+   background-color: white !important;
+   }
+  .cookies-eu-content-holder {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .cookies-eu-ok.js-cookies-eu-ok {
+    padding: 5px 30px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+}
