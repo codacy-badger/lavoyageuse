@@ -1,0 +1,10 @@
+<% if existing_exchanges? %>
+  <% if future_trip? %>
+    <h5 class="p-3 btn-light-purple text-white mb-3">
+      <%= t('.existing_trip_html', beginning: beginning_of_last_trip, end: end_of_last_trip) %>
+    </h5>
+  <% else %>
+    <p><%= t('.text') %></p>
+    <%= link_to t('.btn_text'), new_user_trip_path(@user) ,class:"btn btn-yellow mb-2" %>
+  <% end %>
+<% end %>

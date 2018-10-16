@@ -16,4 +16,20 @@ module ApplicationHelper
   def me?
     current_user == @user
   end
+
+  def existing_exchanges?
+    current_user.posted_messages.where(host: @user)
+  end
+
+  def future_trip?
+    current_user.announced_trips.maximum(:end) > DateTime.now
+  end
+
+  def beginning_of_last_trip
+    current_user.announced_trips.order(:beginning).last.beginning
+  end
+
+  def end_of_last_trip
+    current_user.announced_trips.order(:end).last.end
+  end
 end
