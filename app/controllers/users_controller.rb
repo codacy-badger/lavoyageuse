@@ -3,13 +3,13 @@ class UsersController < ApplicationController
   before_action :user_comments, only: %i(show edit moderate)
 
   def index
+    console
     if params[:query]
       @users = User.near(params[:query][:content], 100).order(host: :desc)
     else
+      @users = User.hosts.all_except(current_user).order(host: :desc)
       if current_user.moderator?
-        @users = User.all_except(current_user).order(host: :desc)
-      else
-        @users = User.hosts.all_except(current_user).order(host: :desc)
+        @travellers = User.not_host.all_except(current_user).order(updated_at: :desc)
       end
     end
   end

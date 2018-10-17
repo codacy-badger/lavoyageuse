@@ -1,5 +1,9 @@
 <div class="navbar-wagon">
+  <% if user_signed_in? %>
+    <div class="label-moderator"><i class="fas fa-chess-knight"></i> moderator : <%= current_user.first_name %></div>
+  <% end %>
   <!-- Logo -->
+
   <div>
     <div class="row">
       <div class="col-12 col-sm-6 flex-vertical-align">
@@ -17,6 +21,7 @@
   <div class="navbar-wagon-right d-none d-xl-block">
 
     <% if user_signed_in? %>
+
       <!-- Links when logged in -->
       <div style="display: inline-block">
         <%= render "shared/profile_capsule", partial: { user: current_user } %>
@@ -34,6 +39,8 @@
   </div>
 
   <div class="navbar-wagon-item d-block d-xl-none">
+
+
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

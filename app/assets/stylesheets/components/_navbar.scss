@@ -10,6 +10,17 @@
   justify-content: space-between;
   position: relative;
   width: 100%;
+  .label-moderator {
+    position: absolute;
+    top: 69px;
+    right: -1px;
+    background-color: $green;
+    padding: 5px 10px 10px 10px;
+    border-radius: 0 0 0 3px;
+    margin: 1px;
+    color: white;
+    z-index: 1000;
+  }
 }
 
 /* Logo */

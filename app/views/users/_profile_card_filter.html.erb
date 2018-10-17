@@ -1,0 +1,11 @@
+<%= user.role %>
+<% if user.role == "visitor" %>
+  <div class="profile-card-filter-to-moderate" style="background-color: red">
+    <h5><strong>To Validate as member</strong></h5>
+  </div>
+<% end %>
+<% if user.host == "unvalidated_host"%>
+  <div class="profile-card-filter-to-moderate">
+    <h5><strong>To Validate as host</strong></h5>
+  </div>
+<% end %>

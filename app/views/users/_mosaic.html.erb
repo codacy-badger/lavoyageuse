@@ -8,5 +8,15 @@
         <%= render "users/profile_card", user: user %>
       </div>
     <% end %>
+    <% if current_user.moderator? %>
+      <div class="col-12 mosaic-header">
+        <p class="title">Not host members - <span class="badge badge-pill badge-success"> moderator only</span></p>
+      </div>
+      <% @travellers.each do |user| %>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <%= render "users/profile_card", user: user %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

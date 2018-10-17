@@ -1,6 +1,7 @@
-<% if user.validated_host? %>
+<% if user.validated_host? || current_user.moderator? %>
   <%= link_to user_path(user) do %>
     <%= render "profile_card_to_click", user:user %>
+    <%= render "profile_card_filter", user: user %>
   <% end %>
 <% else %>
   <%= render "profile_card_to_click", user:user %>

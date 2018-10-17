@@ -9,6 +9,14 @@
   color: white;
   padding: 20px;
 }
+.profile-card-filter-to-moderate {
+  position: absolute;
+  top: 130px;
+  width: 280px;
+  background-color: orange;
+  padding: 5px;
+  height: 30px;
+}
 .profile-card {
   @include media-breakpoint-up(md) { height: 270px; width: 280px;}
   @include media-breakpoint-down(md) { height: 300px; width: 100%;}

@@ -29,7 +29,8 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  scope :hosts, -> { where(role: [1, 2]) }
+  scope :hosts, -> { where(host: [1,2], role:[1,2]) }
+  scope :not_host, -> { where(host: 0) }
   scope :all_except, ->(user) { where.not(id: user) }
 
   def name
