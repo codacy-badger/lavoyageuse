@@ -1,11 +1,20 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo_lavoyageuse.svg", height: 50 %>
-  <% end %>
+  <div>
+    <div class="row">
+      <div class="col-12 col-sm-6 flex-vertical-align">
+        <%= link_to root_path, class: "navbar-wagon-brand" do %>
+          <%= image_tag "logo_lavoyageuse.svg", height: 50 %>
+        <% end %>
+      </div>
+      <div class="col-12 col-sm-6 flex-vertical-align">
+        <%= render "shared/search_bar" %>
+      </div>
+    </div>
+  </div>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right d-none d-lg-block">
+  <div class="navbar-wagon-right d-none d-xl-block">
 
     <% if user_signed_in? %>
       <!-- Links when logged in -->
@@ -24,7 +33,7 @@
     <% end %>
   </div>
 
-  <div class="navbar-wagon-item d-block d-lg-none">
+  <div class="navbar-wagon-item d-block d-xl-none">
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">

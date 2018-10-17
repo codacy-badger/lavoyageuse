@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :trips, only: %I[new create]
     member do
       get "get_premium"
+      get "moderate"
     end
   end
 

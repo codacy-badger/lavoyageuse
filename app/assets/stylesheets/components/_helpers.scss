@@ -180,6 +180,10 @@ $input-height: 56px;
   justify-content: center;
   align-items: flex-end;
 }
+.flex-vertical-align {
+  display: flex;
+  align-items: center;
+}
 .flex-line {
   @extend %display-flex;
   align-items: center;

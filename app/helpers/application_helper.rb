@@ -22,7 +22,10 @@ module ApplicationHelper
   end
 
   def future_trip?
-    current_user.announced_trips.maximum(:end) > DateTime.now
+    @trips = current_user.announced_trips
+    if @trips.count > 0
+      @trips.maximum(:end) > DateTime.now
+    end
   end
 
   def beginning_of_last_trip

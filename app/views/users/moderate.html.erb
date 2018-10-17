@@ -7,6 +7,7 @@
           <div class="row">
             <div class="profile-breadcrumb col-12">
               <h5><%= @user.hidden_full_name %></h5>
+              <div class="label-moderator">moderator : <%= current_user.first_name %></div>
             </div>
             <div class="col-12">
               <div class="page-wrapper black-on-white margin-bottom-big relative">
@@ -15,11 +16,6 @@
                                                       icon: "fas fa-times",
                                                       klass: "pastille pastille-white pastille-close flexbox"
                                                       } %>
-                <%= link_to edit_user_registration_path, class:"pastille pastille-white pastille-close second flexbox" do %>
-                  <div style="top:13px;">
-                    <p style="font-size:23px"><i class="fas fa-pencil-alt"></i></p>
-                  </div>
-                <% end %>
 
                 <div class="container">
                   <div class="row">
@@ -29,7 +25,9 @@
 
                     <div class="col-xs-12 col-md-6">
                       <h4><%= @user.hidden_full_name %></h4>
-                      <p><%= t('.live_in') + " " + @user.city if @user.city.present? %> </p>
+                        <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
+                        <p><i class="fas fa-phone"></i> <%= @user.phone %> </p>
+                        <p><i class="fas fa-birthday-cake"></i> <%= @user.birth_date %> </p>
                       <% if me? %>
                         <%= link_to t('users.becoming_host_form.home_offer_btn_text'),"#home_proposal", class:"btn btn-light-purple mb-3" %>
                       <% end %>
@@ -42,8 +40,8 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="mb-5">
-                        <h5 class="mb-3"><%= t('.about') %></h5>
-                        <%= render "shared/mini_form", query: :user, attribute: :description, content: { label: false, path: @user, method: :patch, placeholder: t('.about_content'), value: @user.description || "", btn_text: t('.about_btn_text') } %>
+                        <h5 class="mb-3">About</h5>
+                        <p><%= @user.description || t('.description_none') %></p>
                       </div>
                       <h5 class="mb-3"><%= t('.photos') %></h5>
                       <div class="flex-line flex-left">
@@ -60,20 +58,34 @@
                       <div class="bar-separator-light"></div>
 
                       <div class="mb-5" id="home_proposal">
-                        <h5 class="mb-3"><%= t('.host_title') + t('.home_minimum') %></h5>
+                        <h5 class="mb-3">Hosting</h5>
                         <% case @user.host %>
                           <% when "not_host" %>
-                            <%= render "becoming_host_form" %>
+                            <h5 class="p-3 bg-secondary text-white mb-3">not host</h5>
                           <% when "unvalidated_host" %>
-                            <h5 class="p-3 bg-secondary text-white mb-3"><%= t('.host_unvalidated') %></h5>
+                            <h5 class="p-3 bg-secondary text-white mb-3">unvalidated host</h5>
+                            <p><%= @user.home %></p>
+                            <!-- button validate -->
+                            <div class="full-width">
+                            <!-- button unvalidate -->
+                              <%= simple_form_for :user, url: @user, method: :patch do |f| %>
+                                <div class="row">
+                                  <div class="col-12">
+                                    <%= f.input :host, input_html: {value: "validated_host" }, as: :hidden %>
+                                    <%= f.button :submit, value: "validate this host", data: { disable_with: "" }, class:"btn btn-green" %>
+                                  </div>
+                                </div>
+                              <% end %>
+                            </div>
                           <% when "validated_host" %>
                             <p><%= @user.home %></p>
                             <div class="full-width">
+                            <!-- button unvalidate -->
                               <%= simple_form_for :user, url: @user, method: :patch do |f| %>
                                 <div class="row">
                                   <div class="col-12">
                                     <%= f.input :host, input_html: {value: "not_host" }, as: :hidden %>
-                                    <%= f.button :submit, value: t('.home_cancel_btn_text'), data: { disable_with: "" }, class:"btn btn-red" %>
+                                    <%= f.button :submit, value: "unvalidate this host", data: { disable_with: "" }, class:"btn btn-red" %>
                                   </div>
                                 </div>
                               <% end %>

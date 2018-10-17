@@ -1,0 +1,7 @@
+<div class="search-bar">
+  <i class="fas fa-search"></i>
+  <%= simple_form_for :query, url: users_path, method: :get do |f| %>
+    <%= f.input :content, label: false, placeholder: t('.placeholder') %>
+  <%= f.button :submit, value: t('.btn_text'), as: :hidden %>
+  <% end %>
+</div>
