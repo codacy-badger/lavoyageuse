@@ -9,6 +9,7 @@
       <div class="col-12 col-sm-6 flex-vertical-align">
         <%= link_to root_path, class: "navbar-wagon-brand" do %>
           <%= image_tag "logo_lavoyageuse.svg", height: 50 %>
+          <label style="position: absolute; right: 27px; color: orange;"><%= ENV['GA_TRACKER_ENV'] %></label>
         <% end %>
       </div>
       <div class="col-12 col-sm-6 flex-vertical-align">
