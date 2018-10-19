@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# User.destroy_all
+User.where.not(email: "abriko@yahoo.fr").destroy_all
 Trip.destroy_all
 
 emails = %w(sarahfarrel.b@gmail.com faith.R@gmail.com june.hullard@yahoo.fr Celeste.in@gmail.com Steph.croods@girst.com Marge@simpson.com Shan@shen.cn helen.Christobale@world.co judith@hero.com)
@@ -42,7 +35,6 @@ photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v153
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--5NQ5mEFZ--/v1537430215/seed/rjmrbr7a6hrfafwsjsyq.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--yS2F3HeI--/v1537430216/seed/rmscx1xilaysbhbm4dts.jpg"]
 birth_dates = rand(18..40).to_s
-dates = ["01/04/2019", "13/12/2018","01/11/2018","22/10/2018","16/12/20018","21/11/2018","22/01/2019","01/01/2019","02/02/2019","05/05/2019"]
 
 
 emails.each_with_index do |x, i|
@@ -63,12 +55,16 @@ emails.each_with_index do |x, i|
   puts "> #{first_names[i]} created !"
 end
 
+@users = User.where.not(email: "abriko@yahoo.fr")
+dates = ["01/04/2019", "13/12/2018","01/11/2018","22/10/2018","16/12/20018","21/11/2018","22/01/2019","01/01/2019","02/02/2019","05/05/2019"]
+
+
 puts "Creating trips"
 print "["
 10.times do |index|
-  user = host = User.find(rand(User.first.id..User.last.id))
+  user = host = User.find(rand(@users.first.id..@users.last.id))
   while host == user
-    host = User.find(rand(User.first.id..User.last.id))
+    host = User.find(rand(@users.first.id..@users.last.id))
   end
   Trip.create!(traveller:user, host: host, beginning: dates[index], end: dates[index+1] || dates[0])
   print "-"

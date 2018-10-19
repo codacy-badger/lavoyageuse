@@ -1,5 +1,5 @@
 <div class="navbar-wagon">
-  <% if user_signed_in? && current_user.moderator %>
+  <% if user_signed_in? && moderation %>
     <div class="label-moderator"><i class="fas fa-chess-knight"></i> moderator : <%= current_user.first_name %></div>
   <% end %>
   <!-- Logo -->

@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def existing_exchanges?
-    current_user.posted_messages.where(host: @user)
+    current_user.posted_messages.where(host: @user).count > 0
   end
 
   def future_trip?
@@ -26,6 +26,10 @@ module ApplicationHelper
     if @trips.count > 0
       @trips.maximum(:end) > DateTime.now
     end
+  end
+
+  def moderation
+    current_user.moderator
   end
 
   def beginning_of_last_trip

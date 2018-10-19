@@ -94,7 +94,6 @@
     font-size: 16px;
   }
   .checkbox{
-    margin-top: 10px;
     @include media-breakpoint-up(md) {
       input#user_remember_me {
         width: 25px;

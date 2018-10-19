@@ -76,9 +76,14 @@ fr:
       already_signed_out: "Déconnecté."
       new:
         submit: "Connexion"
+        remember_me: "Se souvernir de moi"
     shared:
       links:
         already_signed_up: "Déjà inscrit ? Connectez-vous"
+        signup: "S'enregistrer"
+        forgot_your_password?: "Mot de passe oublié ?"
+        not_received_confirmation: "Vous n'avez pas reçu la confirmation ?"
+        not_received_unlock_instructions: "Vous n'avez pas reçu les instructions de validation ?"
     unlocks:
       send_instructions: "Vous allez recevoir les instructions nécessaires au déverrouillage de votre compte dans quelques instants"
       send_paranoid_instructions: "Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller."

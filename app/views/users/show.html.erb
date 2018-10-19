@@ -15,7 +15,7 @@
                                                       icon: "fas fa-times",
                                                       klass: "pastille pastille-white pastille-close flexbox"
                                                         } %>
-                <% if current_user.moderator %>
+                <% if moderation %>
                 <%= render "shared/button_with_icon", locals: {
                                                       path: moderate_user_path(@user),
                                                       icon: "fas fa-chalkboard-teacher",

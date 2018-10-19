@@ -8,10 +8,10 @@
 
             <%= f.input :email, required: false, autofocus: true%>
             <%= f.input :password, required: false %>
-            <label class="checkbox margin-bottom-medium">
+            <label class="checkbox margin-bottom-medium flex-vertical-align">
               <input value="0" type="hidden" name="user[remember_me]">
-              <input type="checkbox" class="boolean optional" checked="checked" id="user_remember_me" name="user[remember_me]" value="1" />
-              <label for="user_remember_me"><%= t('.remember_me') %></label>
+              <input type="checkbox" class="boolean mr-3" checked="checked" id="user_remember_me" name="user[remember_me]" value="1" />
+              <label class="pt-2" for="user_remember_me"><%= t('.remember_me') %></label>
             </label>
           </div>
 
