@@ -4,7 +4,7 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
 
   # Google analytics ID
-  GA.tracker = "UA-127746368-1"
+  GA.tracker = "UA-127748586-1"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
