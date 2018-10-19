@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @unvalidated_members = User.unvalidated_members.all_except(current_user).order(updated_at: :desc)
         @suspended_members = User.suspended_members.all_except(current_user).order(updated_at: :desc)
       else
-        @users = User.hosts.all_except(current_user).order(host: :desc)
+        @users = User.possible_hosts.all_except(current_user).order(host: :desc)
       end
     end
   end
