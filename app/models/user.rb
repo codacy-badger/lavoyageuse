@@ -32,7 +32,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  scope :hosts, -> { where(host: [1,2], role:1) }
+  scope :possible_hosts, -> { where(host: [1,2], role:1) }
   scope :not_hosts, -> { where(host: 0, role:1) }
   scope :unvalidated_members, -> { where(role: 0) }
   scope :suspended_members, -> { where(role: 2) }

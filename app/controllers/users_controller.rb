@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       @users = User.near(params[:query][:content], 100).order(host: :desc)
     else
       if current_user.moderator
-        @hosts = User.hosts.all_except(current_user).order(host: :asc)
+        @hosts = User.possible_hosts.all_except(current_user).order(host: :asc)
         @not_host_members = User.not_hosts.all_except(current_user).order(updated_at: :desc)
         @unvalidated_members = User.unvalidated_members.all_except(current_user).order(updated_at: :desc)
         @suspended_members = User.suspended_members.all_except(current_user).order(updated_at: :desc)
