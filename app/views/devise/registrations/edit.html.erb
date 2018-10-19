@@ -2,7 +2,7 @@
 <div class="flex-parent"> <!-- for IE bug -->
   <div class="fullscreen relative text-left lv-one-page" style=" background-image: linear-gradient(0deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.7) 100%), url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1536852011/illustrations/photo-1491438590914-bc09fcaaf77a.jpg')">
     <div class="form_login center">
-      <h1><%= t('devise.registrations.new.layout-title') %></h1>
+      <h1><%= t('devise.registrations.edit.layout-title') %></h1>
       <p><%= t('devise.registrations.new.needed') %></p>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>

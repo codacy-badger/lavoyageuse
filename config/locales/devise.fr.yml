@@ -60,6 +60,7 @@ fr:
         photo: "Photo :"
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
       edit:
+        layout-title: "Édition de profil"
         password: "Nouveau mot de passe"
         password_hint: "Uniquement si vous souhaitez le modifier"
         new-password: "Retaper le nouveau mot de passe"
