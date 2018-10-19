@@ -319,7 +319,7 @@ DEPENDENCIES
   devise-i18n (~> 1.2)
   dotenv-rails
   figaro
-  font-awesome-sass (~> 5.0.9)
+  font-awesome-sass
   geocoder
   gmaps4rails
   google-analytics-rails (= 1.1.1)

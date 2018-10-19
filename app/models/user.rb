@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
-  enum role: {visitor: 0, member: 1, premium: 2, moderator: 3}
+  enum role: {visitor: 0, member: 1, suspended: 2}
   enum host: {not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -26,11 +26,17 @@ class User < ApplicationRecord
   has_many :announced_trips, class_name: "Trip", foreign_key: "traveller_id", dependent: :destroy
   has_many :announced_hostings, class_name: "Trip", foreign_key: "host_id", dependent: :destroy
 
+  has_many :moderation_done, class_name: "Moderation", foreign_key: "moderator_id"
+  has_many :moderation_suffered, class_name: "Moderation", foreign_key: "moderated_id"
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  scope :hosts, -> { where(host: [1,2], role:[1,2]) }
-  scope :not_host, -> { where(host: 0) }
+  scope :hosts, -> { where(host: [1,2], role:1) }
+  scope :not_hosts, -> { where(host: 0, role:1) }
+  scope :unvalidated_members, -> { where(role: 0) }
+  scope :suspended_members, -> { where(role: 2) }
+  scope :premium, -> { where(premium: true)}
   scope :all_except, ->(user) { where.not(id: user) }
 
   def name
@@ -45,6 +51,10 @@ class User < ApplicationRecord
     "#{first_name} #{last_name[0]}".split.map(&:capitalize).join(" ") + "."
   end
 
+  def not_accessible
+    not_host? || suspended?
+  end
+
   def gmap_hash(users)
     Gmaps4rails.build_markers(users) do |user, marker|
       marker.lat user.latitude
@@ -56,10 +66,6 @@ class User < ApplicationRecord
         height: 32,
         })
     end
-  end
-
-  def freemium?
-    role == "visitor" || role == "member" || role == nil
   end
 
   private

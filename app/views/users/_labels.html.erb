@@ -1,4 +1,4 @@
-<% if @user.role == "member" || "premium" %>
+<% if @user.role == "member" %>
   <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.profil_authenticated') %>">
     <%= image_tag "profil_authenticated.svg", class:"label" %>
   </div>
@@ -13,7 +13,7 @@
     <%= image_tag "label_voyageuse.svg", class:"label" %>
   </div>
 <% end %>
-<% if @user.role == "premium" %>
+<% if @user.premium %>
   <div class="mb-3 with_pointer" data-toggle="tooltip" data-placement="left" title="<%= t('.traveller') %>">
     <%= image_tag "label_premium.svg", class:"label" %>
   </div>

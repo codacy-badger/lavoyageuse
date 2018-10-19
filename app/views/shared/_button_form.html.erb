@@ -1,0 +1,9 @@
+ <%= simple_form_for local[:model], url: local[:path], method: local[:method] do |f| %>
+  <div class="row button_form">
+    <div class="col-12">
+      <i class="<%= local[:icon]%>"></i>
+      <%= f.input local[:attribute], input_html: {value: local[:value] }, as: :hidden %>
+      <%= f.button :submit, value: local[:btn_text], data: local[:data], class:"btn #{local[:btn_extra_class]}" %>
+    </div>
+  </div>
+<% end %>

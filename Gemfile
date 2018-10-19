@@ -13,7 +13,6 @@ gem 'redis'
 gem 'cookies_eu'
 
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~> 5.0.9'
 gem 'rails-i18n'
 gem 'sass-rails'
 gem 'jquery-rails'

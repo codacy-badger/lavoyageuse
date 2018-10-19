@@ -1,6 +1,9 @@
-<%= user.role %>
+<div class="profile-card-info-addon">
+  <% if user.premium %><i class="fas fa-star mr-1"></i><% end %>
+  <%= "premium " if user.premium %><%= user.role %>
+</div>
 <% if user.role == "visitor" %>
-  <div class="profile-card-filter-to-moderate" style="background-color: red">
+  <div class="profile-card-filter-to-moderate">
     <h5><strong>To Validate as member</strong></h5>
   </div>
 <% end %>

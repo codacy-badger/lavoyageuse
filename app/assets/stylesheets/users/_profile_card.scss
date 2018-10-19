@@ -17,6 +17,17 @@
   padding: 5px;
   height: 30px;
 }
+.profile-card-info-addon {
+  background-color: purple;
+  height: 30px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  width: 280px;
+}
 .profile-card {
   @include media-breakpoint-up(md) { height: 270px; width: 280px;}
   @include media-breakpoint-down(md) { height: 300px; width: 100%;}

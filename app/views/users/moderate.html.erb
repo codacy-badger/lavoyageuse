@@ -10,11 +10,11 @@
             </div>
             <div class="col-12">
               <div class="page-wrapper black-on-white margin-bottom-big relative">
-                <%= render "shared/button_with_icon", locals: {
-                                                      path: users_path,
-                                                      icon: "fas fa-times",
-                                                      klass: "pastille pastille-white pastille-close flexbox"
-                                                      } %>
+                  <%= render "shared/button_with_icon", locals: {
+                                                        path: users_path,
+                                                        icon: "fas fa-times",
+                                                        klass: "pastille pastille-white pastille-close flexbox"
+                                                        } %>
 
                 <div class="container">
                   <div class="row">
@@ -38,6 +38,35 @@
 
                   <div class="row">
                     <div class="col-12">
+
+                      <% unless @user.suspended? %>
+                        <div class="flex-line">
+                          <%= render "shared/button_form", local: { model: :user,
+                                                                    path: @user,
+                                                                    method: :patch,
+                                                                    attribute: :role,
+                                                                    value: @user.role == "visitor" ? "member" : "visitor",
+                                                                    btn_text: @user.role == "visitor" ? "validate this member" : "unvalidate this member",
+                                                                    btn_extra_class: @user.role == "visitor" ? "btn-green" : "btn-orange",
+                                                                    icon: "fas fa-user-slash"
+                                                                    } %>
+                          <%= render "shared/button_form", local: { model: :user,
+                                                                    path: @user,
+                                                                    method: :patch,
+                                                                    attribute: :role,
+                                                                    value: "suspended",
+                                                                    btn_text: "suspend this member",
+                                                                    btn_extra_class: "btn-red",
+                                                                    data: { confirm: t('.are_you_sure?') },
+                                                                    icon: "far fa-angry"
+                                                                    } %>
+                        <% end %>
+                      </div>
+
+                      <div class="bar-separator-light"></div>
+
+                    </div>
+                    <div class="col-12">
                       <div class="mb-5">
                         <h5 class="mb-3">About</h5>
                         <p><%= @user.description || t('.description_none') %></p>
@@ -56,6 +85,14 @@
                       </div>
                       <div class="bar-separator-light"></div>
 
+                      <h5 class="mb-3">Send Message to member : </h5>
+
+
+                      <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: "Beware, you are a moderator", value: session[:message], btn_text: "Send private message by mail" } %>
+
+                      <div class="bar-separator-light"></div>
+
+
                       <div class="mb-5" id="home_proposal">
                         <h5 class="mb-3">Hosting</h5>
                         <% case @user.host %>
@@ -67,48 +104,35 @@
                             <!-- button validate -->
                             <div class="full-width">
                             <!-- button unvalidate -->
-                              <%= simple_form_for :user, url: @user, method: :patch do |f| %>
-                                <div class="row">
-                                  <div class="col-12">
-                                    <%= f.input :host, input_html: {value: "validated_host" }, as: :hidden %>
-                                    <%= f.button :submit, value: "validate this host", data: { disable_with: "" }, class:"btn btn-green" %>
-                                  </div>
-                                </div>
-                              <% end %>
+                            <%= render "shared/button_form", local: { model: :user,
+                                                                      path: @user,
+                                                                      method: :patch,
+                                                                      attribute: :host,
+                                                                      value: "validated_host",
+                                                                      btn_text: "validate this member as host",
+                                                                      btn_extra_class: "btn-green",
+                                                                      icon: "fas fa-home"
+                                                                      } %>
                             </div>
                           <% when "validated_host" %>
                             <p><%= @user.home %></p>
                             <div class="full-width">
                             <!-- button unvalidate -->
-                              <%= simple_form_for :user, url: @user, method: :patch do |f| %>
-                                <div class="row">
-                                  <div class="col-12">
-                                    <%= f.input :host, input_html: {value: "not_host" }, as: :hidden %>
-                                    <%= f.button :submit, value: "unvalidate this host", data: { disable_with: "" }, class:"btn btn-red" %>
-                                  </div>
-                                </div>
-                              <% end %>
+                            <%= render "shared/button_form", local: { model: :user,
+                                                                      path: @user,
+                                                                      method: :patch,
+                                                                      attribute: :host,
+                                                                      value: "not_host",
+                                                                      btn_text: "unvalidate this host",
+                                                                      btn_extra_class: "btn-red",
+                                                                      icon: "fas fa-house-damage"
+                                                                      } %>
                             </div>
                         <% end %>
                       </div>
 
                       <h5 class="mb-3"><%= t('.comments') %></h5>
-                      <% if @comments.empty? %>
-                        <p>- <%= t('.comment_empty') %></p>
-                      <% else %>
-                        <% @comments.each do |comment| %>
-                          <div class="row">
-                            <%= cl_image_tag comment.traveller.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
-                            <div class="col-xs-12 col-md-9">
-                              <p><%= "#{comment.traveller.hidden_full_name}"%>
-                                 <span class="text-black-50"> - <%= "#{comment.created_at.strftime('%d-%m-%Y')}" %></span>
-                              </p>
-                              <p></p>
-                              <p><%= comment.content %></p>
-                            </div>
-                          </div>
-                        <% end %>
-                      <% end %>
+                      <%= render "users/comments" %>
                       </div>
                     </div>
                   </div>

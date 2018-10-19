@@ -3,13 +3,16 @@ class UsersController < ApplicationController
   before_action :user_comments, only: %i(show edit moderate)
 
   def index
-    console
     if params[:query]
       @users = User.near(params[:query][:content], 100).order(host: :desc)
     else
-      @users = User.hosts.all_except(current_user).order(host: :desc)
-      if current_user.moderator?
-        @travellers = User.not_host.all_except(current_user).order(updated_at: :desc)
+      if current_user.moderator
+        @hosts = User.hosts.all_except(current_user).order(host: :asc)
+        @not_host_members = User.not_hosts.all_except(current_user).order(updated_at: :desc)
+        @unvalidated_members = User.unvalidated_members.all_except(current_user).order(updated_at: :desc)
+        @suspended_members = User.suspended_members.all_except(current_user).order(updated_at: :desc)
+      else
+        @users = User.hosts.all_except(current_user).order(host: :desc)
       end
     end
   end
@@ -17,9 +20,12 @@ class UsersController < ApplicationController
   def show
     if current_user == @user
       redirect_to edit_user_path(@user)
+    elsif current_user.moderator
+      redirect_to moderate_user_path(@user)
     else
-      redirect_to users_path unless @user.validated_host?
+      redirect_to users_path if @user.not_accessible
     end
+    @comments = @comments.for_public
   end
 
   def edit
@@ -27,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def moderate
-    redirect_to @user unless current_user.moderator?
+    redirect_to @user unless current_user.moderator
 
   end
 
@@ -38,6 +44,7 @@ class UsersController < ApplicationController
       flash[:warning] = t('.warning')
     end
     if current_user.moderator?
+      Moderation.create!(moderator: current_user, moderated: @user, action: params[:commit] + " : " + @user.id.to_s  )
       redirect_to moderate_user_path(@user)
     else
       redirect_to @user
@@ -60,7 +67,7 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:description, :host, :home)
+    params.require(:user).permit(:description, :host, :home, :role)
   end
 end
 

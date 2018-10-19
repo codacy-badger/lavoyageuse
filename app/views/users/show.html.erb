@@ -15,11 +15,13 @@
                                                       icon: "fas fa-times",
                                                       klass: "pastille pastille-white pastille-close flexbox"
                                                         } %>
+                <% if current_user.moderator %>
                 <%= render "shared/button_with_icon", locals: {
                                                       path: moderate_user_path(@user),
                                                       icon: "fas fa-chalkboard-teacher",
                                                       klass: "pastille pastille-white pastille-close second flexbox"
                                                         } %>
+                <% end %>
                 <div class="container">
                   <div class="row">
                     <div class="col-xs-12 col-md-6 margin-bottom-big text-center">
@@ -28,7 +30,7 @@
 
                     <div class="col-xs-12 col-md-6">
                       <h4><%= @user.hidden_full_name %></h4>
-                      <p><%= t('.live_in') + " " + @user.city.presence %> </p>
+                      <p><%= t('.live_in') + " " + @user.city if @user.city %> </p>
                       <%= render "labels" %>
                       <%= render "trips/trip_announcement" %>
                       <div class="bar-separator-light"></div>
@@ -64,7 +66,7 @@
                       <div class="bar-separator-light"></div>
 
                         <h5 class="mb-3"><span class="mr-3"><i class="far fa-envelope"></i></span><%= t('.send_message') %></h5>
-                        <% unless current_user.freemium? %>
+                        <% if current_user.premium %>
                           <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text') } %>
                         <% else %>
                           <h5 class="p-3 bg-light mb-3">
@@ -76,7 +78,7 @@
                         <div class="bar-separator-light"></div>
 
                         <h5 class="mb-3"><span class="mr-3"><i class="far fa-comment"></i></span><%= t('.add_comment') %></h5>
-                        <% unless current_user.freemium? %>
+                        <% if current_user.premium %>
                           <%= render "shared/mini_form", query: :comment, attribute: :content, content: { label: false, path: user_comments_path(@user), method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text') } %>
                         <% else %>
                           <h5 class="p-3 bg-light mb-3">
@@ -87,22 +89,7 @@
 
                         <div class="bar-separator-light"></div>
                       <h5 class="mb-3"><%= t('.comments') %></h5>
-                      <% if @comments.empty? %>
-                        <p>- <%= t('.comment_empty') %></p>
-                      <% else %>
-                        <% @comments.each do |comment| %>
-                          <div class="row">
-                            <%= cl_image_tag comment.traveller.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
-                            <div class="col-xs-12 col-md-9">
-                              <p><%= "#{comment.traveller.hidden_full_name}"%>
-                                 <span class="text-black-50"> - <%= "#{comment.created_at.strftime('%d-%m-%Y')}" %></span>
-                              </p>
-                              <p></p>
-                              <p><%= comment.content %></p>
-                            </div>
-                          </div>
-                        <% end %>
-                      <% end %>
+                      <%= render "users/comments" %>
                       </div>
                     </div>
                   </div>

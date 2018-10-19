@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181015142904) do
+ActiveRecord::Schema.define(version: 20181018141208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20181015142904) do
     t.datetime "updated_at", null: false
     t.integer "traveller_id"
     t.integer "host_id"
+    t.boolean "suspended", default: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -45,6 +46,16 @@ ActiveRecord::Schema.define(version: 20181015142904) do
     t.integer "host_id"
     t.index ["host_id"], name: "index_messages_on_host_id"
     t.index ["traveller_id"], name: "index_messages_on_assigner_id"
+  end
+
+  create_table "moderations", force: :cascade do |t|
+    t.string "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "moderator_id"
+    t.integer "moderated_id"
+    t.index ["moderated_id"], name: "index_moderations_on_moderated_id"
+    t.index ["moderator_id"], name: "index_moderations_on_moderator_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -82,6 +93,8 @@ ActiveRecord::Schema.define(version: 20181015142904) do
     t.string "home"
     t.string "city"
     t.boolean "admin", default: false, null: false
+    t.boolean "moderator", default: false
+    t.boolean "premium", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

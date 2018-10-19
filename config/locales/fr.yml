@@ -77,6 +77,8 @@ fr:
       host_unvalidated: "Votre proposition de logement est en attente de validation."
       home_cancel_btn_text: "Arrêter de proposer votre hébergement"
       home_minimum: "(minimum 30 caractères)"
+    moderate:
+      are_you_sure?: "Êtes-vous sûr de suspendre cette voyageuse ?"
     update:
       success: "Profil mis à jour"
       warning: "Oups, mise à jour échouée. Contacter l'administration si le problème persiste."
