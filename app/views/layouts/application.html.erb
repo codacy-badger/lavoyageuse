@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <% if Rails.env.production? || Rails.env.staging? %>
+    <% if Rails.env.production? %>
       <%= analytics_init if GoogleAnalytics.valid_tracker? %>
     <% end %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
