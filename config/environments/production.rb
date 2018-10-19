@@ -1,12 +1,15 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://lavoyageuse.herokuapp.com" }
   # Verifies that versions and hashed value of the package contents in the project's package.json
-config.webpacker.check_yarn_integrity = false
+  config.webpacker.check_yarn_integrity = false
 
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
+
+  # Google Analytics Tracker ID
+  GA.tracker = ENV['GA_TRACKER_ENV'] == "staging" ? "UA-127748586-1" : "UA-127746368-1"
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
