@@ -43,7 +43,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-group :production do
+group :production, :staging do
   gem 'postmark-rails'
   gem 'google-analytics-rails', '1.1.1'
 end

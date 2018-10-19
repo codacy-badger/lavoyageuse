@@ -3,8 +3,8 @@ Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
 
-  # Google analytics ID
-  GA.tracker = "UA-127748586-1"
+  # # Google analytics ID
+  # GA.tracker = "UA-127748586-1"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

@@ -5,6 +5,7 @@ Rails.application.configure do
 
   # Google analytics ID
   GA.tracker = "UA-127746368-1"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
