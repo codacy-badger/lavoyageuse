@@ -58,6 +58,7 @@ fr:
         password_hint: "8 caractères minimum incluant majuscule, mininuscule et chiffre"
         password2: "Confirmer le mot de passe"
         photo: "Photo :"
+        id_card: "Carte d'identité (scannée ou photographiée) uniquement accessible par les modérateurs :"
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
       edit:
         layout-title: "Édition de profil"
