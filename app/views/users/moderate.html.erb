@@ -39,7 +39,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div id="id_card">
-                        <%= cl_image_tag(@user.id_card.file.public_id + "." + @user.id_card.file.format, :sign_url=>true, :type=>"private") %>
+                        <%= cl_image_tag(@user.id_card.file.public_id + "." + @user.id_card.file.format, :sign_url=>true, :type=>"authenticated") %>
                       </div>
                     </div>
                     <div class="col-12">

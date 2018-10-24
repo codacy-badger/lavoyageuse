@@ -3,7 +3,7 @@ class CardUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # make_private # This will make sure you're images are uploaded as private
-  make_private
+  self.storage_type = :authenticated
   eager
 
   def public_id
