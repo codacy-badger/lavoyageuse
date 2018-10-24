@@ -82,6 +82,14 @@
               <input class="form-control-file file required" type="file" name="user[photo]" id="user_photo">
             </div>
             <%= f.input :photo_cache, as: :hidden %>
+
+            <div class="input-parent">
+             <p><%= t('.id_card') %></p>
+             <!-- <%= f.input :id_card, label: false %> -->
+             <div class="form-group file required user_photo">
+               <input class="form-control-file file required" type="file" name="user[id_card]" id="user_id_card">
+             </div>
+             <%= f.input :id_card_cache, as: :hidden %>
           </div>
 
           <div class="form-actions">

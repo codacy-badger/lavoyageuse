@@ -33,7 +33,7 @@ photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v153
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--H8FC5tZV--/v1537430212/seed/hp9dcodxaecttocu3fso.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s---au51Qjz--/v1537430213/seed/vgfklhwblyyt5lqm83rt.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--5NQ5mEFZ--/v1537430215/seed/rjmrbr7a6hrfafwsjsyq.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/private/s--yS2F3HeI--/v1537430216/seed/rmscx1xilaysbhbm4dts.jpg"]
+          "https://res.cloudinary.com/dfcsmghw4/image/private/s--TjKanfd2--/v1537430763/seed/qingcln73ikqfcvy0djo.jpg"]
 birth_dates = rand(18..40).to_s
 
 
@@ -47,8 +47,9 @@ emails.each_with_index do |x, i|
                sentence: sentences[i],
                address: addresses[i],
                city: cities[i],
-               role: rand(1..2),
-               host: rand(0..2),
+               role: rand(0..1),
+               host: rand(0..1),
+               premium: [true, false].sample
                birth_date: "10/05/1995",
                photo: open(photos[i]))
 
