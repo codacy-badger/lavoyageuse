@@ -29,7 +29,8 @@ permit_params :email, :phone, :birth_date, :role, :photo, :id_card, :host, :home
 
   form do |f|
     f.inputs "Identity" do
-      f.input :name
+      f.input :first_name
+      f.input :last_name
       f.input :email
       f.input :phone
       f.input :sentence

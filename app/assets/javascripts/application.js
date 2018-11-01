@@ -5,7 +5,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap
-
+//= require jasny-bootstrap
 
 
 //= require cookies_eu

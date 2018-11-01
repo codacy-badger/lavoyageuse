@@ -41,10 +41,6 @@ class User < ApplicationRecord
   scope :premium, -> { where(premium: true)}
   scope :all_except, ->(user) { where.not(id: user) }
 
-  def name
-    "#{id} - #{first_name} #{last_name}"
-  end
-
   def full_name
     "#{first_name} #{last_name}"
   end

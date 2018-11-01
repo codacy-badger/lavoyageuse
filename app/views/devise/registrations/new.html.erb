@@ -77,19 +77,30 @@
 
            <div class="input-parent">
             <p><%= t('.photo') %></p>
-            <!-- <%= f.input :photo, label: false %> -->
             <div class="form-group file required user_photo">
-              <input class="form-control-file file required" type="file" name="user[photo]" id="user_photo">
+              <!-- <input class="btn btn-default btn-light-purple btn-file" type="file" name="user[photo]" id="user_photo"> -->
+              <%#= f.input :photo, label: false %>
+              <%= f.input :photo_cache, as: :hidden %>
+              <div class="fileinput fileinput-new" data-provides="fileinput">
+                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                  <img data-src="holder.js/100%x100%" alt="...">
+                </div>
+                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                <div>
+                  <!-- <input class="btn btn-default btn-light-purple btn-file" name="user[photo]" id="user_photo"><span class="fileinput-new">Select image</span> -->
+                  <span class="fileinput-exists">Change</span><input type="file" name="user[photo]" id="user_photo"></span>
+                  <!-- <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> -->
+                </div>
+              </div>
             </div>
-            <%= f.input :photo_cache, as: :hidden %>
+          </div>
+
 
             <div class="input-parent">
              <p><%= t('.id_card') %></p>
-             <!-- <%= f.input :id_card, label: false %> -->
-             <div class="form-group file required user_photo">
-               <input class="form-control-file file required" type="file" name="user[id_card]" id="user_id_card">
-             </div>
+             <%= f.input :id_card, label: false %>
              <%= f.input :id_card_cache, as: :hidden %>
+            </div>
           </div>
 
           <div class="form-actions">
