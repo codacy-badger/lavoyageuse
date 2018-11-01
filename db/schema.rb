@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181023100335) do
+ActiveRecord::Schema.define(version: 20181024104110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20181023100335) do
     t.integer "moderated_id"
     t.index ["moderated_id"], name: "index_moderations_on_moderated_id"
     t.index ["moderator_id"], name: "index_moderations_on_moderator_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "name"
+    t.string "beginning_date"
+    t.string "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "trips", force: :cascade do |t|
