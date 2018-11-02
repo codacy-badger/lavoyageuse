@@ -1,0 +1,17 @@
+.fileinput-preview.fileinput-exists.thumbnail{
+  img {
+    max-height: 150px;
+    max-width: 280px;
+    width: 280px;
+    object-fit: cover;
+  }
+}
+.fileinput-new.thumbnail{
+  border: 1px solid $gray;
+  padding: 5px;
+  font-size: 34px;
+  color: gray;
+  i {
+    margin-top: 50px;
+  }
+}
