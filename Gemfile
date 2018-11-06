@@ -12,6 +12,7 @@ gem 'rails', '5.1.6'
 gem 'redis'
 gem 'cookies_eu'
 
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
@@ -29,6 +30,7 @@ gem 'carrierwave', '~> 1.2'
 gem "mini_magick"
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem "loofah", ">= 2.2.3"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
