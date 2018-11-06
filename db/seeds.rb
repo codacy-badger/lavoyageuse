@@ -15,6 +15,26 @@ addresses = [ "22 Rue de la Preceinte, Le Bouscat",
             "9 Rue André Darbon, Bordeaux",
             "124 Rue Lucien Faure, Bordeaux",
             "65 Quai des Chartrons, Bordeaux"]
+latitudes = [ 44.8675326,
+              44.8407363,
+              44.86214349999999,
+              44.8407845,
+              44.8588871,
+              44.82786790000001,
+              44.8548802,
+              44.865734,
+              44.8528743
+            ]
+longitudes = [  -0.586211300000059,
+                -0.5800133999999844,
+                -0.5710672000000159,
+                -0.5745623000000251,
+                -0.666586700000039,
+                -0.6494583999999577,
+                -0.5677855000000136,
+                -0.5609709000000294,
+                -0.5681127000000288
+                ]
 cities = ["Bordeaux", "Bordeaux", "Bordeaux", "Le Haillan", "Mérignac", "Bordeaux", "Bordeaux", "Bordeaux"]
 sentences = ["J'aime le yoga et la cuisine",
               "J'aime l'art et la danse",
@@ -47,6 +67,8 @@ emails.each_with_index do |x, i|
                 sentence: sentences[i],
                 address: addresses[i],
                 city: cities[i],
+                # latitude: latitudes[i],
+                # longitude: longitudes[i],
                 role: rand(0..1),
                 host: rand(0..1),
                 premium: [true, false].sample,

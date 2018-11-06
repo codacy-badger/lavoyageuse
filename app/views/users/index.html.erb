@@ -1,13 +1,17 @@
-<div class="flex-parent"> <!-- for IE bug -->
-  <div class="fullscreen relative white-on-purple mosaic">
-    <%#= render "shared/buttons", mosaic: false, action: true %>
-    <div class="container">
-      <div class="row">
-        <%#= render "header" %>
-        <%#= render "self_profile" %>
+<div class="container-fluid mosaic">
+  <div class="row">
+    <% if @map %>
+      <div class="col-7">
         <%= render "mosaic" %>
       </div>
-    </div>
+      <div class="col-5">
+        <%= render "shared/map" %>
+      </div>
+    <% else %>
+      <div class="col-12">
+        <%= render "mosaic" %>
+      </div>
+    <% end %>
+
   </div>
 </div>
-<%#= render "shared/over_footer" %>

@@ -12,7 +12,7 @@
 .profile-card-filter-to-moderate {
   position: absolute;
   top: 130px;
-  width: 280px;
+  width: 100%;
   background-color: orange;
   padding: 5px;
   height: 30px;
@@ -29,7 +29,7 @@
   width: 280px;
 }
 .profile-card {
-  @include media-breakpoint-up(md) { height: 270px; width: 280px;}
+  @include media-breakpoint-up(md) { height: 270px; width: 100%;}
   @include media-breakpoint-down(md) { height: 300px; width: 100%;}
   background-color: $white;
   margin-bottom: 20px;
