@@ -16,7 +16,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'rails-i18n'
 gem 'sass-rails'
-gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'uglifier'
@@ -29,6 +28,7 @@ gem 'carrierwave', '~> 1.2'
 gem "mini_magick"
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'jasny_bootstrap_extension_rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

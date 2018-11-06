@@ -1,6 +1,6 @@
 <div class="full-width">
   <%= simple_form_for query, url: content[:path], method: content[:method] do |f| %>
-    <%= f.input :content, label: content[:label],
+    <%= f.input attribute, label: content[:label],
                           placeholder: content[:placeholder],
                           input_html: {value: session[:comment] || "",
                                        cols: 5,

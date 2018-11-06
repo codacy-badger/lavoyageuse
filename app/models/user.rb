@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  mount_uploader :id_card, CardUploader
   enum role: {visitor: 0, member: 1, suspended: 2}
   enum host: {not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
@@ -11,10 +12,11 @@ class User < ApplicationRecord
 
   validates :email, presence: { message: 'ne peut pas être vide' },
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
-  validates_presence_of :first_name, :last_name, :phone, :photo, :address, :birth_date, :sentence
+  validates_presence_of :first_name, :last_name, :phone, :photo, :id_card, :address, :birth_date, :sentence
   validates_length_of :phone, minimum: 10
   validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }, allow_blank: true
   validates_processing_of :photo
+  validates_processing_of :id_card
   validate :image_size_validation
 
   has_many :posted_messages, class_name: "Message", foreign_key: "traveller_id", dependent: :destroy
@@ -38,10 +40,6 @@ class User < ApplicationRecord
   scope :suspended_members, -> { where(role: 2) }
   scope :premium, -> { where(premium: true)}
   scope :all_except, ->(user) { where.not(id: user) }
-
-  def name
-    "#{id} - #{first_name} #{last_name}"
-  end
 
   def full_name
     "#{first_name} #{last_name}"

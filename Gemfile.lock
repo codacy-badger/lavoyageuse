@@ -133,6 +133,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
+    jasny_bootstrap_extension_rails (0.0.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -324,6 +325,7 @@ DEPENDENCIES
   gmaps4rails
   google-analytics-rails (= 1.1.1)
   inherited_resources!
+  jasny_bootstrap_extension_rails
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener
@@ -349,4 +351,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.4
+   1.16.6

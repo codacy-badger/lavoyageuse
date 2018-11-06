@@ -25,6 +25,7 @@ sentences = ["J'aime le yoga et la cuisine",
               "Je serai votre meilleur hôte à Bordeaux",
               "J'adore les sushis et les films de ninja",
               "J'aime voir le monde et ses couleurs"]
+birth_date = rand(18..40).to_s
 photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v1537430205/seed/csrcm4ulusejyngjdzhn.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--23Jzortx--/v1537430206/seed/ylhs5obe9bgts6bft4gl.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--vgs7jyN7--/v1537430208/seed/xf0gn4fvwr18f1oyqtfg.jpg",
@@ -33,24 +34,25 @@ photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v153
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--H8FC5tZV--/v1537430212/seed/hp9dcodxaecttocu3fso.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s---au51Qjz--/v1537430213/seed/vgfklhwblyyt5lqm83rt.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--5NQ5mEFZ--/v1537430215/seed/rjmrbr7a6hrfafwsjsyq.jpg",
-          "https://res.cloudinary.com/dfcsmghw4/image/private/s--yS2F3HeI--/v1537430216/seed/rmscx1xilaysbhbm4dts.jpg"]
-birth_dates = rand(18..40).to_s
-
+          "https://res.cloudinary.com/dfcsmghw4/image/private/s--TjKanfd2--/v1537430763/seed/qingcln73ikqfcvy0djo.jpg"]
+id_card = "https://res.cloudinary.com/dfcsmghw4/image/upload/v1541063148/seed/MALDIVES-2.jpg"
 
 emails.each_with_index do |x, i|
   print "Creating #{first_names[i]} ..."
-  User.create!(email: x,
-               password: password,
-               first_name: first_names[i],
-               last_name: last_names[i],
-               phone: phone,
-               sentence: sentences[i],
-               address: addresses[i],
-               city: cities[i],
-               role: rand(1..2),
-               host: rand(0..2),
-               birth_date: "10/05/1995",
-               photo: open(photos[i]))
+  User.create!( email: x,
+                password: password,
+                first_name: first_names[i],
+                last_name: last_names[i],
+                phone: phone,
+                sentence: sentences[i],
+                address: addresses[i],
+                city: cities[i],
+                role: rand(0..1),
+                host: rand(0..1),
+                premium: [true, false].sample,
+                birth_date: birth_date,
+                photo: open(photos[i]),
+                id_card: open(id_card))
 
   puts "> #{first_names[i]} created !"
 end

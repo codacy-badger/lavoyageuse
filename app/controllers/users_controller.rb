@@ -34,21 +34,21 @@ class UsersController < ApplicationController
 
   def moderate
     redirect_to @user unless current_user.moderator
-
   end
 
   def update
     if @user.update(users_params)
       flash[:success] = t('.success')
+      if current_user.moderator? && current_user != @user
+        Moderation.create!(moderator: current_user, moderated: @user, action: params[:commit] + " : " + @user.id.to_s  )
+        redirect_to moderate_user_path(@user)
+      else
+        redirect_to @user
+      end
     else
       flash[:warning] = t('.warning')
     end
-    if current_user.moderator?
-      Moderation.create!(moderator: current_user, moderated: @user, action: params[:commit] + " : " + @user.id.to_s  )
-      redirect_to moderate_user_path(@user)
-    else
-      redirect_to @user
-    end
+
   end
 
   def get_premium
