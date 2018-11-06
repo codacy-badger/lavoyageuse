@@ -1,5 +1,6 @@
 class RenameCardIdToUsers < ActiveRecord::Migration[5.1]
   def change
-    rename_column :users, :cardid, :id_card
+    remove_column :users, :cardid, :id_card
+    add_column :users, :id_card, :string
   end
 end
