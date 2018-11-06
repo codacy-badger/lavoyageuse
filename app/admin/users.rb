@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :email, :phone, :birth_date, :role, :photo, :host, :home, :city
+permit_params :email, :phone, :birth_date, :role, :photo, :id_card, :host, :home, :city
 #
 # or
 #
@@ -29,7 +29,8 @@ permit_params :email, :phone, :birth_date, :role, :photo, :host, :home, :city
 
   form do |f|
     f.inputs "Identity" do
-      f.input :name
+      f.input :first_name
+      f.input :last_name
       f.input :email
       f.input :phone
       f.input :sentence

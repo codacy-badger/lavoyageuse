@@ -38,8 +38,23 @@
 
                   <div class="row">
                     <div class="col-12">
+                      <div id="id_card">
+                        <%= cl_image_tag(@user.id_card.file.public_id + "." + @user.id_card.file.format, :sign_url=>true, :type=>"authenticated") %>
+                      </div>
+                    </div>
+                    <div class="col-12">
 
-                      <% unless @user.suspended? %>
+                      <% if @user.suspended? %>
+                        <%= render "shared/button_form", local: { model: :user,
+                                                                  path: @user,
+                                                                  method: :patch,
+                                                                  attribute: :role,
+                                                                  value: "visitor",
+                                                                  btn_text: "unsuspend this member",
+                                                                  btn_extra_class: "btn-green",
+                                                                  icon: "far fa-smile-wink"
+                                                                  } %>
+                      <% else %>
                         <div class="flex-line">
                           <%= render "shared/button_form", local: { model: :user,
                                                                     path: @user,
@@ -48,7 +63,7 @@
                                                                     value: @user.role == "visitor" ? "member" : "visitor",
                                                                     btn_text: @user.role == "visitor" ? "validate this member" : "unvalidate this member",
                                                                     btn_extra_class: @user.role == "visitor" ? "btn-green" : "btn-orange",
-                                                                    icon: "fas fa-user-slash"
+                                                                    icon: @user.role == "visitor" ? "fas fa-user" : "fas fa-user-slash"
                                                                     } %>
                           <%= render "shared/button_form", local: { model: :user,
                                                                     path: @user,
@@ -60,8 +75,8 @@
                                                                     data: { confirm: t('.are_you_sure?') },
                                                                     icon: "far fa-angry"
                                                                     } %>
-                        <% end %>
-                      </div>
+                        </div>
+                      <% end %>
 
                       <div class="bar-separator-light"></div>
 

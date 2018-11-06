@@ -58,7 +58,12 @@ fr:
         password_hint: "8 caractères minimum incluant majuscule, mininuscule et chiffre"
         password2: "Confirmer le mot de passe"
         photo: "Photo :"
+        id_card: "Carte d'identité :"
+        id_card_hint: "(scannée ou photographiée) uniquement accessible par les modérateurs"
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
+        select_file: "Choisir un fichier"
+        change_file: "Changer le fichier"
+        remove_file: "Supprimer le fichier"
       edit:
         layout-title: "Édition de profil"
         password: "Nouveau mot de passe"

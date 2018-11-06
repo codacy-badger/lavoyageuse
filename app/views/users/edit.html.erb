@@ -30,7 +30,7 @@
                     <div class="col-xs-12 col-md-6">
                       <h4><%= @user.hidden_full_name %></h4>
                       <p><%= t('.live_in') + " " + @user.city if @user.city.present? %> </p>
-                      <% if me? %>
+                      <% unless @user.validated_host? %>
                         <%= link_to t('users.becoming_host_form.home_offer_btn_text'),"#home_proposal", class:"btn btn-light-purple mb-3" %>
                       <% end %>
                       <%= render "labels" %>
@@ -43,7 +43,7 @@
                     <div class="col-12">
                       <div class="mb-5">
                         <h5 class="mb-3"><%= t('.about') %></h5>
-                        <%= render "shared/mini_form", query: :user, attribute: :description, content: { label: false, path: @user, method: :patch, placeholder: t('.about_content'), value: @user.description || "", btn_text: t('.about_btn_text') } %>
+                        <%= render "shared/mini_form", query: :user, attribute: :description, content: { label: false, path: @user, method: :patch, placeholder: @user.description, value: @user.description || "", btn_text: t('.about_btn_text') } %>
                       </div>
                       <h5 class="mb-3"><%= t('.photos') %></h5>
                       <div class="flex-line flex-left">

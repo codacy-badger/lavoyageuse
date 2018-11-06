@@ -79,6 +79,7 @@
 
            <div class="input-parent mb-3">
             <p><%= t('.photo') %></p>
+              <%#= f.input :photo, label: false %>
               <%= f.input :photo_cache, as: :hidden %>
 
               <div class="fileinput fileinput-new" data-provides="fileinput" id="user-photo-form-group">
@@ -106,8 +107,7 @@
              <p><%= t('.id_card') %></p>
                <%= f.input :id_card, label: false %>
                <%= f.input :id_card_cache, as: :hidden %>
-                <a href="#" class="btn btn-default btn-orange fileinput-exists full-width" data-dismiss="fileinput" id="user-id-card-remove-btn"><%= t('.remove_file') %></a>
-                <!-- <small><%= t('.id_card_hint') %></small> -->
+                <small><%= t('.id_card_hint') %></small>
             </div>
           </div>
 
@@ -128,65 +128,26 @@
   <script>
   // IMAGE PREVIEW
 
-  const userPhotoCache = document.getElementById('user_photo_cache');
-  const userIdCardCache = document.getElementById('user_id_card_cache');
+  const userPhotoCache = document.getElementById('user_photo_cache').value;
   const userPhotoFormGroup = document.getElementById('user-photo-form-group');
-  const userIdCardFormGroup = document.getElementById('user_id_card');
   const userPhotoRemoveBtn = document.getElementById('user-photo-remove-btn');
-  const userIdCardRemoveBtn = document.getElementById('user-id-card-remove-btn');
 
   window.onload = function (e) {
-    if(userPhotoCache.value == "" || null) {
-      showPhotoBrowsing();
+    if(userPhotoCache == "") {
+      console.log("ajouter une photo");
+      userPhotoFormGroup.style.display = "visible";
+      userPhotoRemoveBtn.style.display = "none";
     }
     else {
-      hidePhotoBrowsing();
-    }
-    if(userIdCardCache.value == "" || null) {
-      console.log("show id card form")
-      showIdCardBrowsing();
-    }
-    else {
-      console.log("remove id card form")
+      userPhotoFormGroup.style.visibility = "hidden";
+      userPhotoFormGroup.style.position = "absolute";
 
-      hideIdCardBrowsing();
+      userPhotoRemoveBtn.style.display = "block";
     }
   }
 
-  function showPhotoBrowsing(){
-    userPhotoFormGroup.style.visibility = "visible";
-    userPhotoFormGroup.style.position = "relative";
-    userPhotoRemoveBtn.style.display = "none";
-  }
-  function hidePhotoBrowsing(){
-    userPhotoFormGroup.style.visibility = "hidden";
-    userPhotoFormGroup.style.position = "absolute";
-    userPhotoRemoveBtn.style.display = "block";
-  }
 
-  function showIdCardBrowsing(){
-    userIdCardFormGroup.style.visibility = "visible";
-    userIdCardFormGroup.style.position = "relative";
-    userIdCardRemoveBtn.style.display = "none";
-  }
-  function hideIdCardBrowsing(){
-    userIdCardFormGroup.style.visibility = "hidden";
-    userIdCardFormGroup.style.position = "absolute";
-    userIdCardRemoveBtn.style.display = "block";
-  }
 
-  // REMOVE IMAGE CACHE
-
-  userPhotoRemoveBtn.addEventListener('click', removeCachedPhoto);
-  userIdCardRemoveBtn.addEventListener('click', removeCachedIdCard);
-
-  function removeCachedPhoto(){
-    showPhotoBrowsing();
-  }
-
-  function removeCachedIdCard(){
-    showIdCardBrowsing();
-  }
 
 
   // function testIt(e) {
