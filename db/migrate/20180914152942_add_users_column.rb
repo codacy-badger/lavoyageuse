@@ -8,5 +8,6 @@ class AddUsersColumn < ActiveRecord::Migration[5.1]
     add_column :users, :lng, :float
     add_column :users, :lat, :float
     add_column :users, :role, :integer, default: 0
+    add_column :users, :id_card, :string
   end
 end
