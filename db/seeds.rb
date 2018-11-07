@@ -45,7 +45,6 @@ sentences = ["J'aime le yoga et la cuisine",
               "Je serai votre meilleur hôte à Bordeaux",
               "J'adore les sushis et les films de ninja",
               "J'aime voir le monde et ses couleurs"]
-birth_date = rand(18..40).to_s
 photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v1537430205/seed/csrcm4ulusejyngjdzhn.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--23Jzortx--/v1537430206/seed/ylhs5obe9bgts6bft4gl.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--vgs7jyN7--/v1537430208/seed/xf0gn4fvwr18f1oyqtfg.jpg",
@@ -72,7 +71,7 @@ emails.each_with_index do |x, i|
                 role: rand(0..1),
                 host: rand(0..1),
                 premium: [true, false].sample,
-                birth_date: birth_date,
+                adulthood: true,
                 photo: open(photos[i]),
                 id_card: open(id_card))
 

@@ -5,11 +5,13 @@ class UsersController < ApplicationController
   def index
     if params[:query]
       @map = true
+      @search = params[:query][:content]
       @users = User.near(params[:query][:content], 10).possible_hosts.all_except(current_user).order(host: :desc)
       @markers = @users.map do |user|
         {
           lat: user.latitude,
-          lng: user.longitude
+          lng: user.longitude,
+          user_id: user.id
         }
       end
     else

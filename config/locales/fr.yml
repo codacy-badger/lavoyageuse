@@ -43,6 +43,7 @@ fr:
       traveller: "Membre qui a effectué au moins un voyage chez une hébergeuse"
     mosaic:
       title: "Nos hébergeuses"
+      a: "à : "
     profile_card:
       coming-soon: "Coming soon"
       hint: "future hébergeuse en attente de validation"

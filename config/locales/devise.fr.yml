@@ -64,6 +64,7 @@ fr:
         select_file: "Choisir un fichier"
         change_file: "Changer le fichier"
         remove_file: "Supprimer le fichier"
+        adulthood?: "Vous êtes majeur"
       edit:
         layout-title: "Édition de profil"
         password: "Nouveau mot de passe"

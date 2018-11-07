@@ -19,14 +19,14 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-xs-12 col-md-6 margin-bottom-big text-center">
-                      <%= cl_image_tag @user.photo.url, id:"photo" %>
+                      <%= cl_image_tag @user.photo.url, id:"photo", effect:"blue:10" %>
                     </div>
 
                     <div class="col-xs-12 col-md-6">
                       <h4><%= @user.hidden_full_name %></h4>
                         <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %> </p>
                         <p><i class="fas fa-phone"></i> <%= @user.phone %> </p>
-                        <p><i class="fas fa-birthday-cake"></i> <%= @user.birth_date %> </p>
+                        <p><i class="fas fa-birthday-cake">Adult : </i> <%= @user.adulthood %> </p>
                       <% if me? %>
                         <%= link_to t('users.becoming_host_form.home_offer_btn_text'),"#home_proposal", class:"btn btn-light-purple mb-3" %>
                       <% end %>

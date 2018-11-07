@@ -1,12 +1,22 @@
 .mosaic {
+  min-height: calc(100vh - 70px);
   background-color: $dark-purple;
   color: white;
+  a {
+    color: white;
+    &:hover{
+      color: $light-purple;
+    }
+  }
   .mosaic-header {
     height: 100px;
     padding-top: 50px;
     p {
       color: white;
     }
+  }
+  .mosaic-footer {
+    height: 100px;
   }
   .pastille_action {
     position: absolute;

@@ -12,12 +12,13 @@ class User < ApplicationRecord
 
   validates :email, presence: { message: 'ne peut pas être vide' },
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
-  validates_presence_of :first_name, :last_name, :phone, :photo, :id_card, :address, :birth_date, :sentence
+  validates_presence_of :first_name, :last_name, :phone, :photo, :id_card, :address, :sentence
   validates_length_of :phone, minimum: 10
   validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }, allow_blank: true
   validates_processing_of :photo
   validates_processing_of :id_card
   validate :image_size_validation
+  validates :adulthood, presence: { message: 'vous devez être majeur pour vous inscrire sur La Voyageuse'}
 
   has_many :posted_messages, class_name: "Message", foreign_key: "traveller_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "host_id", dependent: :destroy

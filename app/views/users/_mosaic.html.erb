@@ -1,11 +1,10 @@
-<div class="col-12  <%= @map ? "col-lg-12" : "col-lg-10" %> center">
+<div class="col-12 <%= @map ? "col-lg-12" : "col-lg-10" %> center">
   <div class="row">
     <div class="col-12 mosaic-header">
-      <p class="title"><%= t('.title') %></p>
+      <%= link_to t('.title'), users_path %> <%= t('.a') + @search.presence.capitalize %>
     </div>
 
     <% if current_user.moderator %>
-
       <% @hosts.each do |user| %>
         <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
           <%= render "users/profile_card", user: user %>
@@ -37,7 +36,6 @@
         </div>
       <% end %>
 
-
       <div class="col-12 mosaic-header">
         <p class="title">Suspended members - <span class="badge badge-pill badge-success"> moderator only</span></p>
       </div>
@@ -53,15 +51,14 @@
           </p>
         <% end %>
       </div>
-
     <% else %>
       <% @users.each do |user| %>
         <div class="col-12 col-md-6 <%= @map ? "col-lg-6 col-xl-4" : "col-lg-3 col-xl-2" %>">
           <%= render "users/profile_card", user: user %>
         </div>
       <% end %>
-
-
     <% end %>
+    <div class="col-12 mosaic-footer">
+    </div>
   </div>
 </div>
