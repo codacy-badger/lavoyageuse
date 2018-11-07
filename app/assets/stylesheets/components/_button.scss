@@ -93,6 +93,9 @@ input {
 }
 .btn-green {
   background-color: $green;
+  &:hover {
+    background-color: $yellow !important;
+  }
 }
 .btn-yellow {
   background-color: $yellow;

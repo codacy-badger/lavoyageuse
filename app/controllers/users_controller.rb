@@ -30,11 +30,11 @@ class UsersController < ApplicationController
 
   def edit
     redirect_to @user unless current_user == @user
+    @premium_plan = Plan.find_by(name:"premium pass")
   end
 
   def moderate
     redirect_to @user unless current_user.moderator
-
   end
 
   def update

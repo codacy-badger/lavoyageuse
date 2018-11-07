@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'pages#home'
@@ -14,11 +15,16 @@ Rails.application.routes.draw do
     resources :comments, only: %I[create, update]
     resources :messages, only: %I[create]
     resources :trips, only: %I[new create]
+    resources :orders, only: %I(show create)
     member do
       get "get_premium"
       get "moderate"
     end
   end
+
+  resources :plans, only: %I(show create)
+
+
 
 
 end
