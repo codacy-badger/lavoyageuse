@@ -92,6 +92,21 @@ fr:
       warning: "Oups, quelque chose s'est mal déroule, le message n'a pas été envoyé"
       subject: "Message d'une voyageuse depuis La Voyageuse.com"
       mail_to: "Écrire à votre correspondante"
+  plans:
+    show:
+      title: "Passer en premium"
+      board_title: "L'accès premium est destiné au voyageuse et permet de :"
+      list1: "situer les hébergeuses sur une carte"
+      list2: "contacter les hébergeuses en direct et sans limitation"
+      list3: "effectuer un suivi de vos voyages"
+      list4: "laisser des commentaires et en recevoir en retour"
+      list5: "Il se s’agit pas d’un abonnement, aucun
+          renouvellement automatique ne sera
+          effectué."
+      list6: "L'accès est immédiat si vous êtes un membre validé."
+      duration: "accès illimité pendant 1 an"
+      buy: "Acheter"
+      skip_step: "Passer cette étape"
   user_mailer:
     mail_to_host:
       instructions_title: "Ne tardez pas"

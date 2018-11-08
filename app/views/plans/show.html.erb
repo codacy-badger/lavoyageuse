@@ -1,2 +1,32 @@
-<h1>Plan#show</h1>
-<p>Find me in app/views/plan/show.html.erb</p>
+<div class="plan-wrapper fullscreen under-navbar flexbox">
+  <div>
+    <h1 class="plan-title"><%= t('.title') %></h1>
+    <div class="plan-board">
+        <div class="row">
+          <div class="col-6">
+            <p class="plan-board-title mb-3"><%= t('.board_title') %></p>
+            <p><i class="fas fa-check-circle"></i> <%= t('.list1') %></p>
+            <p><i class="fas fa-check-circle"></i> <%= t('.list2') %> </p>
+            <p><i class="fas fa-check-circle"></i> <%= t('.list3') %> </p>
+            <p class="mb-3"><i class="fas fa-check-circle"></i> <%= t('.list4') %></p>
+            <p><%= t('.list5') %></p>
+            <p><%= t('.list6') %></p>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="plan-card">
+              <p class="plan-card-title">Premium pass</p>
+              <div class="plan-price-wrapper">
+                <p class="plan-price"><%= @plan.price_cents/100 %> €</p>
+                <p><%= t('.duration') %> </p>
+              </div>
+              <div class="plan-card-bottom flexbox"><%= t('.buy') %></div>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <%= link_to t('.skip_step'), users_path %>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>
