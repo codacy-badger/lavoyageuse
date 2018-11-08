@@ -16,7 +16,7 @@
             <div class="plan-card">
               <p class="plan-card-title">Premium pass</p>
               <div class="plan-price-wrapper">
-                <p class="plan-price"><%= @plan.price_cents/100 %> €</p>
+                <p class="plan-price"><%= humanized_money_with_symbol(@plan.price) %></p>
                 <p><%= t('.duration') %> </p>
               </div>
               <div class="plan-card-bottom flexbox"><%= t('.buy') %></div>
