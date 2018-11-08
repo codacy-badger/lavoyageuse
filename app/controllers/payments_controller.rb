@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
-    user.update(premium: true)
+    user.update(premium: true, premium_expiration: DateTime.now.next_year)
 
     redirect_to user_order_path(user,@order)
 

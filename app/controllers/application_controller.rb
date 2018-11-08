@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :under_construction?
   before_action :authenticate_user!
-  before_action :cookie
+  before_action :premium_check
   add_flash_types :success, :warning
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -18,8 +18,10 @@ class ApplicationController < ActionController::Base
     comment.present? && comment.length > 8
   end
 
-  def cookie
-    @cookie = cookies[:lavoyageuse].present?
+  def premium_check
+    if current_user.premium_expiration < DateTime.now
+      current_user.update(premium: false)
+    end
   end
 
   def current_user?

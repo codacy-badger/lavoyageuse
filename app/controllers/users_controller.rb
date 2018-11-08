@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :params_user, only: %i(show update edit moderate)
   before_action :user_comments, only: %i(show edit moderate)
+  before_action :set_premium_plan, only: %i(show edit)
 
   def index
     if params[:query]
@@ -30,7 +31,6 @@ class UsersController < ApplicationController
 
   def edit
     redirect_to @user unless current_user == @user
-    @premium_plan = Plan.find_by(name:"premium pass")
   end
 
   def moderate
@@ -51,8 +51,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def get_premium
-
+  def set_premium_plan
+    @premium_plan = Plan.find_by(name:"premium pass")
   end
 
 
