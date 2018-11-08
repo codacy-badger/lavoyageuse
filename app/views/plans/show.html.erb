@@ -1,4 +1,4 @@
-<div class="plan-wrapper fullscreen under-navbar flexbox">
+<div class="plan-wrapper fullscreen under-navbar flexbox" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1536053388/illustrations/Copy_of_reason_2.jpg');">
   <div>
     <h1 class="plan-title"><%= t('.title') %></h1>
     <div class="plan-board">
@@ -19,7 +19,11 @@
                 <p class="plan-price"><%= humanized_money_with_symbol(@plan.price) %></p>
                 <p><%= t('.duration') %> </p>
               </div>
-              <div class="plan-card-bottom flexbox"><%= t('.buy') %></div>
+              <!-- <div class=" "><%=  %></div> -->
+              <%= form_tag user_orders_path(current_user) do %>
+                <%= hidden_field_tag 'plan_id', @plan.id %>
+                <%= submit_tag t('.buy'), class: 'plan-card-bottom flexbox' %>
+              <% end %>
             </div>
           </div>
           <div class="col-12 text-center">

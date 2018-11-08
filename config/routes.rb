@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   ActiveAdmin.routes(self)
   devise_for :users
   root to: 'pages#home'
@@ -12,12 +11,13 @@ Rails.application.routes.draw do
   get 'under_construction', to: redirect('/under_construction.html')
 
   resources :users, only: %I[index show edit update] do
-    resources :comments, only: %I[create, update]
+    resources :comments, only: %I[create update]
     resources :messages, only: %I[create]
     resources :trips, only: %I[new create]
-    resources :orders, only: %I(show create)
+    resources :orders, only: %I[show create] do
+      resources :payments, only: %I[new create]
+    end
     member do
-      get "get_premium"
       get "moderate"
     end
   end

@@ -1,14 +1,18 @@
 .plan-wrapper {
   background-color: $light-purple;
-  background-image: url("https://res.cloudinary.com/dfcsmghw4/image/upload/v1536053388/illustrations/Copy_of_reason_2.jpg");
   .plan-title {
     color: white;
   }
   .plan-board {
-    width: 790px;
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    @include media-breakpoint-up(sm) {
+      width: 790px;
+      border-radius: 15px;
+    }
     height: 570px;
     background-color: white;
-    border-radius: 15px;
     padding: 60px;
     text-align: justify;
     i {
@@ -18,6 +22,14 @@
       line-height: 1.4;
       font-size: 20px;
       font-weight: 600;
+    }
+    .plan-card-photo {
+      width: 200px;
+      height: 200px;
+      margin-top: -25px;
+      background-size: cover;
+      border-radius: 50%;
+      border: 3px dotted yellow;
     }
     .plan-card {
       position: relative;
@@ -54,6 +66,7 @@
         color: $dark-gray;
         border-radius: 0 0 15px 15px;
         font-size: 20px;
+        border: none;
         &:hover {
           background-color: $yellow;
           color: white;

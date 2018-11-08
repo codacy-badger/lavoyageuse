@@ -1,0 +1,13 @@
+.payment-board {
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+  @include media-breakpoint-up(sm) {
+    width: 420px;
+    border-radius: 15px;
+  }
+  height: 450px;
+  background-color: white;
+  padding: 60px;
+  text-align: justify;
+}

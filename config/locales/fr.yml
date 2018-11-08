@@ -92,6 +92,10 @@ fr:
       warning: "Oups, quelque chose s'est mal déroule, le message n'a pas été envoyé"
       subject: "Message d'une voyageuse depuis La Voyageuse.com"
       mail_to: "Écrire à votre correspondante"
+  orders:
+    show:
+      paid: "payé"
+      back_to_index: "Consulter les hébergeuses"
   plans:
     show:
       title: "Passer en premium"

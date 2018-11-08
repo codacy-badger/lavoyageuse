@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   validates :email, presence: { message: 'ne peut pas être vide' },
                     format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
-  validates_presence_of :first_name, :last_name, :phone, :photo, :id_card, :address, :birth_date, :sentence
+  validates_presence_of :first_name, :last_name, :phone, :photo, :id_card, :address, :sentence
   validates_length_of :phone, minimum: 10
   validates :home, length: { minimum: 10, too_short: "%{count} est le minimum pour la description de votre hébergement" }, allow_blank: true
   validates_processing_of :photo
@@ -30,6 +30,8 @@ class User < ApplicationRecord
 
   has_many :moderation_done, class_name: "Moderation", foreign_key: "moderator_id"
   has_many :moderation_suffered, class_name: "Moderation", foreign_key: "moderated_id"
+
+  has_many :orders
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
