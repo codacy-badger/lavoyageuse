@@ -78,7 +78,7 @@ fr:
         submit: "Enregistrer les modifications"
         about_you: "Un tout petit mot à propos de vous :"
         cancel_account: "Annuler mon compte"
-        are_you_sure: "Êtes-vous sûr ?"
+        are_you_sure?: "Êtes-vous sûr ?"
         account_delete: "Suppression de compte"
     sessions:
       signed_in: "Connecté."

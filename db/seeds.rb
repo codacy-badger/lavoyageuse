@@ -1,3 +1,6 @@
+Message.destroy_all
+Comment.destroy_all
+Order.destroy_all
 User.where.not(email: "abriko@yahoo.fr").destroy_all
 Trip.destroy_all
 
@@ -35,7 +38,7 @@ longitudes = [  -0.586211300000059,
                 -0.5609709000000294,
                 -0.5681127000000288
                 ]
-cities = ["Bordeaux", "Bordeaux", "Bordeaux", "Le Haillan", "Mérignac", "Bordeaux", "Bordeaux", "Bordeaux"]
+cities = ["Le Bouscat", "Bordeaux", "Bordeaux", "Bordeaux", "Le Haillan", "Mérignac", "Bordeaux", "Bordeaux", "Bordeaux"]
 sentences = ["J'aime le yoga et la cuisine",
               "J'aime l'art et la danse",
               "J'aime voyager et faire des rencontres",
@@ -55,6 +58,8 @@ photos = ["https://res.cloudinary.com/dfcsmghw4/image/private/s--ZCdIf1Ex--/v153
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--5NQ5mEFZ--/v1537430215/seed/rjmrbr7a6hrfafwsjsyq.jpg",
           "https://res.cloudinary.com/dfcsmghw4/image/private/s--TjKanfd2--/v1537430763/seed/qingcln73ikqfcvy0djo.jpg"]
 id_card = "https://res.cloudinary.com/dfcsmghw4/image/upload/v1541063148/seed/MALDIVES-2.jpg"
+roles = [ 0, 0, 1, 1, 1, 1, 1, 1, 2]
+hosts = [ 0, 0, 0, 1, 1, 2, 2, 2, 0]
 
 emails.each_with_index do |x, i|
   print "Creating #{first_names[i]} ..."
@@ -68,8 +73,8 @@ emails.each_with_index do |x, i|
                 city: cities[i],
                 # latitude: latitudes[i],
                 # longitude: longitudes[i],
-                role: rand(0..1),
-                host: rand(0..1),
+                role: roles[i],
+                host: hosts[i],
                 premium: [true, false].sample,
                 adulthood: true,
                 photo: open(photos[i]),
