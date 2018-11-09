@@ -1,0 +1,22 @@
+<div class="col-12 center">
+  <div class="row">
+    <div class="col-12 mosaic-header">
+      <%= link_to "Members Moderation", users_path %> <%= t('.a') + @search.capitalize if @search %>
+    </div>
+
+      <% @users.each_with_index do |group,i| %>
+        <div class="col-12 mosaic-header">
+          <p class="title"><%= @groups[i] %><span class="badge badge-pill badge-success ml-3"> moderator only</span></p>
+        </div>
+        <% group.each do |user| %>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+            <%= render "users/profile_card", user: user %>
+            <% "-- No member in this group -- " if group.empty? %>
+          </div>
+        <% end %>
+      <% end %>
+
+    <div class="col-12 mosaic-footer">
+    </div>
+  </div>
+</div>

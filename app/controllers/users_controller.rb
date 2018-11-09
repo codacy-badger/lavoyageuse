@@ -21,6 +21,8 @@ class UsersController < ApplicationController
         @not_host_members = User.not_hosts.all_except(current_user).order(updated_at: :desc)
         @unvalidated_members = User.unvalidated_members.all_except(current_user).order(updated_at: :desc)
         @suspended_members = User.suspended_members.all_except(current_user).order(updated_at: :desc)
+        @users = [@hosts, @not_host_members, @unvalidated_members, @suspended_members]
+        @groups = ["unvalidated host", "members only", "unvalidated_members", "suspended_members"]
       else
         @users = User.possible_hosts.all_except(current_user).order(host: :desc)
       end

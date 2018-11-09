@@ -1,6 +1,6 @@
 <div class="container-fluid mosaic">
   <div class="row">
-    <% if @map %>
+    <% if @map && !moderation %>
       <div class="col-7">
         <%= render "mosaic" %>
       </div>
@@ -9,7 +9,7 @@
       </div>
     <% else %>
       <div class="col-12">
-        <%= render "mosaic" %>
+        <%= render moderation ? "mosaic_moderate" : "mosaic" %>
       </div>
     <% end %>
   </div>

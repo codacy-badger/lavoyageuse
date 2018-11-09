@@ -1,9 +1,6 @@
 <% if user.validated_host? || moderation %>
   <%= link_to user_path(user) do %>
     <%= render "profile_card_content", user:user %>
-    <% if moderation %>
-      <%= render "profile_card_moderation", user: user %>
-    <% end %>
   <% end %>
 <% else %>
   <%= render "profile_card_content", user:user %>
