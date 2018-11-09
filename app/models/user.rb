@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_many :moderation_done, class_name: "Moderation", foreign_key: "moderator_id"
   has_many :moderation_suffered, class_name: "Moderation", foreign_key: "moderated_id"
 
+  has_many :orders
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
