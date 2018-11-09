@@ -70,6 +70,7 @@
                           <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text') } %>
                         <% else %>
                           <h5 class="p-3 bg-light mb-3">
+                            <%= render "shared/get_premium_btn" %>
                             <%= t('.message_be_premium') %>
                           </h5>
                         <% end %>

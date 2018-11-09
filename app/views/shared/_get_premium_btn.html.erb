@@ -1,4 +1,4 @@
-<% if me? %>
+<% unless me? %>
   <%= link_to plan_path(@premium_plan) do %>
     <div class="btn btn-green mr-3"><%= t('shared.get_premium') %></div>
   <% end %>
