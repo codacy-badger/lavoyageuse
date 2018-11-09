@@ -1,14 +1,17 @@
 <div class="plan-wrapper fullscreen under-navbar flexbox" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1537431245/illustrations/photo-1519354754184-e1d9c46182c0.jpg');">
   <div>
-    <h1 class="plan-title"><%= "Merci et bravo !" %></h1>
+    <h1 class="plan-title"><%= t('.title') %></h1>
     <div class="plan-board">
         <div class="row">
           <div class="col-6">
-            <p class="plan-board-title mb-3"><%= "Résumé de votre commande :" %></p>
-            <p><i class="fas fa-check-circle mr-3"></i>Statut : <%= t('.' + @order.state) %></p>
-            <p><i class="fas fa-check-circle mr-3"></i>Nom du pass : <%= @order.plan_sku %></p>
-            <p><i class="fas fa-check-circle mr-3"></i>Montant : <%= humanized_money_with_symbol(@order.amount) %> </p>
-            <p></i>Vous êtes un membre premium de La Voyageuse pour 1 an, bienvenue parmi nous.</p>
+            <p class="plan-board-title mb-3"><%= t('.board-title') %></p>
+            <p><i class="fas fa-check-circle mr-3"></i><%= t('.status') %> <%= t('.' + @order.state) %></p>
+            <p><i class="fas fa-check-circle mr-3"></i><%= t('.command_number') %><%= t('.' + (@order.id*100).to_s) %></p>
+            <p><i class="fas fa-check-circle mr-3"></i><%= t('.pass_name') %> <%= @order.plan_sku %></p>
+            <p><i class="fas fa-check-circle mr-3"></i><%= t('.amount') %> <%= humanized_money_with_symbol(@order.amount) %> </p>
+            <p><i class="fas fa-angle-double-right mr-3"></i><%= t('.beginning') %><%= @order.created_at.strftime("%d/%m/%Y") %> </p>
+            <p><i class="far fa-calendar-alt mr-3"></i><%= t('.end') %> <%= @order.created_at.next_year.strftime("%d/%m/%Y") %> </p>
+            <p><%= t('.welcome') %></p>
           </div>
           <div class="col-6 mb-4">
             <div class="plan-card">
@@ -16,13 +19,14 @@
               <div class="plan-price-wrapper flexbox">
                 <div class="plan-card-photo" style="background-image: url('<%= @user.photo.present? ? (cl_image_path @user.photo.url, effect:"blue:10" ) : "" %>')"></div>
               </div>
-              <div class="plan-card-bottom flexbox ">
-                <p>Accès illimité pendant <%= t('.' + Plan.find_by(name: @order.plan_sku).duration.to_s) %> an </p>
+              <div class="plan-card-duration flexbox ">
+                 <%= t('.expiration') %> <%= @order.created_at.next_year.strftime("%d/%m/%Y") %>
               </div>
 
             </div>
           </div>
-          <div class="col-12 text-center">
+          <div class="col-8 offset-sm-2 text-center flex-line">
+            <%= link_to t('.back_to_profile'), user_path(@user) %>
             <%= link_to t('.back_to_index'), users_path %>
           </div>
         </div>

@@ -73,6 +73,17 @@
           cursor: pointer;
         }
       }
+      .plan-card-duration {
+        width: calc(100% - 40px);
+        background-color: white;
+        height: 50px;
+        bottom: 20px;
+        position: absolute;
+        border-radius: 8px;
+        padding: 10px;
+        color: $dark-gray;
+        text-align: center;
+      }
     }
   }
 }

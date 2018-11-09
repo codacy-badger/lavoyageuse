@@ -77,19 +77,7 @@
 
                         <div class="bar-separator-light"></div>
 
-                        <h5 class="mb-3"><span class="mr-3"><i class="far fa-comment"></i></span><%= t('.add_comment') %></h5>
-                        <% if current_user.premium %>
-                          <%= render "shared/mini_form", query: :comment, attribute: :content, content: { label: false, path: user_comments_path(@user), method: :post, placeholder: t('.comment_placeholder'), value: session[:comment], btn_text: t('.comment_btn_text') } %>
-                        <% else %>
-                          <h5 class="p-3 bg-light mb-3">
-                            <%= render "shared/get_premium_btn" %>
-                            <%= t('.comment_be_premium') %>
-                          </h5>
-                        <% end %>
-
-                        <div class="bar-separator-light"></div>
-                      <h5 class="mb-3"><%= t('.comments') %></h5>
-                      <%= render "users/comments" %>
+                        <%= render "users/comments" %>
                       </div>
                     </div>
                   </div>

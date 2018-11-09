@@ -1,5 +1,5 @@
 <%= link_to locals[:path], remote:locals[:remote] do %>
   <div class="<%= locals[:klass] %>">
-    <p><i class="<%= locals[:icon] %>"></i><%= locals[:text] %></p>
+    <p style="font-size: <%= locals[:font_size] %>"><i class="<%= locals[:icon] %>"></i><%= locals[:text] %></p>
   </div>
 <% end %>

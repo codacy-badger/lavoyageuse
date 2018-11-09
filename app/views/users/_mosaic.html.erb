@@ -1,7 +1,7 @@
 <div class="col-12 <%= @map ? "col-lg-12" : "col-lg-10" %> center">
   <div class="row">
     <div class="col-12 mosaic-header">
-      <%= link_to t('.title'), users_path %> <%= t('.a') + @search.presence.capitalize %>
+      <%= link_to t('.title'), users_path %> <%= t('.a') + @search.capitalize if @search %>
     </div>
 
     <% if current_user.moderator %>

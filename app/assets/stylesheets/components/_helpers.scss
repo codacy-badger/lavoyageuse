@@ -242,67 +242,6 @@ a:hover.pastille {
   background-color: $light-yellow;
   color: white;
 }
-.pastille {
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-  color: white;
-  background-color: $dark-gray;
-  font-size: 28px;
-  float: left;
-  margin-right: 10px;
-  &.pastille-small {
-    width: 35px;
-    height: 35px;
-    font-size: 15px;
-  }
-  &.pastille-yellow {
-    background-color: $yellow;
-  }
-  &.pastille-blue {
-    background-color: $blue;
-
-  }
-  &.pastille-green {
-    background-color: $green;
-  }
-  &.pastille-white {
-    background-color: $white;
-    color: $dark-gray;
-    &:hover {
-      background-color: $white;
-    }
-    i, a, p {
-      color: $dark-gray;
-      &:hover {
-        color: $light-purple;
-      }
-    }
-  }
-  &.pastille-red {
-    background-color: $red;
-    color: $white;
-  }
-  &.pastille-light-purple {
-    background-color: $light-purple;
-  }
-  &.pastille-small {
-    width: 30px;
-    height: 30px;
-  }
-  &.pastille-close {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-    z-index: 500;
-    margin-right: 0;
-    height: 40px;
-    width: 40px;
-    &.second {
-      right: 50px;
-    }
-  }
-}
 //SPLITS
 .splitscreen-wrapper{
   position: relative;

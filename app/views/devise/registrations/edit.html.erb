@@ -13,7 +13,7 @@
               <div class="separator"></div>
             </div>
             <div class="input-parent">
-              <i class="far fa-envelope"></i>
+              <i class="input-icon far fa-envelope"></i>
               <%= f.input :email, required: true, autofocus: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="input-parent">
-              <i class="fas fa-lock"></i>
+              <i class="input-icon fas fa-lock"></i>
               <%= f.input :password,
                           required: false,
                           placeholder: t('.password'),
@@ -30,7 +30,7 @@
                           input_html: { autocomplete: "new-password" } %>
             </div>
             <div class="input-parent margin-bottom-big">
-              <i class="fas fa-lock"></i>
+              <i class="input-icon fas fa-lock"></i>
               <%= f.input :password_confirmation,
                         required: false,
                         placeholder: t('.new-password'),
@@ -39,7 +39,7 @@
             </div>
 
             <div class="input-parent margin-bottom-big">
-              <i class="fas fa-lock"></i>
+              <i class="input-icon fas fa-lock"></i>
               <%= f.input :current_password,
                           placeholder: t('.need_old_password'),
                           required: true,
@@ -53,44 +53,48 @@
               <div class="separator"></div>
             </div>
             <div class="margin-bottom-small">
-              <small><%= t('.restrictions') %></small>
+              <small><%= t('devise.registrations.new.restrictions') %></small>
             </div>
             <div class="input-parent">
-              <i class="far fa-user"></i>
+              <i class="input-icon far fa-user"></i>
               <%= f.input :first_name, label: false, required: true, placeholder: t('devise.registrations.new.first_name') %>
             </div>
 
             <div class="input-parent">
-              <i class="far fa-user"></i>
+              <i class="input-icon far fa-user"></i>
               <%= f.input :last_name, label: false, required: true, placeholder: t('devise.registrations.new.last_name') %>
             </div>
 
             <div class="input-parent">
-              <i class="fas fa-phone"></i>
+              <i class="input-icon fas fa-phone"></i>
               <%= f.input :phone, label: false, required: true, placeholder: t('devise.registrations.new.phone') %>
             </div>
 
             <div class="input-parent">
-              <i class="fas fa-map-marker-alt"></i>
+              <i class="input-icon fas fa-map-marker-alt"></i>
               <%= f.input :address, label: false, required: true, placeholder: t('devise.registrations.new.address') %>
               <%= f.input :latitude, as: :hidden %>
               <%= f.input :longitude, as: :hidden %>
+              <%= f.input :city, as: :hidden %>
             </div>
 
-            <p>Un tout petit mot à propos de vous :</p>
+            <p><%= t('.about_you') %></p>
             <div class="input-parent">
-              <i class="fas fa-quote-right"></i>
+              <i class="input-icon fas fa-quote-right"></i>
               <%= f.input :sentence, label: false, required: true, placeholder: t('devise.registrations.new.sentence') %>
             </div>
 
-           <div class="input-parent">
-            <p><%= t('.photo') %></p>
-            <!-- <%= f.input :photo, label: false %> -->
-            <div class="form-group file required user_photo">
-              <input class="form-control-file file required" type="file" name="user[photo]" id="user_photo">
+            <div class="input-parent">
+             <p><%= t('.photo') %></p>
+             <%= f.input :photo, label: false %>
+             <%= f.input :photo_cache, as: :hidden %>
             </div>
-            <%= f.input :photo_cache, as: :hidden %>
-          </div>
+
+            <div class="input-parent">
+             <p><%= t('.id_card') %></p>
+             <%= f.input :id_card, label: false %>
+             <%= f.input :id_card_cache, as: :hidden %>
+            </div>
 
           <div class="mb-5">
             <%= f.button :submit, t('.submit') %>

@@ -3,13 +3,13 @@
     <div class="payment-board">
         <div class="row">
           <div class="col-12">
-            <p class="mb-3"><strong>Achat du Premium Pass</strong></p>
-            <p><%= "Paiement assuré par le service  " %> <i class="fab fa-stripe"></i> </p>
-            <p><%= "Accès illimité pendant 1 an" %> </p>
-            <p><%= "Pour toutes questions, joignez" %> </p>
-            <p><%= "La Voyageuse au :" %></p>
-            <p><%= "06 05 06 07 08" %></p>
-            <p class="mb-5"><strong><%= "Montant : " + humanized_money_with_symbol(@order.amount) %></strong> </p>
+            <p class="mb-3"><strong><%= ('.title') %></strong></p>
+            <p><%= t('.detail1') %> <i class="fab fa-stripe"></i> </p>
+            <p><%= t('.detail2') %> </p>
+            <p><%= t('.detail3') %> </p>
+            <p><%= t('.detail4') %></p>
+            <p><%= t('.detail5') %></p>
+            <p class="mb-5"><strong><%= t('.amount') + humanized_money_with_symbol(@order.amount) %></strong> </p>
           </div>
           <div class="col-12 text-center">
            <%= form_tag user_order_payments_path(current_user, @order) do %>

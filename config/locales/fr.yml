@@ -41,6 +41,12 @@ fr:
       host: "Hébergeuse contactée et validée par les équipes de la Voyageuse"
       premium: "Voyageuse avec accès payant doublement vérifiée grâce à ses moyens de paiement"
       traveller: "Membre qui a effectué au moins un voyage chez une hébergeuse"
+    comments:
+      comment_placeholder: "Votre nouveau commentaire ici"
+      comment_btn_text: "Envoyer le commentaire"
+      comment_empty: "Pas de commentaire"
+      comment_be_premium: "Vous devez être membre premium pour laisser un commentaire et avoir annoncé un voyage"
+      leave_comment_here: "Vous pourrez laisser un commentaire ici quand vous aurez rencontré cet hôte."
     mosaic:
       title: "Nos hébergeuses"
       a: "à : "
@@ -58,10 +64,6 @@ fr:
       message_placeholder: "Votre message ici."
       message_btn_text: "Envoyer le message"
       message_be_premium: "Vous devez être membre premium pour envoyer un message aux hébergeuses"
-      comment_placeholder: "Votre nouveau commentaire ici"
-      comment_btn_text: "Envoyer le commentaire"
-      comment_empty: "Pas de commentaire"
-      comment_be_premium: "Vous devez être membre premium pour laisser un commentaire et avoir annoncé un voyage"
       registration_update: "Modifier vos paramètres d'inscription"
       description_none: "Cette hébergeuse n'a pas complêté sa description"
     edit:
@@ -95,8 +97,28 @@ fr:
       mail_to: "Écrire à votre correspondante"
   orders:
     show:
+      title: "Merci et bravo !"
       paid: "payé"
+      board-title: "Résumé de votre commande :"
+      status: "Statut :"
+      command_number: "Commande n° "
+      pass_name: "Nom du pass :"
+      amount: "Montant :"
+      beginning: "Début :"
+      end: "Expiration :"
+      welcome: "Vous êtes un membre premium de La Voyageuse pour 1 an, bienvenue parmi nous."
+      expiration: "Valable jusqu'au :"
       back_to_index: "Consulter les hébergeuses"
+      back_to_profile: "Revenir à votre profil"
+  payments:
+    new:
+      title: "Achat du Premium Pass"
+      detail1: "Paiement assuré par le service  "
+      detail2: "Accès illimité pendant 1 an"
+      detail3: "Pour toutes questions, joignez"
+      detail4: "La Voyageuse au :"
+      detail5: "06 58 53 37 67"
+      amount: "Montant : "
   plans:
     show:
       title: "Passer en premium"

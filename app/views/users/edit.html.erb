@@ -15,12 +15,18 @@
                                                       icon: "fas fa-times",
                                                       klass: "pastille pastille-white pastille-close flexbox"
                                                       } %>
-                <%= link_to edit_user_registration_path, class:"pastille pastille-white pastille-close second flexbox" do %>
-                  <div style="top:13px;">
-                    <p style="font-size:23px"><i class="fas fa-pencil-alt"></i></p>
-                  </div>
-                <% end %>
-
+                <%= render "shared/button_with_icon", locals: {
+                                                      path: edit_user_registration_path,
+                                                      icon: "fas fa-pencil-alt",
+                                                      klass: "pastille pastille-white pastille-close second flexbox",
+                                                      font_size: "21px"
+                                                      } %>
+                <%= render "shared/button_with_icon", locals: {
+                                                      path: user_order_path(@user, @order),
+                                                      icon: "far fa-star",
+                                                      klass: "pastille pastille-white pastille-close third flexbox",
+                                                      font_size: "22px"
+                                                      } %>
                 <div class="container">
                   <div class="row">
                     <div class="col-xs-12 col-md-6 margin-bottom-big text-center">

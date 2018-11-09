@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @order = @user.orders.last
     redirect_to @user unless current_user == @user
   end
 

@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates_processing_of :photo
   validates_processing_of :id_card
   validate :image_size_validation
-  validates :adulthood, presence: { message: 'vous devez être majeur pour vous inscrire sur La Voyageuse'}
+  validates :adulthood, acceptance: { message: 'vous devez être majeur pour vous inscrire sur La Voyageuse'}, on: :create
 
   has_many :posted_messages, class_name: "Message", foreign_key: "traveller_id", dependent: :destroy
   has_many :received_messages, class_name: "Message", foreign_key: "host_id", dependent: :destroy
