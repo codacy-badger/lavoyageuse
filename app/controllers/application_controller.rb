@@ -19,8 +19,10 @@ class ApplicationController < ActionController::Base
   end
 
   def premium_check
-    if current_user && current_user.premium_expiration < DateTime.now
-      current_user.update(premium: false)
+    if current_user && current_user.premium_expiration
+      if current_user.premium_expiration < DateTime.now
+        current_user.update(premium: false)
+      end
     end
   end
 
