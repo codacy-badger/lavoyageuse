@@ -100,6 +100,10 @@ end
 puts ["]"]
 puts "Trips created"
 
+puts "Creating Plan"
+Plan.create!(name: "premium pass", price_cents: 11900, duration: 1, price: "119")
+puts "#{Plan.last.name} created"
+
 # User.create!(email: "sarah7.b@gmail.com",
 #              password: "LVa123456" ,
 #              first_name: "sara",
