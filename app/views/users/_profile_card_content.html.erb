@@ -1,5 +1,5 @@
 <div class="profile-card">
-  <% if user.validated_host? %>
+  <% unless user.validated_host? %>
     <div class="profile-card-filter">
       <h5><strong><%= t('.coming_soon') %></strong></h5>
       <h6><%= t('.hint') %></h6>
