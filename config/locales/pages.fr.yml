@@ -1,0 +1,88 @@
+fr:
+  pages:
+    home:
+      title: The World is yours, too !
+      subtitle: Nous connectons des voyageuses solo avec des hébergeuses de confiance dans le monde entier
+      head:
+        button1: Je suis une voyageuse
+        button2: Je suis une hébergeuse
+      qualities:
+        quality1: SECURITY
+        quality2: FEMINITY
+        quality3: COMMUNITY
+        quality4: AUTHENTICITY
+      reasons:
+        title: 3 raisons de rejoindre la voyageuse
+        reason1:
+          title: SE SENTIR EN SÉCURITÉ
+          content: Avec La Voyageuse, vous ne serez jamais vraiment seule car vous rencontrerez des femmes dignes de confiance, heureuses de vous accueillir chez elles comme une amie. Vous serez alors mieux informée sur votre destination, la culture locale et les endroits à éviter.  Nous mettons en place un système de vérification et de suivi unique pour garantir un esprit de communauté bienveillant, basé sur l’entraide.
+        reason2:
+          title: FAIRE DES RENCONTRES AUTHENTIQUES
+          content: Les hébergements sont gratuits. Vous ne serez donc pas considérée comme une cliente par nos hébergeuses, vous serez accueillie chez des femmes généreuses qui cherchent simplement à encourager les aventurières du monde, à rencontrer des personnes inspirantes. Comme vous.
+        reason3:
+          title: CONTRIBUER A RENDRE CE MONDE MEILLEUR
+          content: Le prix de l’adhésion permet de financer le système de vérification et le fonctionnement général de la plateforme. Mais sachez qu’à La Voyageuse, la moitié des bénéfices sera reversées pour organiser des actions en faveur des droits des femmes dans le monde. L’autre moitié servira principalement à l’amélioration de notre service.
+    about:
+      title: The first trusted homesharing platform for
+      subtitle: solo female travelers
+      introduction: La Voyageuse connects solo female travelers with local hostesses around the world to help them travel more safely! The hostesses can be living with a family, with a partner, with housemates or alone.
+      steps:
+        title: Enjoy La Voyageuse in 4 easy steps
+        steps:
+          step1:
+            title: 1. Sign up
+            content: Sign up and fill up your personal information. Choose between freemium and premium membership. Personalise your profile by adding your profile photo, home photos (hosts only), a short introduction of yourself...etc. Show our community how amazing you are!
+          step2:
+            title: 2. Get verified
+            content: La Voyageuse implements an unique initial and a continuous profile verification to ensure the most trusted global community between women. Upon sign up, you will be asked to verify your personal profile in 4 steps
+          step3:
+            title: 3. Search
+            content: Now you are all set! You can start exploring travel stories and local friends from all over the world with a peace of mind! You can search for accommodations, advices and people who want to hang out with you!
+          step4:
+            title: 4. Start planning !
+            content: Simply click on the profiles and contact whoever you want to hang out with, to get to know more about, to get travel tips from, or to stay with! Discover who they are as a person, send them a request for accommodation, or exchange messages with each other to help you plan a safer, unforgettable solo trip! Get ready (and excited!) to meet trustworthy girl friends !
+      tips:
+        title: Safety Tips
+        subtitle: At La Voyageuse, your safety is our priority. Please read below safety tips carefully before your departure
+        tips:
+          tip1:
+            title: Travel & Medical Insurance
+            content: We strongly recommend that you purchase comprehensive travel and medical insurance to cover the country (or countries) that you are traveling in.
+          tip2:
+            title: Visas
+            content: It’s a good idea to look up visa requirements, as each country varies. Make sure you leave plenty of time before your departure to get a visa sorted out if required.
+          tip3:
+            title: Local Language
+            content: It’s always a good idea to learn a bit of the local language before you travel there. It’s also the best way to show your respect towards local people.
+          tip4:
+            title: Common Sense & Instinct
+            content: Having a common sense while traveling is the key. If something doesn’t feel right, don’t do it. Trust your instinct. It’s a good idea always to tell someone you trust (your family or your close friends) where you’re going and what your plans are. We suggest that you send them a copy of your itinerary and local contact number before your departure.
+          tip5:
+            title: Mobile Phone & SIM Card When You Are Aboard
+            content: We recommend that you check out whether your phone will work abroad or if you can pick up a cheap local SIM card when you arrive so you will be able to make phone calls or send texts locally.
+          tip6:
+            title: Plenty of Contact
+            content: Before staying with a hostess or arranging to meet other solo female travelers through the Hangout service we recommend that you have plenty of contact with them beforehand to understand each other’s expectations and preferences.
+          tip7:
+            title: Vaccinations
+            content: We recommend that you check about necessary vaccinations in the area you are travelling to and ensure that your vaccinations are up-to-date.
+          tip8:
+            title: Have A Backup Plan
+            content: In case something doesn’t work out with your hostess in the unexpected circumstances, make sure you have an alternate place to stay. Meanwhile, please report to our Safety Team if such case occurs. Identify the nearest hostel or hotel, or have a backup hostess in place before you go. If possible, research your hostess’s neighborhood prior to arriving. Some of hostesses may offer to pick you up from an airport or a bus/ metro station, but always look up how to get to and from her home on your own in case of change of plan. If you’re heading to an event or joining a Hangout, look up the location prior to attending.
+          tip9:
+            title: Travel Research
+            content: Be sure you’re aware of cultural and religious differences, sensitivities, and general safety recommendations for each place that you travel. Check government websites for travel advice in different countries and do your own research. We recommend you research things such as attitudes towards women, codes of dress, rules on alcohol etc. That way you might avoid making your first ‘faux-pas’ the moment you step off the plane!
+          tip10:
+            title: Communicate Through La Voyageuse
+            content: Use only La Voyageuse website to communicate. Confirming trips and keeping all communication on La Voyageuse helps our Safety Team identify issues and react quickly. Never give out your phone number or email address to anyone outside La Voyageuse website until you meet and feel comfortable with them.
+          tip11:
+            title: Be Aware of Your Surroundings and Know Your Limits
+            content: Stay alert at all times. Avoid dark alleys when you walk home in the night alone. Do not stay out late at night alone. Do not trust people easily. You can enjoy yourself and have some fun but don’t go over the limit and don’t put your safety and well-being in the hands of others.
+          tip12:
+            title: Leave References
+            content: Use the reference system to let others on La Voyageuse know about your experiences with the people you meet. We will also send you a private questionnaire for you to rate your experience in full confidentiality with your hostesses/ travelers after your homesharing experience.
+          tip13:
+            title: Report Negative Experiences
+            content: Our Safety Team works continuously to help build the safest and most trusted community possible. Reporting safety concerns to La Voyageuse helps us improve our community’s trust and safety. Confidentially report safety concerns as soon as it occurs and we will investigate and take necessary measures accordingly.
+      conclusion: "Don't forget:"
+      footer: Have fun!

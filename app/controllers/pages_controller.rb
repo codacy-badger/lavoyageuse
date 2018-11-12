@@ -5,7 +5,10 @@ class PagesController < ApplicationController
 
   def contact; end
 
-  def about; end
+  def about
+    @steps = t('.steps.steps')
+    @tips = t('.tips.tips')
+  end
 
   def chart; end
 

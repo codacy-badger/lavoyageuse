@@ -1,10 +1,10 @@
 <div class="home">
   <div class="banner">
     <div class="maintitle">
-      <h1>The World is yours, too !</h1>
-      <h3>Nous connectons des voyageuses solo avec des hébergeuses de confiance dans le monde entier</h3>
-      <div class="btn btn-light-purple btn-round btn-tall">Je suis une voyageuse</div>
-      <div class="btn btn-blue btn-round btn-tall">Je suis une hébergeuse</div>
+      <h1><%= t('.title') %></h1>
+      <h3><%= t('.subtitle') %></h3>
+      <%= link_to t('.head.button1'), new_user_registration_path,class:"btn btn-light-purple btn-round btn-tall" %>
+      <%= link_to t('.head.button2'), new_user_registration_path,class:"btn btn-blue btn-round btn-tall" %>
     </div>
   </div>
 
@@ -12,31 +12,31 @@
     <div class="row">
       <div class="square-button col flex-column">
          <i class="fas fa-lock"></i>
-         <p>SECURITY</p>
+         <p><%= t('.quality1') %></p>
       </div>
       <div class="square-button col flex-column">
          <i class="fab fa-angellist"></i>
-         <p>FEMINITY</p>
+         <p><%= t('.quality2') %></p>
       </div>
       <div class="square-button col flex-column">
          <i class="far fa-comments"></i>
-         <p>COMMUNITY</p>
+         <p><%= t('.quality3') %></p>
       </div>
       <div class="square-button col flex-column">
          <i class="far fa-gem"></i>
-         <p>AUTHENTICITY</p>
+         <p><%= t('.quality4') %></p>
       </div>
     </div>
   </div>
 
   <div class="reasons container">
     <div class="reasons-title">
-      <h1>3 raisons de rejoindre la voyageuse</h1>
+      <h1><%= t('.reasons.title') %></h1>
     </div>
     <div class="row">
       <div class="col-xs col-md-6 reasons-column ">
-        <h4>SE SENTIR EN SÉCURITÉ</h4>
-        <p>Avec La Voyageuse, vous ne serez jamais vraiment seule car vous rencontrerez des femmes dignes de confiance, heureuses de vous accueillir chez elles comme une amie. Vous serez alors mieux informée sur votre destination, la culture locale et les endroits à éviter.  Nous mettons en place un système de vérification et de suivi unique pour garantir un esprit de communauté bienveillant, basé sur l’entraide.</p>
+        <h4><%= t('.reasons.reason1.title') %></h4>
+        <p><%= t('.reasons.reason1.content') %></p>
       </div>
       <div class="col-xs col-md-6 reasons-column with-image" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/illustrations/v1536053388/Copy_of_Copy_of_eye-for-ebony-399310-unsplash.jpg')">
       </div>
@@ -46,16 +46,17 @@
       <div class="col-xs col-md-6 reasons-column with-image" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/illustrations/v1536053388/Copy_of_reason_2.jpg')">
       </div>
       <div class="col-xs col-md-6 reasons-column">
-        <h4>FAIRE DES RENCONTRES AUTHENTIQUES</h4>
-        <p>Les hébergements sont gratuits. Vous ne serez donc pas considérée comme une cliente par nos hébergeuses, vous serez accueillie chez des femmes généreuses qui cherchent simplement à encourager les aventurières du monde, à rencontrer des personnes inspirantes. Comme vous.</p>
+        <h4><%= t('.reasons.reason2.title') %></h4>
+        <p><%= t('.reasons.reason2.content') %></p>
+        <h4></h4>
+        <p></p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-xs col-md-6 reasons-column ">
-        <h4>CONTRIBUER A RENDRE CE MONDE MEILLEUR</h4>
-        <p>Le prix de l’adhésion permet de financer le système de vérification et le fonctionnement général de la plateforme. Mais sachez qu’à La Voyageuse, la moitié des bénéfices sera reversées pour organiser des actions en faveur des droits des femmes dans le monde. L’autre moitié servira principalement à l’amélioration de notre service.
-        </p>
+        <h4><%= t('.reasons.reason3.title') %></h4>
+        <p><%= t('.reasons.reason3.content') %></p>
       </div>
       <div class="col-xs col-md-6 reasons-column with-image" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/illustrations/v1536053388/Copy_of_pete-bellis-500938-unsplash.jpg')">
       </div>

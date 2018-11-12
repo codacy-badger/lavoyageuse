@@ -1,6 +1,62 @@
 fr:
+  comments:
+    create:
+      notice: "Commentaire posté"
+  messages:
+    create:
+      notice: "Le message a bien été envoyé"
+      warning: "Oups, quelque chose s'est mal déroule, le message n'a pas été envoyé"
+      subject: "Message d'une voyageuse depuis La Voyageuse.com"
+      mail_to: "Écrire à votre correspondante"
+  messengers:
+    contact_form:
+      notice: "Oh yeah ! Votre message a bien été envoyé."
+      invalid_email: "Mail non valide."
+      blank_email: "Veuillez entrer un email."
+      invalid_comment: "Message trop court ou absent."
+      be_human: "Veuillez cocher la case 'je ne suis pas un robot'"
+      subject: "Nouveau message depuis le contact form"
   metas:
     title: "La voyageuse"
+  orders:
+    show:
+      title: "Merci et bravo !"
+      paid: "payé"
+      board-title: "Résumé de votre commande :"
+      status: "Statut : "
+      command_number: "Commande n° "
+      pass_name: "Nom du pass : "
+      amount: "Montant : "
+      beginning: "Début : "
+      end: "Expiration : "
+      welcome: "Vous êtes un membre premium de La Voyageuse pour 1 an, bienvenue parmi nous."
+      expiration: "Valable jusqu'au :"
+      back_to_index: "Consulter les hébergeuses"
+      back_to_profile: "Revenir à votre profil"
+  payments:
+    new:
+      title: "Achat du Premium Pass"
+      detail1: "Paiement assuré par le service  "
+      detail2: "Accès illimité pendant 1 an"
+      detail3: "Pour toutes questions, joignez"
+      detail4: "La Voyageuse au :"
+      detail5: "06 58 53 37 67"
+      amount: "Montant : "
+  plans:
+    show:
+      title: "Passer en premium"
+      board_title: "L'accès premium est destiné au voyageuse et permet de :"
+      list1: "situer les hébergeuses sur une carte"
+      list2: "contacter les hébergeuses en direct et sans limitation"
+      list3: "effectuer un suivi de vos voyages"
+      list4: "laisser des commentaires et en recevoir en retour"
+      list5: "Il se s’agit pas d’un abonnement, aucun
+          renouvellement automatique ne sera
+          effectué."
+      list6: "L'accès est immédiat si vous êtes un membre validé."
+      duration: "accès illimité pendant 1 an"
+      buy: "Acheter"
+      skip_step: "Passer cette étape"
   shared:
     get_premium: "Passer en premium"
     navbar:
@@ -24,14 +80,23 @@ fr:
     search_bar:
       placeholder: "Rechercher dans une ville ..."
       btn_text: "Rechercher"
-  messengers:
-    contact_form:
-      notice: "Oh yeah ! Votre message a bien été envoyé."
-      invalid_email: "Mail non valide."
-      blank_email: "Veuillez entrer un email."
-      invalid_comment: "Message trop court ou absent."
-      be_human: "Veuillez cocher la case 'je ne suis pas un robot'"
-      subject: "Nouveau message depuis le contact form"
+  trips:
+    create:
+      success: "Votre annonce a bien été enregistrée."
+      warning: "Ohoh... un problème dans l'enregistrement de l'annonce"
+    new:
+      title: "Annoncer mon voyage"
+      hint: "Annoncer son voyage permet de pouvoir laisser un commentaire à son hôte, avoir le label Voyageuse, se faire une réputation et laisser une trace de votre destination pour votre sécurité."
+      date_start: "Début du séjour :"
+      date_end: "Date de fin du séjour :"
+    trip_announcement:
+      text: "Vous vous êtes mis d'accord avec cette hôte pour un voyage ? Garder une trace :"
+      btn_text: "Annoncer votre voyage chez cette hôte"
+      existing_trip_html: "Votre séjour chez cette hôte sera du : <br/><strong> %{beginning} au %{end}.</strong>"
+  user_mailer:
+    mail_to_host:
+      instructions_title: "Ne tardez pas"
+      instructions: "vous pouvez, en tant qu'hébergeuse, répondre directement à cette voyageuse et ainsi échanger par mail. Un système de messagerie intégré à La Voyageuse viendra bientôt."
   users:
     becoming_host_form:
       home_placeholder: "Apportez quelques précisions à propos de votre hébergement : surface, nombre de personne à la maison, situation, atouts ou inconvénients. Les voyageuses aiment pouvoir se projeter."
@@ -86,68 +151,3 @@ fr:
       success: "Profil mis à jour"
       warning: "Oups, mise à jour échouée. Contacter l'administration si le problème persiste."
       home_description_wrong: "La description est trop court"
-  comments:
-    create:
-      notice: "Commentaire posté"
-  messages:
-    create:
-      notice: "Le message a bien été envoyé"
-      warning: "Oups, quelque chose s'est mal déroule, le message n'a pas été envoyé"
-      subject: "Message d'une voyageuse depuis La Voyageuse.com"
-      mail_to: "Écrire à votre correspondante"
-  orders:
-    show:
-      title: "Merci et bravo !"
-      paid: "payé"
-      board-title: "Résumé de votre commande :"
-      status: "Statut : "
-      command_number: "Commande n° "
-      pass_name: "Nom du pass : "
-      amount: "Montant : "
-      beginning: "Début : "
-      end: "Expiration : "
-      welcome: "Vous êtes un membre premium de La Voyageuse pour 1 an, bienvenue parmi nous."
-      expiration: "Valable jusqu'au :"
-      back_to_index: "Consulter les hébergeuses"
-      back_to_profile: "Revenir à votre profil"
-  payments:
-    new:
-      title: "Achat du Premium Pass"
-      detail1: "Paiement assuré par le service  "
-      detail2: "Accès illimité pendant 1 an"
-      detail3: "Pour toutes questions, joignez"
-      detail4: "La Voyageuse au :"
-      detail5: "06 58 53 37 67"
-      amount: "Montant : "
-  plans:
-    show:
-      title: "Passer en premium"
-      board_title: "L'accès premium est destiné au voyageuse et permet de :"
-      list1: "situer les hébergeuses sur une carte"
-      list2: "contacter les hébergeuses en direct et sans limitation"
-      list3: "effectuer un suivi de vos voyages"
-      list4: "laisser des commentaires et en recevoir en retour"
-      list5: "Il se s’agit pas d’un abonnement, aucun
-          renouvellement automatique ne sera
-          effectué."
-      list6: "L'accès est immédiat si vous êtes un membre validé."
-      duration: "accès illimité pendant 1 an"
-      buy: "Acheter"
-      skip_step: "Passer cette étape"
-  user_mailer:
-    mail_to_host:
-      instructions_title: "Ne tardez pas"
-      instructions: "vous pouvez, en tant qu'hébergeuse, répondre directement à cette voyageuse et ainsi échanger par mail. Un système de messagerie intégré à La Voyageuse viendra bientôt."
-  trips:
-    create:
-      success: "Votre annonce a bien été enregistrée."
-      warning: "Ohoh... un problème dans l'enregistrement de l'annonce"
-    new:
-      title: "Annoncer mon voyage"
-      hint: "Annoncer son voyage permet de pouvoir laisser un commentaire à son hôte, avoir le label Voyageuse, se faire une réputation et laisser une trace de votre destination pour votre sécurité."
-      date_start: "Début du séjour :"
-      date_end: "Date de fin du séjour :"
-    trip_announcement:
-      text: "Vous vous êtes mis d'accord avec cette hôte pour un voyage ? Garder une trace :"
-      btn_text: "Annoncer votre voyage chez cette hôte"
-      existing_trip_html: "Votre séjour chez cette hôte sera du : <br/><strong> %{beginning} au %{end}.</strong>"
