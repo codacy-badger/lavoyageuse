@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if params[:query]
       @map = true
       @search = params[:query][:content]
-      @users = @users.near(params[:query][:content], 15).possible_hosts.order(host: :desc).geocoded
+      @users = @users.near(params[:query][:content], 15).possible_hosts.order(host: :desc).mappable
       @markers = @users.map do |user|
         {
           lat: user.latitude,
