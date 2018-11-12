@@ -4,10 +4,11 @@ class UsersController < ApplicationController
   before_action :set_premium_plan, only: %i(show edit)
 
   def index
+    @users = User.all_except(current_user)
     if params[:query]
       @map = true
       @search = params[:query][:content]
-      @users = User.near(params[:query][:content], 10).possible_hosts.all_except(current_user).order(host: :desc)
+      @users = @users.near(params[:query][:content], 15).possible_hosts.order(host: :desc).geocoded
       @markers = @users.map do |user|
         {
           lat: user.latitude,
@@ -17,14 +18,14 @@ class UsersController < ApplicationController
       end
     else
       if current_user.moderator
-        @hosts = User.possible_hosts.all_except(current_user).order(host: :asc)
-        @not_host_members = User.not_hosts.all_except(current_user).order(updated_at: :desc)
-        @unvalidated_members = User.unvalidated_members.all_except(current_user).order(updated_at: :desc)
-        @suspended_members = User.suspended_members.all_except(current_user).order(updated_at: :desc)
+        @hosts = User.possible_hosts.order(host: :asc)
+        @not_host_members = User.not_hosts.order(updated_at: :desc)
+        @unvalidated_members = User.unvalidated_members.order(updated_at: :desc)
+        @suspended_members = User.suspended_members.order(updated_at: :desc)
         @users = [@hosts, @not_host_members, @unvalidated_members, @suspended_members]
         @groups = ["unvalidated host", "members only", "unvalidated_members", "suspended_members"]
       else
-        @users = User.possible_hosts.all_except(current_user).order(host: :desc)
+        @users = User.possible_hosts.order(host: :desc)
       end
     end
   end
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
   def edit
     @order = @user.orders.last
-    redirect_to @user unless current_user == @user
+    redirect_to @user unless me?
   end
 
   def moderate
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(users_params)
       flash[:success] = t('.success')
-      if current_user.moderator? && current_user != @user
+      if current_user.moderator && !me?
         Moderation.create!(moderator: current_user, moderated: @user, action: params[:commit] + " : " + @user.id.to_s  )
         redirect_to moderate_user_path(@user)
       else

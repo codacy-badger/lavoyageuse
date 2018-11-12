@@ -147,15 +147,8 @@ $input-height: 56px;
   border-bottom: $border-light;
   padding-bottom: 20px;
 }
-.padding-box {
-  padding: 2%;
-}
-.padding-top-bot {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-.double-padding-box {
-  padding: 4%;
+.no-padding {
+  padding: 0;
 }
 //FLEX
 %display-flex {
@@ -268,8 +261,21 @@ a:hover.pastille {
   float: left;
 }
 //TEST
-.test-red {
-  background-color: red;
+.tester {
+  background-color: crimson;
+  border: 1px solid red;
+}
+.tester1 {
+  background-color: chartreuse;
+  border: 1px solid green;
+}
+.tester2 {
+  background-color: gold;
+  border: 1px solid yellow;
+}
+.tester3 {
+  background-color: deepskyblue;
+  border: 1px solid blue;
 }
 //FILE UPLOAD
 .fileUpload {

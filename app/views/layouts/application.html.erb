@@ -7,10 +7,10 @@
     <title><%= yield(:title_tag).blank? ? t('metas.title') : yield(:title_tag) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <%= stylesheet_pack_tag "map" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <% if Rails.env.production? %>
       <%= analytics_init if GoogleAnalytics.valid_tracker? %>
     <% end %>

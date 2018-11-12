@@ -1,64 +1,15 @@
-<div class="col-12 <%= @map ? "col-lg-12" : "col-lg-10" %> center">
-  <div class="row">
-    <div class="col-12 mosaic-header">
-      <%= link_to t('.title'), users_path %> <%= t('.a') + @search.capitalize if @search %>
-    </div>
-
-    <% if current_user.moderator %>
-      <% @hosts.each do |user| %>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <%= render "users/profile_card", user: user %>
-        </div>
-      <% end %>
-
+<div class="row">
+  <div class="col-12 <%= @map ? "col-lg-12" : "col-lg-10" %> center">
+    <div class="row">
       <div class="col-12 mosaic-header">
-        <p class="title">Unvalidated members - <span class="badge badge-pill badge-success"> moderator only</span></p>
+        <%= link_to t('.title'), users_path %> <%= t('.a') + @search.capitalize if @search %>
       </div>
-      <% @unvalidated_members.each do |user| %>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <%= render "users/profile_card", user: user %>
-        </div>
-      <% end %>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <% if @unvalidated_members.empty?  %>
-          <p class="badge badge-pill badge-secondary">
-          <%= "-- No member to validates --"%>
-          </p>
-        <% end %>
-      </div>
-
-      <div class="col-12 mosaic-header">
-        <p class="title">Not host validated members - <span class="badge badge-pill badge-success"> moderator only</span></p>
-      </div>
-      <% @not_host_members.each do |user| %>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <%= render "users/profile_card", user: user %>
-        </div>
-      <% end %>
-
-      <div class="col-12 mosaic-header">
-        <p class="title">Suspended members - <span class="badge badge-pill badge-success"> moderator only</span></p>
-      </div>
-      <% @suspended_members.each do |user| %>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <%= render "users/profile_card", user: user %>
-        </div>
-      <% end %>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-        <% if @suspended_members.empty?  %>
-          <p class="badge badge-pill badge-secondary">
-          <%= "-- No suspended member --"%>
-          </p>
-        <% end %>
-      </div>
-    <% else %>
       <% @users.each do |user| %>
         <div class="col-12 col-md-6 <%= @map ? "col-lg-6 col-xl-4" : "col-lg-3 col-xl-2" %> relative">
           <%= render "users/profile_card", user: user %>
         </div>
       <% end %>
-    <% end %>
-    <div class="col-12 mosaic-footer">
+      <div class="col-12 mosaic-footer"></div>
     </div>
   </div>
 </div>

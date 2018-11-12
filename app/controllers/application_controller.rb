@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     current_user.id == params[:user_id].to_i
   end
 
+  def me?
+    current_user == @user
+  end
+
   def email_valid(email)
     mail_regex = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/
     email =~ mail_regex && email.length > 8

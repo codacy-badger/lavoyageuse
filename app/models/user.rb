@@ -43,6 +43,7 @@ class User < ApplicationRecord
   scope :suspended_members, -> { where(role: 2) }
   scope :premium, -> { where(premium: true)}
   scope :all_except, ->(user) { where.not(id: user) }
+  scope :geocoded, -> { where.not(latitude: nil, longitude: nil)}
 
   def full_name
     "#{first_name} #{last_name}"

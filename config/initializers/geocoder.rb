@@ -1,8 +1,9 @@
 Geocoder.configure(
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
-  lookup:    :google,
-  api_key:   ENV['GOOGLE_API_MAP_GEOCODER'],
+  lookup:    :mapbox,
+  units: :km,
+  api_key: ENV['MAPBOX_API_KEY'],
   use_https: true,
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)
   language: :fr,              # ISO-639 language code

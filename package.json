@@ -5,6 +5,7 @@
     "@rails/webpacker": "3.5",
     "bootstrap": "4",
     "gmaps": "^0.4.24",
+    "mapbox-gl": "^0.51.0",
     "select2": "^4.0.6-rc.1",
     "sweetalert": "^2.1.0",
     "typed.js": "^2.0.9"
