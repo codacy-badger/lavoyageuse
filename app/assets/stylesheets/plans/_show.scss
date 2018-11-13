@@ -1,9 +1,19 @@
 .plan-wrapper {
   background-color: $light-purple;
+  background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1537431245/illustrations/photo-1519354754184-e1d9c46182c0.jpg');
+  @include media-breakpoint-down(sm) {
+    background-image: none;
+  }
   .plan-title {
     color: white;
+    @include media-breakpoint-down(sm) {
+      margin: 20px 0 20px 20px;
+    }
   }
   .plan-board {
+    min-height: 570px;
+    background-color: white;
+    padding: 60px;
     @include media-breakpoint-down(sm) {
       width: 100%;
     }
@@ -11,17 +21,16 @@
       width: 790px;
       border-radius: 15px;
     }
-    height: 570px;
-    background-color: white;
-    padding: 60px;
-    text-align: justify;
-    i {
-      color: $green;
-    }
-    .plan-board-title {
-      line-height: 1.4;
-      font-size: 20px;
-      font-weight: 600;
+    .plan-board-content {
+      text-align: justify;
+      i {
+        color: $green;
+      }
+      .plan-board-title {
+        line-height: 1.4;
+        font-size: 20px;
+        font-weight: 600;
+      }
     }
     .plan-card-photo {
       width: 200px;

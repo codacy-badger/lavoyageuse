@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 
   def chart; end
 
-  def cgu; end
+  def cgu
+    @cugs = t('.cgus')
+  end
 
 end

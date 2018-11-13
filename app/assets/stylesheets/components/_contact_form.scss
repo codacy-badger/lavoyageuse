@@ -21,7 +21,7 @@
   .contact-identity {
     @include media-breakpoint-down(lg) {
       min-height: 200px;
-      padding: 0px 15px 0px 15px;
+      padding:0 15px0 15px;
       &.no-header {
         min-height: 340px;
       }
@@ -29,7 +29,7 @@
     @include media-breakpoint-up(lg) {
       border-right: $border-medium;
       height: 420px;
-      padding: 0px 60px 70px 60px;
+      padding:0 60px 70px 60px;
       &.no-header {
         height: 480px;
       }
@@ -41,7 +41,7 @@
     background-position: center center;
     @include media-breakpoint-down(lg) {
       min-height: 350px;
-      padding: 15px 15px 0px 15px;
+      padding: 15px 15px0 15px;
       textarea {
         height: 220px;
       }

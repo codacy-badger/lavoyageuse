@@ -1,10 +1,10 @@
 /* Main navbar */
-.navbar-wagon {
+.navbar-wagon{
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: transparent;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
+  padding:0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,8 +13,19 @@
   .label-moderator {
     position: absolute;
     top: 69px;
-    right: -1px;
+    right: 0;
     background-color: $green;
+    padding: 5px 10px 10px 10px;
+    border-radius: 0 0 0 3px;
+    margin: 1px;
+    color: white;
+    z-index: 1000;
+  }
+  .label-env {
+    position: absolute;
+    top: 110px;
+    right: 0;
+    background-color: $orange;
     padding: 5px 10px 10px 10px;
     border-radius: 0 0 0 3px;
     margin: 1px;
@@ -29,20 +40,6 @@
 }
 a.navbar-wagon-brand {
   line-height: 0;
-}
-
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
-
-/* Right section */
-.navbar-wagon-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 /* Basic navbar item */

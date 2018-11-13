@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all_except(current_user)
-    if params[:query]
+    if params[:query] && !i_am_moderator?
       @map = true
       @search = params[:query][:content]
       @users = @users.near(params[:query][:content], 15).possible_hosts.order(host: :desc).mappable

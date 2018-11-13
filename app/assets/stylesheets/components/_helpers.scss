@@ -173,22 +173,6 @@ $input-height: 56px;
   justify-content: center;
   align-items: flex-end;
 }
-.flex-vertical-align {
-  display: flex;
-  align-items: center;
-}
-.flex-column {
-  @extend %display-flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  &.top {
-    justify-content: start;
-  }
-  &.center {
-    justify-content: center;
-  }
-}
 .flex-between {
   justify-content: space-between;
 }
@@ -197,7 +181,7 @@ $input-height: 56px;
 }
 .fixed-top {
   position: fixed;
-  top: 0px;
+  top:0;
   width: 100%;
   z-index: 10;
 }
@@ -230,7 +214,7 @@ a:hover.pastille {
 .splitscreen-wrapper{
   position: relative;
   width: 100%;
-  margin: 0px;
+  margin:0;
 }
 .splitscreen-column {
   width: 50%;

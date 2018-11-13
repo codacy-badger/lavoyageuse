@@ -7,6 +7,11 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
         <div class="login-box margin-bottom-big">
+          <%= render "shared/button_with_icon", locals: {
+                                                path: user_path(@user),
+                                                icon: "fas fa-times",
+                                                klass: "pastille pastille-white pastille-close flexbox"
+                                                } %>
           <div class="form-inputs">
             <div class="label-separator flexbox">
               <p class="label"><%= t('devise.registrations.new.data-connexion') %></p>

@@ -1,7 +1,3 @@
-// Specific CSS for your home-page
-.navbar-wagon{
-  position: absolute;
-}
 .home{
   .banner{
     width: 100%;
@@ -16,6 +12,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
+    @include media-breakpoint-down(xs) {background-position: right top;}
     display: flex;
     .maintitle{
       text-align: center;
@@ -55,7 +52,7 @@
       }
       p {
         font-size: 15px;
-        margin-bottom: 0px;
+        margin-bottom:0;
       }
     }
   }

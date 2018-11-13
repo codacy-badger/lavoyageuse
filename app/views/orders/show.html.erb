@@ -1,9 +1,14 @@
-<div class="plan-wrapper fullscreen under-navbar flexbox" style="background-image: url('https://res.cloudinary.com/dfcsmghw4/image/upload/v1537431245/illustrations/photo-1519354754184-e1d9c46182c0.jpg');">
+<div class="plan-wrapper fullscreen under-navbar flexbox">
   <div>
     <h1 class="plan-title"><%= t('.title') %></h1>
-    <div class="plan-board">
+    <div class="plan-board relative">
+        <%= render "shared/button_with_icon", locals: {
+                                              path: user_path(@user),
+                                              icon: "fas fa-times",
+                                              klass: "pastille pastille-white pastille-close flexbox"
+                                              } %>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-6 plan-board-content">
             <p class="plan-board-title mb-3"><%= t('.board-title') %></p>
             <p><i class="fas fa-check-circle mr-3"></i><%= t('.status') %> <%= t('.' + @order.state) %></p>
             <p><i class="fas fa-check-circle mr-3"></i><%= t('.command_number') %><%= t('.' + (@order.id*100).to_s) %></p>
@@ -13,7 +18,7 @@
             <p><i class="far fa-calendar-alt mr-3"></i><%= t('.end') %> <%= @order.created_at.next_year.strftime("%d/%m/%Y") %> </p>
             <p><%= t('.welcome') %></p>
           </div>
-          <div class="col-6 mb-4">
+          <div class="col-12 col-md-6 mb-4">
             <div class="plan-card">
               <p class="plan-card-title"><%= @order.plan_sku.capitalize %></p>
               <div class="plan-price-wrapper flexbox">
@@ -25,9 +30,15 @@
 
             </div>
           </div>
-          <div class="col-8 offset-sm-2 text-center d-flex flex-row">
+          <div class="d-none d-md-block col-md-8 offset-md-2 text-center">
+            <div class="d-flex flex-row"></div>
             <%= link_to t('.back_to_profile'), user_path(@user), class:"mr-3" %>
             <%= link_to t('.back_to_index'), users_path, class:"ml-3" %>
+            </div>
+          </div>
+          <div class="d-block d-md-none d-md-col-12 col-md-8 offset-md-2 text-center">
+            <%= link_to t('.back_to_profile'), user_path(@user), class:"btn btn-light-purple mb-3" %>
+            <%= link_to t('.back_to_index'), users_path, class:"btn btn-light-purple" %>
           </div>
         </div>
     </div>

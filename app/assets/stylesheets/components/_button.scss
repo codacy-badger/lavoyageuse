@@ -23,7 +23,7 @@
     font-size: 0.9em;
   }
   p {
-    margin-bottom: 0px;
+    margin-bottom:0;
   }
   &:hover {
     background-color: $bright-purple !important;
@@ -57,7 +57,7 @@
   border-radius: 40px;
   height: 40px;
   border: none;
-  padding: 0px 30px 0px 30px;
+  padding:0 30px0 30px;
   &:hover {
     background-color: $yellow !important;
     color: white;
@@ -118,7 +118,7 @@ input#case_photo {
   height: 56px;
   min-width: 280px;
   border: none;
-  padding: 0px 30px 0px 30px;
+  padding:0 30px0 30px;
   max-width: 320px;
   min-width: 300px;
   box-shadow: none;
@@ -127,7 +127,7 @@ input#case_photo {
   border-bottom:none;
   margin: 5px;
   p {
-    margin-bottom: 0px;
+    margin-bottom:0;
   }
   &:hover {
     background-color: $yellow;
@@ -142,7 +142,7 @@ input, select {
 }
 .submit-hidden {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top:0;
+  right:0;
   visibility: hidden;
 }
