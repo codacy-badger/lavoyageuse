@@ -20,10 +20,8 @@ class UsersController < ApplicationController
       @users = User.all_except(current_user)
       if i_am_moderator?
         @group_name = params[:group] ? params[:group][:name] : "hosts"
-        #number of unvalidated hosts
-        #number of visitors
-        @users_count = { "hosts": @users.unvalidated_host.count,
-                       "visitors": @users.visitor.count }
+        @users_count = {  "hosts": @users.unvalidated_host.count,
+                          "visitors": @users.visitor.count }
         case @group_name
         when "hosts"
           @users = @users.possible_hosts.order(host: :asc)

@@ -1,15 +1,14 @@
 .btn, input.btn, select.btn {
   color: white !important;
-  // background-color: $yellow;
   border-radius: $border-radius;
   height: auto !important;
   height: $input-height; // for IE
   min-height: $input-height;
   border: none;
   padding: 0.7rem 1.2rem 0.7rem 1.2rem;
-  // width: 100%;
-  margin: auto;
   min-width: 200px;
+  @include media-breakpoint-down(xs) { width: 100%; }
+  margin: auto;
   box-shadow: none;
   font-size: 16px;
   -webkit-box-shadow: none;
