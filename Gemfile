@@ -12,7 +12,6 @@ gem 'rails', '5.1.6'
 gem 'redis'
 gem 'cookies_eu'
 
-
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'rails-i18n'

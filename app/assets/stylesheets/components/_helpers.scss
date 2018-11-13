@@ -177,12 +177,6 @@ $input-height: 56px;
   display: flex;
   align-items: center;
 }
-.flex-line {
-  @extend %display-flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-}
 .flex-column {
   @extend %display-flex;
   flex-direction: column;
@@ -197,9 +191,6 @@ $input-height: 56px;
 }
 .flex-between {
   justify-content: space-between;
-}
-.flex-left {
-  justify-content: left;
 }
 .flex-wrap {
   flex-wrap: wrap;

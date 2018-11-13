@@ -53,7 +53,7 @@
                                                                   icon: "far fa-smile-wink"
                                                                   } %>
                       <% else %>
-                        <div class="flex-line">
+                        <div class="d-flex flex-row">
                           <%= render "shared/button_form", local: { model: :user,
                                                                     path: @user,
                                                                     method: :patch,
@@ -85,7 +85,7 @@
                         <p><%= @user.description || t('.description_none') %></p>
                       </div>
                       <h5 class="mb-3"><%= t('.photos') %></h5>
-                      <div class="flex-line flex-left">
+                      <div class="d-flex flex-row">
                         <div class="photo_placeholder mr-3 flexbox">
                           <i class="fas fa-camera"></i>
                         </div>

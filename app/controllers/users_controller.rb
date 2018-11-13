@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :params_user, only: %i(show update edit moderate)
-  before_action :user_comments, only: %i(show edit moderate)
+  before_action :set_user, only: %i(show update edit moderate)
+  before_action :set_user_comments, only: %i(show edit moderate)
   before_action :set_premium_plan, only: %i(show edit)
 
   def index
@@ -17,23 +17,35 @@ class UsersController < ApplicationController
         }
       end
     else
-      if current_user.moderator
-        @hosts = User.possible_hosts.order(host: :asc)
-        @not_host_members = User.not_hosts.order(updated_at: :desc)
-        @unvalidated_members = User.unvalidated_members.order(updated_at: :desc)
-        @suspended_members = User.suspended_members.order(updated_at: :desc)
-        @users = [@hosts, @not_host_members, @unvalidated_members, @suspended_members]
-        @groups = ["unvalidated host", "members only", "unvalidated_members", "suspended_members"]
+      @users = User.all_except(current_user)
+      if i_am_moderator?
+        @group_name = params[:group] ? params[:group][:name] : "hosts"
+        #number of unvalidated hosts
+        #number of visitors
+        @users_count = { "hosts": @users.unvalidated_host.count,
+                       "visitors": @users.visitor.count }
+        case @group_name
+        when "hosts"
+          @users = @users.possible_hosts.order(host: :asc)
+        when "members"
+          @users = @users.not_hosts.order(updated_at: :desc)
+        when "visitors"
+          @users = @users.visitor.order(updated_at: :desc)
+        when "suspendeds"
+          @users = @users.suspended_members.order(updated_at: :desc)
+        else
+          @users
+        end
       else
-        @users = User.possible_hosts.order(host: :desc)
+        @users = @users.possible_hosts.order(host: :desc)
       end
     end
   end
 
   def show
-    if current_user == @user
+    if me?
       redirect_to edit_user_path(@user)
-    elsif current_user.moderator
+    elsif i_am_moderator?
       redirect_to moderate_user_path(@user)
     else
       redirect_to users_path if @user.not_accessible
@@ -53,7 +65,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(users_params)
       flash[:success] = t('.success')
-      if current_user.moderator && !me?
+      if i_am_moderator? && !me?
         Moderation.create!(moderator: current_user, moderated: @user, action: params[:commit] + " : " + @user.id.to_s  )
         redirect_to moderate_user_path(@user)
       else
@@ -72,11 +84,11 @@ class UsersController < ApplicationController
 
   private
 
-  def user_comments
+  def set_user_comments
     @comments = Comment.where(host: @user.id)
   end
 
-  def params_user
+  def set_user
     @user = User.find(params[:id])
   end
 

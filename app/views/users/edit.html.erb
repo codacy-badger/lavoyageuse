@@ -57,7 +57,7 @@
                         <%= render "shared/mini_form", query: :user, attribute: :description, content: { label: false, path: @user, method: :patch, placeholder: @user.description, value: @user.description || "", btn_text: t('.about_btn_text') } %>
                       </div>
                       <h5 class="mb-3"><%= t('.photos') %></h5>
-                      <div class="flex-line flex-left">
+                      <div class="d-flex flex-row">
                         <div class="photo_placeholder mr-3 flexbox">
                           <i class="fas fa-camera"></i>
                         </div>

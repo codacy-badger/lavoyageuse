@@ -1,0 +1,10 @@
+<div class="relative">
+  <%= simple_form_for local[:model], url: local[:path], method: :get do |f| %>
+        <%= f.input local[:attribute], input_html: {value: local[:value] }, as: :hidden %>
+        <%= f.button :submit, value: local[:btn_text], data: {disable_with: "----"}, class:"btn #{local[:btn_extra_class]}" %>
+        <% @badge_number = @users_count[local[:value].to_sym] %>
+        <% if @badge_number && @badge_number > 0 %>
+          <span class="badge badge-light btn-form-badge"><%= @badge_number %></span>
+        <% end %>
+  <% end %>
+</div>

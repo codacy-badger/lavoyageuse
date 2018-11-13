@@ -25,9 +25,9 @@
 
             </div>
           </div>
-          <div class="col-8 offset-sm-2 text-center flex-line">
-            <%= link_to t('.back_to_profile'), user_path(@user) %>
-            <%= link_to t('.back_to_index'), users_path %>
+          <div class="col-8 offset-sm-2 text-center d-flex flex-row">
+            <%= link_to t('.back_to_profile'), user_path(@user), class:"mr-3" %>
+            <%= link_to t('.back_to_index'), users_path, class:"ml-3" %>
           </div>
         </div>
     </div>
