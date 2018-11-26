@@ -65,9 +65,9 @@
               <%= f.input :city, as: :hidden %>
             </div>
 
-            <div class="input-parent">
-              <%= f.input :adulthood, as: :boolean, label: false, placeholder: "Oui" %>
-              <p class="ml-4"><%= t('.adulthood?') %></p>
+            <div class="input-parent mb-5">
+              <%= f.input :adulthood, as: :boolean, label: t('.adulthood?'), placeholder: "Oui", class:"form-checkbox" %>
+             <!--  <p class="form-checkbox-label"><%= t('.adulthood?') %></p> -->
             </div>
 
             <p><%= t('.about_you') %></p>
