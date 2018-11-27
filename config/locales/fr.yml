@@ -112,6 +112,9 @@ fr:
       comment_empty: "Pas de commentaire"
       comment_be_premium: "Vous devez être membre premium et avoir annoncé un voyage pour laisser un commentaire"
       leave_comment_here: "Vous pourrez laisser un commentaire ici quand vous aurez rencontré cet hôte."
+      whistled: "Vous avez déjà signalé ce commentaire"
+      not_whistled: "Signaler ce commentaire"
+      whistle_message: "Commentaire signalé"
     mosaic:
       title: "Nos hébergeuses"
       a: "à : "

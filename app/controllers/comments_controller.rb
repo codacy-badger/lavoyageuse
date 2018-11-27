@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      flash[:success] = "comment suspended"
+      flash[:success] = params[params.keys[3]][:message] || "Success"
       redirect_to @user
     end
     if current_user.moderator
@@ -27,6 +27,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content, :suspended)
+    params.require(:comment).permit(:content, :suspended, :whistled)
   end
 end

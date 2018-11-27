@@ -39,11 +39,29 @@
                                                 path: user_comment_path(@user, comment),
                                                 method: :patch,
                                                 attribute: :suspended,
+                                                message: "comment suspended",
                                                 value: comment.suspended ? false : true,
                                                 btn_text: comment.suspended ? "approve the comment above" : "suspend the comment above",
                                                 btn_extra_class: comment.suspended ? "btn-green" : "btn-orange",
                                                 icon: comment.suspended ? "far fa-comments" : "fas fa-comment-slash"
                                                 } %>
+    <% else %>
+      <% if me? %>
+        <% if comment.whistled %>
+          <p class="badge badge-danger"><%= t('.whistled') %></p>
+        <% else %>
+          <%= render "shared/button_form", local: { model: :comment,
+                                                   path: user_comment_path(@user, comment),
+                                                   method: :patch,
+                                                   attribute: :whistled,
+                                                   message: t('.whistle_message'),
+                                                   value: true,
+                                                   btn_text: t('.not_whistled'),
+                                                   btn_extra_class: "btn-orange",
+                                                   icon: "fas fa-comment-slash"
+                                                   } %>
+        <% end %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
