@@ -21,9 +21,13 @@
 <% else %>
   <% @comments.each do |comment| %>
     <div class="row">
-      <%= cl_image_tag comment.traveller.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
+      <%= link_to user_path(comment.traveller) do %>
+        <%= cl_image_tag comment.traveller.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
+      <% end %>
       <div class="col-xs-12 col-md-9">
-        <p><%= "#{comment.traveller.hidden_full_name}"%>
+        <%= link_to user_path(comment.traveller) do %>
+          <p><%= "#{comment.traveller.hidden_full_name}"%>
+        <% end %>
            <span class="text-black-50"> - <%= "#{comment.created_at.strftime('%d-%m-%Y')}" %></span>
         </p>
         <p></p>
