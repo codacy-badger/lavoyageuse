@@ -21,8 +21,12 @@ module ApplicationHelper
     current_user.posted_messages.where(host: @user).count > 0
   end
 
+  def existing_trips?
+    current_user.announced_trips.where(host: @user).count > 0
+  end
+
   def future_trip?
-    @trips = current_user.announced_trips
+    @trips = current_user.announced_trips.where(host: @user)
     if @trips.count > 0
       @trips.maximum(:end) > DateTime.now
     end

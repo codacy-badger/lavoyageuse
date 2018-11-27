@@ -1,7 +1,6 @@
 <% unless me? %>
   <h5 class="mb-3"><span class="mr-3"><i class="far fa-comment"></i></span><%= t('.add_comment') %></h5>
-  <% if current_user.premium %>
-    <% if existing_exchanges? %>
+    <% if existing_trips? %>
       <%= render "shared/mini_form", query: :comment,
                                      attribute: :content,
                                      content: { label: false,
@@ -11,21 +10,14 @@
                                                 value: session[:comment],
                                                 btn_text: t('.comment_btn_text')} %>
     <% else %>
-      <%= t('.leave_comment_here') %>
+      <p class="p-3 bg-light"><%= t('.leave_comment_here') %></p>
     <% end %>
-  <% else %>
-    <h5 class="p-3 bg-light mb-3">
-      <%= render "shared/get_premium_btn" %>
-      <%= t('.comment_be_premium') %>
-    </h5>
-  <% end %>
 <% end %>
-
 
 <div class="bar-separator-light"></div>
 
 <% if @comments.empty? %>
-  <p>- <%= t('.comment_empty') %></p>
+  <p class="p-3 bg-light"><%= t('.comment_empty') %></p>
 <% else %>
   <% @comments.each do |comment| %>
     <div class="row">

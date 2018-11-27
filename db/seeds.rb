@@ -77,6 +77,7 @@ emails.each_with_index do |x, i|
                 host: hosts[i],
                 premium: [true, false].sample,
                 adulthood: true,
+                womanhood: true,
                 photo: open(photos[i]),
                 id_card: open(id_card))
 
