@@ -8,112 +8,125 @@
         <%= f.error_notification %>
         <div class="login-box margin-bottom-big">
           <div class="form-inputs">
-            <div class="label-separator flexbox">
-              <p class="label"><%= t('.data-connexion') %></p>
-              <div class="separator"></div>
-            </div>
-            <div class="input-parent">
-              <i class="input-icon far fa-envelope"></i>
-              <%= f.input :email, required: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon fas fa-lock"></i>
-              <%= f.input :password,
-                          required: true,
-                          placeholder: t('.password'),
-                          label: false,
-                          hint: t('.password_hint'),
-                          input_html: { autocomplete: "new-password" } %>
-            </div>
-            <div class="input-parent margin-bottom-big">
-              <i class="input-icon fas fa-lock"></i>
-              <%= f.input :password_confirmation,
-                        required: true,
-                        placeholder: t('.password2'),
-                        label: false,
-                        input_html: { autocomplete: "new-password" } %>
-            </div>
 
             <div class="label-separator flexbox">
-              <p class="label"><%= t('.data-personal') %></p>
+              <p class="label"><%= t('.data-pre') %></p>
               <div class="separator"></div>
             </div>
-            <div class="margin-bottom-small">
-              <small><%= t('.restrictions') %></small>
-            </div>
-            <div class="input-parent">
-              <i class="input-icon far fa-user"></i>
-              <%= f.input :first_name, label: false, required: true, placeholder: t('.first_name') %>
-            </div>
 
-            <div class="input-parent">
-              <i class="input-icon far fa-user"></i>
-              <%= f.input :last_name, label: false, required: true, placeholder: t('.last_name') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon fas fa-phone"></i>
-              <%= f.input :phone, label: false, required: true, placeholder: t('.phone') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon fas fa-map-marker-alt"></i>
-              <%= f.input :address, label: false, required: true, placeholder: t('.address') %>
-              <%= f.input :latitude, as: :hidden %>
-              <%= f.input :longitude, as: :hidden %>
-              <%= f.input :city, as: :hidden %>
+            <div class="input-parent mb-2">
+              <%= f.input :adulthood, as: :boolean, label: t('.adulthood?'), placeholder: "Oui", class:"form-checkbox" %>
             </div>
 
             <div class="input-parent mb-5">
-              <%= f.input :adulthood, as: :boolean, label: t('.adulthood?'), placeholder: "Oui", class:"form-checkbox" %>
-             <!--  <p class="form-checkbox-label"><%= t('.adulthood?') %></p> -->
+              <%= f.input :womanhood, as: :boolean, label: t('.womanhood?'), placeholder: "Oui", class:"form-checkbox" %>
             </div>
 
-            <p><%= t('.about_you') %></p>
-            <div class="input-parent">
-              <i class="input-icon fas fa-quote-right"></i>
-              <%= f.input :sentence, label: false, required: true, placeholder: t('.sentence') %>
-            </div>
+            <div id="form-main">
+              <div class="label-separator flexbox">
+                <p class="label"><%= t('.data-connexion') %></p>
+                <div class="separator"></div>
+              </div>
+              <div class="input-parent">
+                <i class="input-icon far fa-envelope"></i>
+                <%= f.input :email, required: true, label: false, input_html: { autocomplete: "email" }, placeholder: t('.email') %>
+              </div>
+
+              <div class="input-parent">
+                <i class="input-icon fas fa-lock"></i>
+                <%= f.input :password,
+                            required: true,
+                            placeholder: t('.password'),
+                            label: false,
+                            hint: t('.password_hint'),
+                            input_html: { autocomplete: "new-password" } %>
+              </div>
+              <div class="input-parent margin-bottom-big">
+                <i class="input-icon fas fa-lock"></i>
+                <%= f.input :password_confirmation,
+                          required: true,
+                          placeholder: t('.password2'),
+                          label: false,
+                          input_html: { autocomplete: "new-password" } %>
+              </div>
+
+              <div class="label-separator flexbox">
+                <p class="label"><%= t('.data-personal') %></p>
+                <div class="separator"></div>
+              </div>
+              <div class="margin-bottom-small">
+                <small><%= t('.restrictions') %></small>
+              </div>
+              <div class="input-parent">
+                <i class="input-icon far fa-user"></i>
+                <%= f.input :first_name, label: false, required: true, placeholder: t('.first_name') %>
+              </div>
+
+              <div class="input-parent">
+                <i class="input-icon far fa-user"></i>
+                <%= f.input :last_name, label: false, required: true, placeholder: t('.last_name') %>
+              </div>
+
+              <div class="input-parent">
+                <i class="input-icon fas fa-phone"></i>
+                <%= f.input :phone, label: false, required: true, placeholder: t('.phone') %>
+              </div>
+
+              <div class="input-parent">
+                <i class="input-icon fas fa-map-marker-alt"></i>
+                <%= f.input :address, label: false, required: true, placeholder: t('.address') %>
+                <%= f.input :latitude, as: :hidden %>
+                <%= f.input :longitude, as: :hidden %>
+                <%= f.input :city, as: :hidden %>
+              </div>
 
 
-           <div class="input-parent mb-3">
-            <p><%= t('.photo') %></p>
-              <%= f.input :photo_cache, as: :hidden %>
+              <p><%= t('.about_you') %></p>
+              <div class="input-parent">
+                <i class="input-icon fas fa-quote-right"></i>
+                <%= f.input :sentence, label: false, required: true, placeholder: t('.sentence') %>
+              </div>
 
-              <div class="fileinput fileinput-new" data-provides="fileinput" id="user-photo-form-group">
-                <div class="fileinput-new thumbnail" style="background-image: url(''); width: 280px; height: 150px;">
-                   <i class="fas fa-camera-retro"></i>
-                </div>
-                <div>
-                  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 280px; max-height: 150px;"></div>
+
+             <div class="input-parent mb-3">
+              <p><%= t('.photo') %></p>
+                <%= f.input :photo_cache, as: :hidden %>
+
+                <div class="fileinput fileinput-new" data-provides="fileinput" id="user-photo-form-group">
+                  <div class="fileinput-new thumbnail" style="background-image: url(''); width: 280px; height: 150px;">
+                     <i class="fas fa-camera-retro"></i>
+                  </div>
                   <div>
-                    <div class="form-control-file file required">
-                    <span class="btn btn-default btn-light-purple btn-file mb-3">
-                      <span class="fileinput-new"><%= t('.select_file') %></span>
-                      <span class="fileinput-exists"><%= t('.change_file') %></span>
-                      <input type="file" name="user[photo]" id="user_photo">
-                    </span>
+                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 280px; max-height: 150px;"></div>
+                    <div>
+                      <div class="form-control-file file required">
+                      <span class="btn btn-default btn-light-purple btn-file mb-3">
+                        <span class="fileinput-new"><%= t('.select_file') %></span>
+                        <span class="fileinput-exists"><%= t('.change_file') %></span>
+                        <input type="file" name="user[photo]" id="user_photo">
+                      </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <a href="#" class="btn btn-default btn-orange fileinput-exists" data-dismiss="fileinput" id="user-photo-remove-btn"><%= t('.remove_file') %></a>
-          </div>
-
-
-            <div class="input-parent mb-3">
-             <p><%= t('.id_card') %></p>
-               <%= f.input :id_card, label: false %>
-               <%= f.input :id_card_cache, as: :hidden %>
-                <a href="#" class="btn btn-default btn-orange fileinput-exists full-width" data-dismiss="fileinput" id="user-id-card-remove-btn"><%= t('.remove_file') %></a>
-                <!-- <small><%= t('.id_card_hint') %></small> -->
+                <a href="#" class="btn btn-default btn-orange fileinput-exists" data-dismiss="fileinput" id="user-photo-remove-btn"><%= t('.remove_file') %></a>
             </div>
-          </div>
+
+
+              <div class="input-parent mb-3">
+               <p><%= t('.id_card') %></p>
+                 <%= f.input :id_card, label: false %>
+                 <%= f.input :id_card_cache, as: :hidden %>
+                  <a href="#" class="btn btn-default btn-orange fileinput-exists full-width" data-dismiss="fileinput" id="user-id-card-remove-btn"><%= t('.remove_file') %></a>
+                  <!-- <small><%= t('.id_card_hint') %></small> -->
+              </div>
+            </div>
 
           <div class="form-actions">
             <%= f.button :submit, t('.submit') %>
           </div>
+
+            </div>
         </div>
       <% end %>
         <div class="full-width" style="text-align: center">

@@ -122,6 +122,18 @@
 <%= content_for :after_js do %>
   <script>
 
+    // INIT
+    const userAddress = document.getElementById('user_address');
+    const userlat = document.getElementById('user_latitude');
+    const userlng = document.getElementById('user_longitude');
+    const usercity = document.getElementById('user_city');
+    const userPassword = document.getElementById('user_password');
+
+    // EMPTY PASSWORD FIELD
+
+    userPassword.value = null;
+
+
             // function testIt(e) {
             //   if(this.value.match(new RegExp(this.pattern))){
             //     this.style.cssText = null;
@@ -134,11 +146,6 @@
             function onPlaceChanged() {
               var place = this.getPlace();
               var components = getAddressComponents(place);
-
-              var userAddress = document.getElementById('user_address');
-              var userlat = document.getElementById('user_latitude');
-              var userlng = document.getElementById('user_longitude');
-              var usercity = document.getElementById('user_city');
 
               userAddress.blur();
               userAddress.value = components.address + ', ' + components.zip_code + ' ' + components.city + ', ' + components.country_code;
