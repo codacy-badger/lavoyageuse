@@ -115,7 +115,7 @@ fr:
     mosaic:
       title: "Nos hébergeuses"
       a: "à : "
-    profile_card:
+    profile_card_content:
       coming-soon: "Coming soon"
       hint: "future hébergeuse en attente de validation"
     show:

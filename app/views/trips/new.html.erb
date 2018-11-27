@@ -20,9 +20,9 @@
     <div class="full-width">
       <%= simple_form_for :trip, url: user_trips_path(@user), method: :post do |f| %>
         <p><%= t('.date_start') %></p>
-        <%= f.input :beginning, as: :date, html5: true, label: false %>
+        <%= f.input :beginning, as: :date, html5: true, label: false, :input_html => { min: DateTime.now } %>
         <p><%= t('.date_end') %></p>
-        <%= f.input :end, as: :date, html5: true, label: false %>
+        <%= f.input :end, as: :date, html5: true, label: false, :input_html => { min: DateTime.now } %>
         <div class="row">
         <div class="col-12 pt-3">
           <%= f.button :submit, value: "valider", data: { disable_with: "" }, class:"btn btn-blue btn-large" %>
@@ -33,3 +33,16 @@
 
   </div>
 </div>
+
+<%= content_for :after_js do %>
+  <script>
+    const beginning = document.getElementById('trip_beginning');
+    const end = document.getElementById('trip_end');
+
+    beginning.addEventListener('change', setEndDate)
+
+    function setEndDate() {
+      end.value = end.min = beginning.value;
+    }
+  </script>
+<% end %>
