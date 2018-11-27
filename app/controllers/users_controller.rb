@@ -57,8 +57,11 @@ class UsersController < ApplicationController
   end
 
   def moderate
+    @moderators = User.where(moderator: true).pluck(:id)
     @order = @user.orders.last
-    @plan = Plan.find_by(name: @order.plan_sku)
+    @plan = Plan.find_by(name: @order.plan_sku) if @order
+    @messages = @user.received_messages.where(traveller_id: @moderators).order(created_at: :desc)
+    console
     redirect_to @user unless current_user.moderator
   end
 

@@ -15,7 +15,6 @@
                                                       icon: "fas fa-times",
                                                       klass: "pastille pastille-white pastille-close flexbox"
                                                       } %>
-
                 <div class="container">
                   <div class="row">
                     <div class="col-xs-12 col-md-6 margin-bottom-big text-center">
@@ -79,16 +78,18 @@
                       <div class="bar-separator-light"></div>
 
                     </div>
-                    <div class="col-12">
-                      <div class="mb-5 p-3 border border-info">
-                        <h5 class="mb-3 badge badge-pill badge-info">Premium account infos (last pass)</h5>
-                        <p>Pass Name : <%= @order.plan_sku %></p>
-                        <p>Montant : <%= (@order.amount_cents/100).to_s + " " + @order.amount_currency %></p>
-                        <p>Duration : <%= @plan.duration %> year</p>
-                        <p>Beginning : <%= @order.created_at %></p>
-                        <p>End : <%= @order.created_at + @plan.duration.years %></p>
+                    <% if @order && @plan %>
+                      <div class="col-12">
+                        <div class="mb-5 p-3 border border-info">
+                          <h5 class="mb-3 badge badge-pill badge-info">Premium account infos (last pass)</h5>
+                          <p>Pass Name : <%= @order.plan_sku %></p>
+                          <p>Montant : <%= (@order.amount_cents/100).to_s + " " + @order.amount_currency %></p>
+                          <p>Duration : <%= @plan.duration %> year</p>
+                          <p>Beginning : <%= @order.created_at %></p>
+                          <p>End : <%= @order.created_at + @plan.duration.years %></p>
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
                     </div>
                     <div class="col-12">
                       <div class="mb-5">
@@ -113,6 +114,14 @@
 
 
                       <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: "Beware, you are a moderator", value: session[:message], btn_text: "Send private message by mail" } %>
+
+                      <% @messages.each do |message| %>
+                        <div class="bg-light p-3 mb-3 mt-2">
+                          <h5>Moderator : <%= message.traveller.full_name %></h5>
+                          <h5>Date : <%= message.created_at %></h5>
+                          <p><%= message.content %></p>
+                        </div>
+                      <% end %>
 
                       <div class="bar-separator-light"></div>
 
