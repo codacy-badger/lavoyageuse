@@ -57,6 +57,8 @@ class UsersController < ApplicationController
   end
 
   def moderate
+    @order = @user.orders.last
+    @plan = Plan.find_by(name: @order.plan_sku)
     redirect_to @user unless current_user.moderator
   end
 

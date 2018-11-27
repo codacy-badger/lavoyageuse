@@ -10,11 +10,11 @@
             </div>
             <div class="col-12">
               <div class="page-wrapper black-on-white margin-bottom-big relative">
-                  <%= render "shared/button_with_icon", locals: {
-                                                        path: users_path,
-                                                        icon: "fas fa-times",
-                                                        klass: "pastille pastille-white pastille-close flexbox"
-                                                        } %>
+                <%= render "shared/button_with_icon", locals: {
+                                                      path: users_path,
+                                                      icon: "fas fa-times",
+                                                      klass: "pastille pastille-white pastille-close flexbox"
+                                                      } %>
 
                 <div class="container">
                   <div class="row">
@@ -78,6 +78,17 @@
 
                       <div class="bar-separator-light"></div>
 
+                    </div>
+                    <div class="col-12">
+                      <div class="mb-5 p-3 border border-info">
+                        <h5 class="mb-3 badge badge-pill badge-info">Premium account infos (last pass)</h5>
+                        <p>Pass Name : <%= @order.plan_sku %></p>
+                        <p>Montant : <%= (@order.amount_cents/100).to_s + " " + @order.amount_currency %></p>
+                        <p>Duration : <%= @plan.duration %> year</p>
+                        <p>Beginning : <%= @order.created_at %></p>
+                        <p>End : <%= @order.created_at + @plan.duration.years %></p>
+                      </div>
+                    </div>
                     </div>
                     <div class="col-12">
                       <div class="mb-5">
