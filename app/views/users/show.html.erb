@@ -29,7 +29,7 @@
                       <div class="bar-separator-light"></div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mt-4 mb-3">
                       <p class="sentence">"<%= @user.sentence %>"</p>
                     </div>
 
@@ -39,49 +39,13 @@
                   </div>
 
                   <div class="row">
-
                     <div class="col-12">
 
-                      <div class="mb-5">
-                        <h5 class="mb-3"><span class="mr-3"><%= t('.about') %></h5>
-                        <% if @user.description %>
-                          <p><%= @user.description %></p>
-                        <% else %>
-                          <h5 class="bg-light p-3"><%= t('.description_none') %></h5>
-                        <% end %>
-                      </div>
-
-                      <div class="mb-5">
-                        <h5 class="mb-3"><span class="mr-3"><%= t('.photos') %></span></h5>
-                        <div class="d-flex flex-row">
-                          <div class="photo_placeholder mr-3 flexbox">
-                            <i class="fas fa-camera"></i>
-                          </div>
-                          <div class="photo_placeholder mr-3 flexbox">
-                            <i class="fas fa-camera"></i>
-                          </div>
-                          <div class="photo_placeholder mr-3 flexbox">
-                            <i class="fas fa-camera"></i>
-                          </div>
-                        </div>
-                      </div>
+                      <%= render "users/host_portrait" %>
 
                       <div class="bar-separator-light"></div>
 
-                      <div class="mb-3">
-                        <h5 class="mb-3"><span class="mr-3"><i class="far fa-envelope"></i></span><%= t('.send_message') %></h5>
-                        <% if current_user.premium %>
-                          <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text') } %>
-                        <% else %>
-                          <h5 class="p-3 bg-light">
-                            <% if @premium_plan %>
-                              <%= render "shared/get_premium_btn" %>
-
-                            <% end %>
-                            <%= t('.message_be_premium') %>
-                          </h5>
-                        <% end %>
-                      </div>
+                      <%= render "users/message_form" %>
 
                       <div class="bar-separator-light"></div>
 
@@ -89,6 +53,7 @@
 
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

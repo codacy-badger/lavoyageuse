@@ -1,0 +1,14 @@
+<div class="mb-3">
+  <h5 class="mb-3"><span class="mr-3"><i class="far fa-envelope"></i></span><%= t('.send_message') %></h5>
+  <% if current_user.premium %>
+    <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: t('.message_placeholder'), value: session[:message], btn_text: t('.message_btn_text') } %>
+  <% else %>
+    <h5 class="p-3 bg-light">
+      <% if @premium_plan %>
+        <%= render "shared/get_premium_btn" %>
+
+      <% end %>
+      <%= t('.message_be_premium') %>
+    </h5>
+  <% end %>
+</div>

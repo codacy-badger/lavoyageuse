@@ -118,20 +118,21 @@ fr:
     mosaic:
       title: "Nos hébergeuses"
       a: "à : "
+    message_form:
+      send_message: "Envoyer un message :"
+      message_placeholder: "Votre message ici."
+      message_btn_text: "Envoyer le message"
+      message_be_premium: "Vous devez être membre premium pour envoyer un message aux hébergeuses"
     profile_card_content:
       coming-soon: "Coming soon"
       hint: "future hébergeuse en attente de validation"
     show:
       column-title: "Nos hébergeuses / "
       live_in: "habite à"
-      send_message: "Envoyer un message :"
       comments: "Commentaires :"
       add_comment: "Ajouter un commentaire"
       about: "A propos de moi, de nous ..."
       photos: "Photos de moi, de nous ..."
-      message_placeholder: "Votre message ici."
-      message_btn_text: "Envoyer le message"
-      message_be_premium: "Vous devez être membre premium pour envoyer un message aux hébergeuses"
       registration_update: "Modifier vos paramètres d'inscription"
       description_none: "Cette hébergeuse n'a pas complêté sa description"
     edit:
