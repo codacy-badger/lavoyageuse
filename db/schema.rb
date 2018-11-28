@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20181127144721) do
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
     t.integer "duration"
+    t.string "price"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -105,8 +106,8 @@ ActiveRecord::Schema.define(version: 20181127144721) do
     t.float "longitude"
     t.float "latitude"
     t.integer "role", default: 0
-    t.string "id_card"
     t.string "photo"
+    t.string "id_card"
     t.string "sentence"
     t.integer "host", default: 0
     t.string "description"

@@ -1,0 +1,29 @@
+<% @comments.each do |comment| %>
+  <div class="col-12">
+    <div class="rounded bg-white text-dark p-3 mb-3">
+      <p><strong>Sender (traveller):</strong> <%= comment.traveller.full_name %></p>
+      <p><strong>Receiver (host):</strong> <%= comment.host.full_name %></p>
+      <p class="bg-light"><%= comment.content %></p>
+      <%= render "shared/button_form", local: { model: :comment,
+                                                path: user_comment_path(comment.host, comment),
+                                                method: :patch,
+                                                attribute: :suspended,
+                                                message: "comment suspended",
+                                                value: comment.suspended ? false : true,
+                                                btn_text: comment.suspended ? "approve the comment above" : "suspend the comment above",
+                                                btn_extra_class: comment.suspended ? "btn-green" : "btn-orange",
+                                                icon: comment.suspended ? "far fa-comments" : "fas fa-comment-slash"
+                                                } %>
+      <%= render "shared/button_form", local: { model: :comment,
+                                                path: user_comment_path(comment.host, comment),
+                                                method: :patch,
+                                                attribute: :whistled,
+                                                message: "comment set as visible",
+                                                value: false,
+                                                btn_text: "stop the alert",
+                                                btn_extra_class: "btn-green",
+                                                icon: "far fa-check-square"
+                                                } %>
+    </div>
+  </div>
+<% end %>

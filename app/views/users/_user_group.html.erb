@@ -1,0 +1,6 @@
+<% @user_group.each do |user| %>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+    <%= render "users/profile_card", user: user %>
+  </div>
+  <% end %>
+<% "-- No member in this group -- " if @users.empty? %>

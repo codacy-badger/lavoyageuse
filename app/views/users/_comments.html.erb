@@ -25,10 +25,15 @@
         <%= cl_image_tag comment.traveller.photo.url, class:"comment-photo mr-3 mb-3 col-xs-12 col-md-3"  %>
       <% end %>
       <div class="col-xs-12 col-md-9">
+        <% if comment.suspended  %>
+            <p class="badge badge-pill badge-danger"> comment suspended </p>
+        <% end %>
         <%= link_to user_path(comment.traveller) do %>
           <p><%= "#{comment.traveller.hidden_full_name}"%>
         <% end %>
-           <span class="text-black-50"> - <%= "#{comment.created_at.strftime('%d-%m-%Y')}" %></span>
+           <span class="text-black-50">
+            - <%= "#{comment.created_at.strftime('%d-%m-%Y')}" %>
+           </span>
         </p>
         <p></p>
         <p><%= comment.content %></p>

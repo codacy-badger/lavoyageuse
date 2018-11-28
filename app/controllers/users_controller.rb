@@ -18,19 +18,24 @@ class UsersController < ApplicationController
       end
     else
       @users = User.all_except(current_user)
+      @button_color = {}
+      @groups = ["hosts","members", "visitors", "suspendeds", "whistled"]
       if i_am_moderator?
         @group_name = params[:group] ? params[:group][:name] : "hosts"
         @users_count = {  "hosts": @users.unvalidated_host.count,
-                          "visitors": @users.visitor.count }
+                          "visitors": @users.visitor.count,
+                          "comments": Comment.where(whistled: true).count }
         case @group_name
         when "hosts"
-          @users = @users.possible_hosts.order(host: :asc)
+          @user_group = @users.possible_hosts.order(host: :asc)
         when "members"
-          @users = @users.not_hosts.order(updated_at: :desc)
+          @user_group = @users.not_hosts.order(updated_at: :desc)
         when "visitors"
-          @users = @users.visitor.order(updated_at: :desc)
+          @user_group = @users.visitor.order(updated_at: :desc)
         when "suspendeds"
-          @users = @users.suspended_members.order(updated_at: :desc)
+          @user_group = @users.suspended_members.order(updated_at: :desc)
+        when "whistled"
+          @comments = Comment.where(whistled: true, suspended: false)
         else
           @users
         end

@@ -3,37 +3,16 @@
     <div class="col-12 mosaic-header mb-5">
       <h5>Moderation</h5>
       <div class="d-flex flex-row flex-wrap">
-        <%= render "shared/button_form_simple", local: { model: :group,
-                                                  path: users_path,
-                                                  attribute: :name,
-                                                  value: "hosts",
-                                                  btn_text: "hosts #{@unvalidated_hosts_count}",
-                                                  count: @unvalidated_hosts_count,
-                                                  btn_extra_class: "btn-light-purple mr-2",
-                                                  } %>
-        <%= render "shared/button_form_simple", local: { model: :group,
-                                                  path: users_path,
-                                                  attribute: :name,
-                                                  value: "members",
-                                                  btn_text: "members",
-                                                  btn_extra_class: "btn-light-purple mr-2",
-                                                  } %>
-        <%= render "shared/button_form_simple", local: { model: :group,
-                                                  path: users_path,
-                                                  attribute: :name,
-                                                  value: "visitors",
-                                                  btn_text: "visitors",
-                                                  count: @visitors_count,
-                                                  btn_extra_class: "btn-light-purple mr-2",
-                                                  } %>
-        <%= render "shared/button_form_simple", local: { model: :group,
-                                                  path: users_path,
-                                                  attribute: :name,
-                                                  value: "suspendeds",
-                                                  btn_text: "suspendeds",
-                                                  btn_extra_class: "btn-light-purple mr-2",
-                                                  } %>
-
+        <% @groups.each do |group| %>
+          <%= render "shared/button_form_simple", local: { model: :group,
+                                                    path: users_path,
+                                                    attribute: :name,
+                                                    value: group,
+                                                    btn_text: "#{group} #{@unvalidated_hosts_count}",
+                                                    count: @users_count[group],
+                                                    btn_extra_class: "btn-light-purple mr-2 #{"btn-green" if @group_name == group}",
+                                                    } %>
+        <% end %>
       </div>
 
     </div>
@@ -41,12 +20,9 @@
     <div class="col-12 mosaic-header">
       <p class="title"><%= @group_name %><span class="badge badge-pill badge-success ml-3"> moderator only</span></p>
     </div>
-    <% @users.each do |user| %>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-2">
-          <%= render "users/profile_card", user: user %>
-      </div>
-      <% end %>
-    <% "-- No member in this group -- " if @users.empty? %>
+
+    <%= render "user_group" if @user_group %>
+    <%= render "comment_group" if @comments %>
 
     <div class="col-12 mosaic-footer">
     </div>
