@@ -76,12 +76,12 @@ class User < ApplicationRecord
 
   def suspension
     # mailer notification depend on user.suspended
-    UserMailer.notification({ subject: t('.subject_suspension'),
+    UserMailer.custom_mail({ subject: I18n.t('user.subject_suspension'),
                               email: "test@la-voyageuse.com",
-                              btn_text: t('.mail_to'),
-                              btn_link: "mailto:'hello@la-voyageuse.com'",
+                              btn_text: I18n.t('user.mail_to'),
+                              btn_link: "mailto:hello@la-voyageuse.com",
                               photo: "https://res.cloudinary.com/dfcsmghw4/image/upload/v1543425652/transactional/photo-1530041686259-53d26f863313.jpg",
-                              content: t('.content_message')}).deliver_now
+                              content: I18n.t('user.content_message')}).deliver_now
   end
 
   private
