@@ -104,7 +104,7 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:description, :host, :home, :role, :reported)
+    params.require(:user).permit(:description, :host, :home, :role, :suspended, :reported)
   end
 end
 

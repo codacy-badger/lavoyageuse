@@ -41,17 +41,7 @@
                     </div>
                     <div class="col-12">
 
-                      <% if @user.suspended? %>
-                        <%= render "shared/button_form", local: { model: :user,
-                                                                  path: @user,
-                                                                  method: :patch,
-                                                                  attribute: :role,
-                                                                  value: "visitor",
-                                                                  btn_text: "unsuspend this member",
-                                                                  btn_extra_class: "btn-green",
-                                                                  icon: "far fa-smile-wink"
-                                                                  } %>
-                      <% else %>
+
                         <div class="d-flex flex-row">
                           <%= render "shared/button_form", local: { model: :user,
                                                                     path: @user,
@@ -62,16 +52,17 @@
                                                                     btn_extra_class: @user.role == "visitor" ? "btn-green" : "btn-orange",
                                                                     icon: @user.role == "visitor" ? "fas fa-user" : "fas fa-user-slash"
                                                                     } %>
-                          <%= render "shared/button_form", local: { model: :user,
-                                                                    path: @user,
-                                                                    method: :patch,
-                                                                    attribute: :role,
-                                                                    value: "suspended",
-                                                                    btn_text: "suspend this member",
-                                                                    btn_extra_class: "btn-red",
-                                                                    data: { confirm: t('.are_you_sure?') },
-                                                                    icon: "far fa-angry"
-                                                                    } %>
+                            <%= render "shared/button_form", local: { model: :user,
+                                                                      path: @user,
+                                                                      method: :patch,
+                                                                      attribute: :suspended,
+                                                                      value: !@user.suspended,
+                                                                      btn_text: @user.suspended ? "unsuspend this member" : "suspend this member",
+                                                                      btn_extra_class: @user.suspended ? "btn-green" : "btn-red",
+                                                                      data: { confirm: t('.are_you_sure?') },
+                                                                      icon: @user.suspended ? "fas fa-smile-wink" : "far fa-angry"
+                                                                      } %>
+
                           <% if @user.reported %>
                             <%= render "shared/button_form", local: { model: :user,
                                                                       path: @user,
@@ -85,7 +76,6 @@
                                                                       } %>
                           <% end %>
                         </div>
-                      <% end %>
 
                       <div class="bar-separator-light"></div>
 

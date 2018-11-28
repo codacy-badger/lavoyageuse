@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   mount_uploader :id_card, CardUploader
-  enum role: {visitor: 0, member: 1, suspended: 2}
+  enum role: {visitor: 0, member: 1}
   enum host: {not_host: 0, unvalidated_host: 1, validated_host: 2}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -36,11 +36,12 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  after_validation :suspension, if: :suspended_changed?
 
   scope :possible_hosts, -> { where(host: [1,2], role:1) }
   scope :not_hosts, -> { where(host: 0, role:1) }
-  scope :suspended_members, -> { where(role: 2) }
-  scope :premium, -> { where(premium: true)}
+  scope :suspended, -> { where(suspended: true) }
+  scope :premium, -> { where(premium: true, role: 1)}
   scope :all_except, ->(user) { where.not(id: user) }
   scope :mappable, -> { where.not(latitude: nil, longitude: nil)}
 
@@ -53,7 +54,7 @@ class User < ApplicationRecord
   end
 
   def not_accessible
-    not_host? || suspended?
+    not_host? || suspended
   end
 
   def self.reported
@@ -73,10 +74,21 @@ class User < ApplicationRecord
     end
   end
 
+  def suspension
+    # mailer notification depend on user.suspended
+    UserMailer.notification({ subject: t('.subject_suspension'),
+                              email: "test@la-voyageuse.com",
+                              btn_text: t('.mail_to'),
+                              btn_link: "mailto:'hello@la-voyageuse.com'",
+                              photo: "https://res.cloudinary.com/dfcsmghw4/image/upload/v1543425652/transactional/photo-1530041686259-53d26f863313.jpg",
+                              content: t('.content_message')}).deliver_now
+  end
+
   private
 
   def image_size_validation
     errors[:photo] << "should be less than 2mo" if photo.size > 2.megabytes
   end
+
 
 end
