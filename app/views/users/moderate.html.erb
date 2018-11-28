@@ -72,6 +72,18 @@
                                                                     data: { confirm: t('.are_you_sure?') },
                                                                     icon: "far fa-angry"
                                                                     } %>
+                          <% if @user.reported %>
+                            <%= render "shared/button_form", local: { model: :user,
+                                                                      path: @user,
+                                                                      method: :patch,
+                                                                      attribute: :reported,
+                                                                      value: false,
+                                                                      btn_text: "cancel report",
+                                                                      btn_extra_class: "btn-green",
+                                                                      data: { confirm: t('.are_you_sure?') },
+                                                                      icon: "far fa-check-square"
+                                                                      } %>
+                          <% end %>
                         </div>
                       <% end %>
 

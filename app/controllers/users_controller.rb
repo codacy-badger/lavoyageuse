@@ -19,11 +19,12 @@ class UsersController < ApplicationController
     else
       @users = User.all_except(current_user)
       @button_color = {}
-      @groups = ["hosts","members", "visitors", "suspendeds", "whistled"]
+      @groups = ["hosts","members", "visitors", "suspendeds", "reported", "whistled"]
       if i_am_moderator?
         @group_name = params[:group] ? params[:group][:name] : "hosts"
         @users_count = {  "hosts": @users.unvalidated_host.count,
                           "visitors": @users.visitor.count,
+                          "reported": @users.reported.count,
                           "comments": Comment.where(whistled: true).count }
         case @group_name
         when "hosts"
@@ -34,6 +35,8 @@ class UsersController < ApplicationController
           @user_group = @users.visitor.order(updated_at: :desc)
         when "suspendeds"
           @user_group = @users.suspended_members.order(updated_at: :desc)
+        when "reported"
+          @user_group = @users.reported
         when "whistled"
           @comments = Comment.where(whistled: true, suspended: false)
         else
@@ -101,7 +104,7 @@ class UsersController < ApplicationController
   end
 
   def users_params
-    params.require(:user).permit(:description, :host, :home, :role)
+    params.require(:user).permit(:description, :host, :home, :role, :reported)
   end
 end
 

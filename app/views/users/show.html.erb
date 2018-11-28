@@ -51,6 +51,21 @@
 
                       <%= render "users/comments" %>
 
+                      <div class="bar-separator-light"></div>
+
+                      <p><%= t('.report_title') %> </p>
+
+                      <%= render "shared/button_form", local: { model: @user,
+                                                                path: user_path(@user),
+                                                                method: :patch,
+                                                                attribute: :reported,
+                                                                message: "Host reported",
+                                                                value: true,
+                                                                btn_text: "report this host",
+                                                                btn_extra_class: "btn-orange",
+                                                                icon: "fas fa-sad-cry"
+                                                                } %>
+
                     </div>
                   </div>
 

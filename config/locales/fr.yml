@@ -135,6 +135,7 @@ fr:
       photos: "Photos de moi, de nous ..."
       registration_update: "Modifier vos paramètres d'inscription"
       description_none: "Cette hébergeuse n'a pas complêté sa description"
+      report_title: "Le profil de cette hébergeuse est insultant ou ne répond pas à la charte de La Voyageuse ? Dites-le nous :"
     edit:
       live_in: "habite à"
       comments: "Commentaires :"

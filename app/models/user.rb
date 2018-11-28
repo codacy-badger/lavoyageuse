@@ -56,6 +56,10 @@ class User < ApplicationRecord
     not_host? || suspended?
   end
 
+  def self.reported
+    where(reported: true)
+  end
+
   def gmap_hash(users)
     Gmaps4rails.build_markers(users) do |user, marker|
       marker.lat user.latitude
