@@ -103,7 +103,11 @@ puts "Trips created"
 
 puts "Creating Plan"
 Plan.create!(name: "premium pass", price_cents: 11900, duration: 1, price: "119")
-puts "#{Plan.last.name} created"
+puts "#{Plan.last.name} premium pass created"
+Plan.create!(name: "half premium pass", price_cents: 6500, duration: 0.5, price: "65")
+puts "#{Plan.last.name} premium pass created"
+Plan.create!(name: "double premium pass", price_cents: 15000, duration: 2, price: "150")
+puts "#{Plan.last.name} premium pass created"
 
 # User.create!(email: "sarah7.b@gmail.com",
 #              password: "LVa123456" ,

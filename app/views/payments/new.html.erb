@@ -14,22 +14,20 @@
           <div class="col-12 text-center">
            <%= form_tag user_order_payments_path(current_user, @order) do %>
 
-             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-               data-name="La Voyageuse"
-               data-email="<%= current_user.email %>"
-               data-description="<%= @order.plan_sku %>"
-               data-amount="<%= @order.amount_cents %>"
-               data-currency="<%= @order.amount.currency %>"
-               data-label="Paiement sécurisé par carte">
-
-               </script>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="La Voyageuse"
+                data-email="<%= current_user.email %>"
+                data-description="<%= @order.plan_sku %>"
+                data-amount="<%= @order.amount_cents %>"
+                data-currency="<%= @order.amount.currency %>"
+                data-label="Paiement sécurisé par carte">
+              </script>
 
            <% end %>
           </div>
         </div>
     </div>
-
   </div>
 </div>
 

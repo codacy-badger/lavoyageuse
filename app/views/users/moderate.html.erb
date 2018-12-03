@@ -40,9 +40,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-
-
-                        <div class="d-flex flex-row">
+                      <div class="d-flex flex-row">
                           <%= render "shared/button_form", local: { model: :user,
                                                                     path: @user,
                                                                     method: :patch,
@@ -75,20 +73,33 @@
                                                                       icon: "far fa-check-square"
                                                                       } %>
                           <% end %>
-                        </div>
+                      </div>
 
                       <div class="bar-separator-light"></div>
 
+                      <h5>Pass Offers</h5>
+
+                      <div class="d-flex flex-row mb-5">
+                        <% unless @user.premium %>
+                          <%= render "orders/offer_order_form", locals: {plan_sku: "half premium pass", btn_text: 'Offer 6 months premium pass' } %>
+                          <%= render "orders/offer_order_form", locals: {plan_sku: "premium pass", btn_text: 'Offer 1 year premium pass' } %>
+                          <%= render "orders/offer_order_form", locals: {plan_sku: "double premium pass", btn_text: 'Offer 2 years premium pass' } %>
+                        <% else %>
+                          <h5 class="mb-3 badge badge-pill badge-primary">No offer available, user is already premium</h5>
+                        <% end %>
+                      </div>
+
                     </div>
-                    <% if @order && @plan %>
+                    <% if @last_order && @plan %>
                       <div class="col-12">
                         <div class="mb-5 p-3 border border-info">
                           <h5 class="mb-3 badge badge-pill badge-info">Premium account infos (last pass)</h5>
-                          <p>Pass Name : <%= @order.plan_sku %></p>
-                          <p>Montant : <%= (@order.amount_cents/100).to_s + " " + @order.amount_currency %></p>
+                          <p>Pass Name : <%= @last_order.plan_sku %></p>
+                          <p>State : <%= @last_order.state %></p>
+                          <p>Montant : <%= (@last_order.amount_cents/100).to_s + " " + @last_order.amount_currency %></p>
                           <p>Duration : <%= @plan.duration %> year</p>
-                          <p>Beginning : <%= @order.created_at %></p>
-                          <p>End : <%= @order.created_at + @plan.duration.years %></p>
+                          <p>Beginning : <%= @last_order.created_at %></p>
+                          <p>End : <%= @user.premium_expiration %></p>
                         </div>
                       </div>
                     <% end %>
@@ -114,7 +125,6 @@
 
                       <h5 class="mb-3">Send Message to member : </h5>
 
-
                       <%= render "shared/mini_form", query: :message, attribute: :content, content: { label: false, path: user_messages_path(@user), method: :post, placeholder: "Beware, you are a moderator", value: session[:message], btn_text: "Send private message by mail" } %>
 
                       <% @messages.each do |message| %>
@@ -126,7 +136,6 @@
                       <% end %>
 
                       <div class="bar-separator-light"></div>
-
 
                       <div class="mb-5" id="home_proposal">
                         <h5 class="mb-3">Hosting</h5>
