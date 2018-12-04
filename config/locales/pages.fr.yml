@@ -7,10 +7,10 @@ fr:
         button1: Je suis une voyageuse
         button2: Je suis une hébergeuse
       qualities:
-        quality1: SECURITY
-        quality2: FEMINITY
-        quality3: COMMUNITY
-        quality4: AUTHENTICITY
+        quality0: SECURITY
+        quality1: FEMINITY
+        quality2: COMMUNITY
+        quality3: AUTHENTICITY
       reasons:
         title: 3 raisons de rejoindre la voyageuse
         reason1:
