@@ -37,6 +37,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   after_validation :suspension, if: :suspended_changed?
+  before_update :unvalidation, if: :personal_datas_changed?
 
   scope :possible_hosts, -> { where(host: [1,2], role:1) }
   scope :not_hosts, -> { where(host: 0, role:1) }
@@ -75,7 +76,6 @@ class User < ApplicationRecord
   end
 
   def suspension
-    # mailer notification depend on user.suspended
     UserMailer.custom_mail({ subject: suspended ? I18n.t('user.subject_suspension') : I18n.t('user.subject_unsuspension'),
                               email: "test@la-voyageuse.com",
                               btn_text: suspended ? I18n.t('user.btn_text_mail_to') : I18n.t('user.btn_text_website'),
@@ -85,6 +85,15 @@ class User < ApplicationRecord
   end
 
   private
+
+  def unvalidation
+    self.role = "visitor"
+    self.edition_delay = DateTime.now.next_month(3)
+  end
+
+  def personal_datas_changed?
+    first_name_changed? || last_name_changed? || address_changed? || phone_changed? || photo_changed? || id_card_changed?
+  end
 
   def image_size_validation
     errors[:photo] << "should be less than 2mo" if photo.size > 2.megabytes

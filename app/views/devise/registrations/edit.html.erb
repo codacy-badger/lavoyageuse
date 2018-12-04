@@ -57,30 +57,8 @@
               <p class="label"><%= t('devise.registrations.new.data-personal') %></p>
               <div class="separator"></div>
             </div>
-            <div class="margin-bottom-small">
-              <small><%= t('devise.registrations.new.restrictions') %></small>
-            </div>
-            <div class="input-parent">
-              <i class="input-icon far fa-user"></i>
-              <%= f.input :first_name, label: false, required: true, placeholder: t('devise.registrations.new.first_name') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon far fa-user"></i>
-              <%= f.input :last_name, label: false, required: true, placeholder: t('devise.registrations.new.last_name') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon fas fa-phone"></i>
-              <%= f.input :phone, label: false, required: true, placeholder: t('devise.registrations.new.phone') %>
-            </div>
-
-            <div class="input-parent">
-              <i class="input-icon fas fa-map-marker-alt"></i>
-              <%= f.input :address, label: false, required: true, placeholder: t('devise.registrations.new.address') %>
-              <%= f.input :latitude, as: :hidden %>
-              <%= f.input :longitude, as: :hidden %>
-              <%= f.input :city, as: :hidden %>
+            <div class="mb-3">
+              <p><%= t('devise.registrations.new.restrictions') %></p>
             </div>
 
             <p><%= t('.about_you') %></p>
@@ -89,17 +67,66 @@
               <%= f.input :sentence, label: false, required: true, placeholder: t('devise.registrations.new.sentence') %>
             </div>
 
+              <% if @editable %>
+                <p class="bg-danger text-white p-3 mt-3 mb-3"><%= t('devise.registrations.edit.delay.warning') %></p>
+              <% else %>
+                <p class="bg-warning p-3 mt-3 mb-3"><%= t('devise.registrations.edit.delay.info') %></p>
+                <p class="bg-warning p-3 mt-3 mb-4"><%= t('devise.registrations.edit.delay.date') %> <%= @user.edition_delay.strftime("%d/%m/%Y") %></p>
+              <% end %>
             <div class="input-parent">
-             <p><%= t('.photo') %></p>
-             <%= f.input :photo, label: false %>
-             <%= f.input :photo_cache, as: :hidden %>
+              <i class="input-icon far fa-user"></i>
+              <% if @editable %>
+                <%= f.input :first_name, label: false, required: true, placeholder: t('devise.registrations.new.first_name') %>
+              <% else %>
+                <p class="bg-light mb-2 p-2 pl-3"><%= @user.first_name %></p>
+              <% end %>
             </div>
 
             <div class="input-parent">
-             <p><%= t('.id_card') %></p>
-             <%= f.input :id_card, label: false %>
-             <%= f.input :id_card_cache, as: :hidden %>
+              <i class="input-icon far fa-user"></i>
+              <% if @editable %>
+                <%= f.input :last_name, label: false, required: true, placeholder: t('devise.registrations.new.last_name') %>
+              <% else %>
+                <p class="bg-light mb-2 p-2 pl-3"><%= @user.last_name %></p>
+              <% end %>
             </div>
+
+            <div class="input-parent">
+              <i class="input-icon fas fa-phone"></i>
+              <% if @editable %>
+                <%= f.input :phone, label: false, required: true, placeholder: t('devise.registrations.new.phone') %>
+              <% else %>
+                <p class="bg-light mb-2 p-2 pl-3"><%= @user.phone %></p>
+              <% end %>
+            </div>
+
+            <div class="input-parent">
+              <i class="input-icon fas fa-map-marker-alt"></i>
+              <% if @editable %>
+                <%= f.input :address, label: false, required: true, placeholder: t('devise.registrations.new.address') %>
+                <%= f.input :latitude, as: :hidden %>
+                <%= f.input :longitude, as: :hidden %>
+                <%= f.input :city, as: :hidden %>
+              <% else %>
+                <p class="bg-light mb-4 p-2 pl-3"><%= @user.address %></p>
+              <% end %>
+            </div>
+
+
+            <% if @editable %>
+              <div class="input-parent">
+               <p><%= t('.photo') %></p>
+               <%= f.input :photo, label: false %>
+               <%= f.input :photo_cache, as: :hidden %>
+              </div>
+
+              <div class="input-parent">
+               <p><%= t('.id_card') %></p>
+               <%= f.input :id_card, label: false %>
+               <%= f.input :id_card_cache, as: :hidden %>
+              </div>
+            <% end %>
+
 
           <div class="mb-5">
             <%= f.button :submit, t('.submit') %>

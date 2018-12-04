@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(home contact about chart cgu)
 
-  def home; end
+  def home
+  end
 
   def contact; end
 

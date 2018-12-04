@@ -82,6 +82,10 @@ fr:
         cancel_account: "Annuler mon compte"
         are_you_sure?: "Êtes-vous sûr ?"
         account_delete: "Suppression de compte"
+        delay:
+          info: "Vous ne pouvez modifier votre compte qu'une fois tous les 3 mois et celui est soumis à validation afin de maintenir une sécurité idéale sur le site. Si vous souhaitez modifier vos données personnelles avant ce délai, veuillez contacter l'administration."
+          date: "Modification possible ici le :"
+          warning: "Attention, toutes modifications des données personnelles donc sensibles entrainent une nouvelle demande de validation de votre compte. Vous ne pourrez plus seule modifier ces données avant 3 mois."
     sessions:
       signed_in: "Connecté."
       signed_out: "Déconnecté."

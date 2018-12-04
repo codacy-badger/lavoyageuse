@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users
   root to: 'pages#home'
   # get '/welcome', to: 'guests#welcome'
   get 'contact', to: 'pages#contact'
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
   get 'cgu', to: 'pages#cgu'
   get 'chart', to: 'pages#chart'
   get 'under_construction', to: redirect('/under_construction.html')
+
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
 
   resources :users, only: %I[index show edit update] do
     resources :comments, only: %I[create update]
