@@ -163,3 +163,6 @@ fr:
       success: "Profil mis à jour"
       warning: "Oups, mise à jour échouée. Contacter l'administration si le problème persiste."
       home_description_wrong: "La description est trop court"
+    registrations:
+      update:
+        account_updated_successfully: "Compte mis à jour avec succès"
