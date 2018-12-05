@@ -9,4 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     flash[:success] = t('.account_updated_successfully')
     edit_user_registration_path
   end
+
+  def after_inactive_sign_up_path_for(resource)
+    welcome_path
+  end
+
 end

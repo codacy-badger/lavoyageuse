@@ -58,6 +58,7 @@ fr:
       buy: "Acheter"
       skip_step: "Passer cette étape"
   shared:
+    back_to_home: "Revenir à l'accueil"
     get_premium: "Passer en premium"
     navbar:
       sign_up: "M'inscrire"

@@ -70,7 +70,6 @@ class UsersController < ApplicationController
     @last_order = @user.orders.last
     @plan = Plan.find_by(name: @last_order.plan_sku) if @last_order
     @messages = @user.received_messages.where(traveller_id: @moderators).order(created_at: :desc)
-    console
     redirect_to @user unless current_user.moderator
   end
 

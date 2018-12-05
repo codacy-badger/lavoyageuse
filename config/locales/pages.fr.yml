@@ -86,3 +86,11 @@ fr:
             content: Our Safety Team works continuously to help build the safest and most trusted community possible. Reporting safety concerns to La Voyageuse helps us improve our community’s trust and safety. Confidentially report safety concerns as soon as it occurs and we will investigate and take necessary measures accordingly.
       conclusion: "Don't forget:"
       footer: Have fun!
+    welcome:
+      title: "Bienvenue sur La Voyageuse !"
+      hint: "Vous entrez dans un cercle de confiance. Vous avez encore un petit peu de travail :"
+      tips:
+        tip1: "Cliquez sur le lien dans le mail que vous avez reçu afin de vérifier votre adresse"
+        tip2: "Nous vous joindrons alors par téléphone pour mieux vous connaître"
+        tip3: "Suite à la validation, vous pourrez accéder au réseau"
+        tip4: "Le mode premium vous permettra de joindre les hébergeuses qui vous plaisent"

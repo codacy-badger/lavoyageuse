@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'pages#home'
   # get '/welcome', to: 'guests#welcome'
+  get 'about', to: 'pages#about'
+  get 'chart', to: 'pages#chart'
+  get 'cgu', to: 'pages#cgu'
   get 'contact', to: 'pages#contact'
   post 'contact', to: 'messengers#contact_form'
-  get 'about', to: 'pages#about'
-  get 'cgu', to: 'pages#cgu'
-  get 'chart', to: 'pages#chart'
   get 'under_construction', to: redirect('/under_construction.html')
+  get 'welcome', to: 'pages#welcome'
 
   devise_for :users, :controllers => { registrations: 'users/registrations' }
 
