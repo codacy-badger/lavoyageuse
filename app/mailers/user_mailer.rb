@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def notification(mail_content)
     @mail_content = mail_content
-    #TODO
+    #TODO change mail to
     mail(to: "test@la-voyageuse.com",
          subject: mail_content[:subject],
          track_opens: 'true')
@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
 
   def mail_to_host(mail_content)
     @mail_content = mail_content
-    #TODO
+    #TODO change mail to
     mail(to: "test@la-voyageuse.com",
          subject: mail_content[:subject],
          track_opens: 'true')
@@ -19,7 +19,7 @@ class UserMailer < ApplicationMailer
 
   def custom_mail(mail_content)
     @mail_content = mail_content
-    #TODO
+    #TODO change mail to
     mail(to: "test@la-voyageuse.com",
          subject: mail_content[:subject],
          track_opens: 'true')

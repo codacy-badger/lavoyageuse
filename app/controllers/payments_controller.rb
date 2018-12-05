@@ -21,7 +21,8 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
-    user.update(premium: true, premium_expiration: DateTime.now.next_year)
+    plan = Plan.find_by(name: @order.plan_sku)
+    user.update(premium: true, premium_expiration: DateTime.now.next_year(plan.duration))
 
     redirect_to user_order_path(user,@order)
 

@@ -1,0 +1,11 @@
+<%= simple_form_for @order, url: user_orders_path(@user), method: :post do |f| %>
+  <div class="row button_form">
+    <div class="col-12">
+      <i class="fas fa-trophy"></i>
+      <%= f.input :plan_sku, input_html: {value: locals[:plan_sku] }, as: :hidden %>
+      <%= f.input :amount, input_html: {value: 0 }, as: :hidden %>
+      <%= f.input :state, input_html: {value: 'offered' }, as: :hidden %>
+      <%= f.button :submit, value: locals[:btn_text], data: { confirm: "Are you sure to #{locals[:btn_text]} ?" },class:"btn btn-yellow" %>
+    </div>
+  </div>
+<% end %>

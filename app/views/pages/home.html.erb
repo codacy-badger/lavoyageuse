@@ -10,22 +10,12 @@
 
   <div class="qualities container">
     <div class="row">
-      <div class="square-button col d-flex flex-column justify-content-center">
-         <i class="fas fa-lock mb-3"></i>
-         <p><%= t('.quality1') %></p>
-      </div>
-      <div class="square-button col d-flex flex-column justify-content-center">
-         <i class="fab fa-angellist mb-3"></i>
-         <p><%= t('.quality2') %></p>
-      </div>
-      <div class="square-button col d-flex flex-column justify-content-center">
-         <i class="far fa-comments mb-3"></i>
-         <p><%= t('.quality3') %></p>
-      </div>
-      <div class="square-button col d-flex flex-column justify-content-center">
-         <i class="far fa-gem mb-3"></i>
-         <p><%= t('.quality4') %></p>
-      </div>
+      <% @qualities.each_with_index do |quality,i| %>
+        <div class="square-button col d-flex flex-column justify-content-center">
+          <%= image_tag "pic#{i}.jpg"  %>
+          <p><%= quality[1] %></p>
+        </div>
+      <% end %>
     </div>
   </div>
 

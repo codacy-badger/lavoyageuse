@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i(home contact about chart cgu)
 
   def home
+    @qualities = t('.qualities')
   end
 
   def contact; end
