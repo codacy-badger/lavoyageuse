@@ -3,6 +3,10 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  # Configuration for :campaignable
+  config.campaignable_vendor = :mailchimp
+  config.campaignable_api_key = '425c3db818db56d04e86299ba75d4a28-us19'
+  config.campaignable_list_id = 'ce5ddefba9'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

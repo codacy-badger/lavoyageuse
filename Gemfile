@@ -3,6 +3,7 @@ ruby '2.4.3'
 
 
 gem 'devise'
+gem 'devise_campaignable'
 gem 'devise-i18n', '~> 1.2'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'

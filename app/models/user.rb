@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :campaignable
 
   validates_format_of :password, with: /\A(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\Z/, if: :email_changed?
 
@@ -37,7 +37,9 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   after_validation :suspension, if: :suspended_changed?
+  after_create :unsubscribe_to_mailchimp
   before_update :unvalidation, if: :personal_datas_changed?
+  before_create :set_edition_delay
 
   scope :possible_hosts, -> { where(host: [1,2], role:1) }
   scope :not_hosts, -> { where(host: 0, role:1) }
@@ -88,7 +90,15 @@ class User < ApplicationRecord
 
   def unvalidation
     self.role = "visitor"
+    set_edition_delay
+  end
+
+  def set_edition_delay
     self.edition_delay = DateTime.now.next_month(3)
+  end
+
+  def unsubscribe_to_mailchimp
+    self.unsubscribe unless self.newsletter
   end
 
   def personal_datas_changed?
@@ -98,6 +108,5 @@ class User < ApplicationRecord
   def image_size_validation
     errors[:photo] << "should be less than 2mo" if photo.size > 2.megabytes
   end
-
 
 end

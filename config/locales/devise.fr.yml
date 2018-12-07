@@ -68,6 +68,7 @@ fr:
         remove_file: "Supprimer le fichier"
         adulthood?: "Vous êtes majeure"
         womanhood?: "Vous êtes une femme"
+        campaignable?: "Vous inscrire à la newsletter"
       edit:
         restrictions: "Seuls votre prénom et votre photo seront accessibles et uniquement aux membres du site. Les autres données nous permettent d'authentifier nos membres."
         title: "Édition de profil"

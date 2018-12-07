@@ -80,38 +80,35 @@
                 <%= f.input :city, as: :hidden %>
               </div>
 
-
               <p><%= t('.about_you') %></p>
               <div class="input-parent">
                 <i class="input-icon fas fa-quote-right"></i>
                 <%= f.input :sentence, label: false, required: true, placeholder: t('.sentence') %>
               </div>
 
+              <div class="input-parent mb-3">
+                <p><%= t('.photo') %></p>
+                  <%= f.input :photo_cache, as: :hidden %>
 
-             <div class="input-parent mb-3">
-              <p><%= t('.photo') %></p>
-                <%= f.input :photo_cache, as: :hidden %>
-
-                <div class="fileinput fileinput-new" data-provides="fileinput" id="user-photo-form-group">
-                  <div class="fileinput-new thumbnail" style="background-image: url(''); width: 280px; height: 150px;">
-                     <i class="fas fa-camera-retro"></i>
-                  </div>
-                  <div>
-                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 280px; max-height: 150px;"></div>
+                  <div class="fileinput fileinput-new" data-provides="fileinput" id="user-photo-form-group">
+                    <div class="fileinput-new thumbnail" style="background-image: url(''); width: 280px; height: 150px;">
+                       <i class="fas fa-camera-retro"></i>
+                    </div>
                     <div>
-                      <div class="form-control-file file required">
-                      <span class="btn btn-default btn-light-purple btn-file mb-3">
-                        <span class="fileinput-new"><%= t('.select_file') %></span>
-                        <span class="fileinput-exists"><%= t('.change_file') %></span>
-                        <input type="file" name="user[photo]" id="user_photo">
-                      </span>
+                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 280px; max-height: 150px;"></div>
+                      <div>
+                        <div class="form-control-file file required">
+                        <span class="btn btn-default btn-light-purple btn-file mb-3">
+                          <span class="fileinput-new"><%= t('.select_file') %></span>
+                          <span class="fileinput-exists"><%= t('.change_file') %></span>
+                          <input type="file" name="user[photo]" id="user_photo">
+                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <a href="#" class="btn btn-default btn-orange fileinput-exists" data-dismiss="fileinput" id="user-photo-remove-btn"><%= t('.remove_file') %></a>
-            </div>
-
+                  <a href="#" class="btn btn-default btn-orange fileinput-exists" data-dismiss="fileinput" id="user-photo-remove-btn"><%= t('.remove_file') %></a>
+              </div>
 
               <div class="input-parent mb-3">
                <p><%= t('.id_card') %></p>
@@ -119,6 +116,10 @@
                  <%= f.input :id_card_cache, as: :hidden %>
                   <a href="#" class="btn btn-default btn-orange fileinput-exists full-width" data-dismiss="fileinput" id="user-id-card-remove-btn"><%= t('.remove_file') %></a>
                   <!-- <small><%= t('.id_card_hint') %></small> -->
+              </div>
+
+              <div class="input-parent mb-5">
+                <%= f.input :newsletter, as: :boolean, input_html: {value: false}, label: t('.campaignable?'), class:"form-checkbox" %>
               </div>
             </div>
 
