@@ -29,7 +29,7 @@ class UserMailer < ApplicationMailer
 
   def host_url
     @url = Rails.application.config.action_mailer.default_url_options
-    @admin_mail = 'hello@la-voyageuse.com'
+    @admin_mail = 'test@la-voyageuse.com'
   end
 
 end

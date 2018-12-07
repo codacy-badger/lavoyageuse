@@ -81,7 +81,7 @@ class User < ApplicationRecord
     UserMailer.custom_mail({ subject: suspended ? I18n.t('user.subject_suspension') : I18n.t('user.subject_unsuspension'),
                               email: "test@la-voyageuse.com",
                               btn_text: suspended ? I18n.t('user.btn_text_mail_to') : I18n.t('user.btn_text_website'),
-                              btn_link: suspended ? "mailto:hello@la-voyageuse.com" : "https://www.la-voyageuse.com",
+                              btn_link: suspended ? "mailto:test@la-voyageuse.com" : "https://www.la-voyageuse.com",
                               photo: suspended ? "https://res.cloudinary.com/dfcsmghw4/image/upload/v1543425652/transactional/photo-1530041686259-53d26f863313.jpg" : "https://res.cloudinary.com/dfcsmghw4/image/upload/v1543439458/transactional/photo-1482849297070-f4fae2173efe.jpg",
                               content: suspended ? I18n.t('user.content_message_suspension') : I18n.t('user.content_message_unsuspension')}).deliver_now
   end
