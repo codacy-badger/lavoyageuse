@@ -1,6 +1,6 @@
 import { autocomplete } from '../components/autocomplete';
 
-require('mapbox-gl/dist/mapbox-gl.css')
+require('mapbox-gl/dist/mapbox-gl.css');
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 const mapElement = document.getElementById('map');
 
@@ -17,7 +17,7 @@ if (mapElement) {
     new mapboxgl.Marker()
       .setLngLat([marker.lng, marker.lat])
       .addTo(map);
-  })
+  });
 
   const findBounds = (coordatinates) => {
      let longitudes = coordatinates.map(coordinate => coordinate.lng).sort((a, b) => a - b);

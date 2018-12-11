@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:id])
+    @comment = @user.received_comments.find(params[:id])
     if @comment.update(comment_params)
       flash[:success] = params[params.keys[3]][:message] || "Success"
       redirect_to @user

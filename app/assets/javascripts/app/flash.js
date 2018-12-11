@@ -1,9 +1,9 @@
 window.setTimeout(function(){
   const alerts = document.querySelectorAll('.alert');
   alerts.forEach(function(key) {
-    key.classList.add('slideRight-away')
+    key.classList.add('slideRight-away');
     setTimeout(function(){
-      key.style.setProperty('display', `none`);;
+      key.style.setProperty('display', `none`);
     }, 900);
   })
 }, 5000);
